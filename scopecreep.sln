@@ -1,7 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{6269715D-198B-0863-C725-462D1173F4AE}") = "scopecreep", "Assembly-CSharp.csproj", "{D1971582-5303-D198-0236-31CC4C85CD83}"
+Project("{AF9B45BD-D388-8D1C-3FD3-8162329B0267}") = "ScopeCreep", "Assembly-CSharp.csproj", "{EBF96C21-7AFE-7798-7657-E78239CE7611}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D1971582-5303-D198-0236-31CC4C85CD83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1971582-5303-D198-0236-31CC4C85CD83}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1971582-5303-D198-0236-31CC4C85CD83}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1971582-5303-D198-0236-31CC4C85CD83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBF96C21-7AFE-7798-7657-E78239CE7611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBF96C21-7AFE-7798-7657-E78239CE7611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBF96C21-7AFE-7798-7657-E78239CE7611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBF96C21-7AFE-7798-7657-E78239CE7611}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
