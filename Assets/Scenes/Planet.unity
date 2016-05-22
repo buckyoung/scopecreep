@@ -239,7 +239,7 @@ GameObject:
   - 4: {fileID: 420178095}
   - 212: {fileID: 420178094}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
