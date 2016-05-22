@@ -90,7 +90,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 900932070}
     m_Modifications:
     - target: {fileID: 461250, guid: 0393b0380920641ab9bcd017f0fb64be, type: 2}
       propertyPath: m_LocalPosition.x
@@ -98,11 +98,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 461250, guid: 0393b0380920641ab9bcd017f0fb64be, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 54.840996
+      value: -0.12231094
       objectReference: {fileID: 0}
     - target: {fileID: 461250, guid: 0393b0380920641ab9bcd017f0fb64be, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461250, guid: 0393b0380920641ab9bcd017f0fb64be, type: 2}
       propertyPath: m_LocalRotation.x
@@ -122,7 +122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 461250, guid: 0393b0380920641ab9bcd017f0fb64be, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5082136, guid: 0393b0380920641ab9bcd017f0fb64be, type: 2}
       propertyPath: m_Constraints
@@ -135,6 +135,10 @@ Prefab:
     - target: {fileID: 171924, guid: 0393b0380920641ab9bcd017f0fb64be, type: 2}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 461250, guid: 0393b0380920641ab9bcd017f0fb64be, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.1923077
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0393b0380920641ab9bcd017f0fb64be, type: 2}
@@ -380,7 +384,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &900932069 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 118798, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
@@ -401,7 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 1
-  speed: 1
+  shipSpeed: 0.02
 --- !u!1 &1498976764
 GameObject:
   m_ObjectHideFlags: 0
