@@ -2,12 +2,10 @@
 using System.Collections;
 
 public class DrawWalls : MonoBehaviour {
-    private Transform cam;
     private Transform leftWall;
     private Transform rightWall;
 
     void Start() {
-        cam = Camera.main.transform;
         leftWall = transform.Find("LeftWall").gameObject.transform;
         rightWall = transform.Find("RightWall").gameObject.transform;
     }
