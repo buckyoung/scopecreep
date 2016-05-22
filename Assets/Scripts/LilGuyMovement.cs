@@ -15,6 +15,6 @@ public class LilGuyMovement : MonoBehaviour {
 	// Must use FixedUpdate when dealing with rigidbody http://docs.unity3d.com/ScriptReference/MonoBehaviour.FixedUpdate.html
 	void FixedUpdate() {
 		var movementVector = new Vector3(Input.GetAxis("P" + playerNum + "_X_AXIS"), Input.GetAxis("P" + playerNum + "_Y_AXIS"), 0);
-		rb.AddForce(movementVector * shipSpeed * Time.deltaTime);
+		rb.AddRelativeForce(movementVector * shipSpeed * Time.deltaTime);
 	}
 }
