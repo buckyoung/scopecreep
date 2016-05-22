@@ -35,25 +35,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &134720
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 416790}
-  - 212: {fileID: 21250488}
-  - 114: {fileID: 11467318}
-  - 50: {fileID: 5084976}
-  - 61: {fileID: 6138754}
-  m_Layer: 8
-  m_Name: LilGuy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &135594
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,19 +146,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 495264}
   m_RootOrder: 1
---- !u!4 &416790
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 134720}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.556906, y: -0.12231094, z: 1}
-  m_LocalScale: {x: 0.25, y: 0.1923077, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 495264}
-  m_RootOrder: 5
 --- !u!4 &464922
 Transform:
   m_ObjectHideFlags: 1
@@ -220,7 +188,6 @@ Transform:
   - {fileID: 464922}
   - {fileID: 489404}
   - {fileID: 404428}
-  - {fileID: 416790}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!20 &2021974
@@ -257,23 +224,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!50 &5084976
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 134720}
-  m_UseAutoMass: 0
-  m_Mass: 0.1
-  m_LinearDrag: 3
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &6115716
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -302,20 +252,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!61 &6138754
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 134720}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1.96, y: 1.08}
 --- !u!61 &6158224
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -371,20 +307,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNum: 1
   shipSpeed: 0.02
---- !u!114 &11467318
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 134720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3646fbd3f32fa4a51bf18b505d470c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerNum: 2
-  rb: {fileID: 0}
-  shipSpeed: 100
 --- !u!114 &11489206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -493,36 +415,6 @@ SpriteRenderer:
   m_Color: {r: 0.4852941, g: 0.19625866, b: 0.19625866, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!212 &21250488
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 134720}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 17166780849ed44d9bd3dfda3e1dcaa5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
 --- !u!212 &21276592
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -564,7 +456,7 @@ AreaEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967240
   m_UseGlobalAngle: 0
   m_ForceAngle: 0
   m_ForceMagnitude: 80
@@ -583,7 +475,7 @@ AreaEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967240
   m_UseGlobalAngle: 0
   m_ForceAngle: 0
   m_ForceMagnitude: 80
@@ -602,7 +494,7 @@ AreaEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   m_UseGlobalAngle: 0
   m_ForceAngle: 0
   m_ForceMagnitude: 80
