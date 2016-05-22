@@ -114,7 +114,7 @@ GameObject:
   - 249: {fileID: 24936768}
   - 61: {fileID: 6158224}
   m_Layer: 0
-  m_Name: TopWall
+  m_Name: TopBoundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,7 @@ GameObject:
   - 249: {fileID: 24948028}
   - 61: {fileID: 6173444}
   m_Layer: 0
-  m_Name: RightWall
+  m_Name: RightBoundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +237,7 @@ GameObject:
   - 249: {fileID: 24952988}
   - 61: {fileID: 6129970}
   m_Layer: 0
-  m_Name: LeftWall
+  m_Name: LeftBoundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1259,7 +1259,7 @@ AreaEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967240
+    m_Bits: 4294966984
   m_UseGlobalAngle: 0
   m_ForceAngle: 0
   m_ForceMagnitude: 80
@@ -1278,7 +1278,7 @@ AreaEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967240
+    m_Bits: 4294966984
   m_UseGlobalAngle: 0
   m_ForceAngle: 0
   m_ForceMagnitude: 80
@@ -1297,7 +1297,7 @@ AreaEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   m_UseGlobalAngle: 0
   m_ForceAngle: 0
   m_ForceMagnitude: 80

@@ -292,30 +292,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 24952988, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
-      propertyPath: m_ColliderMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 24936768, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
-      propertyPath: m_ColliderMask.m_Bits
-      value: 4294966984
-      objectReference: {fileID: 0}
-    - target: {fileID: 24948028, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
-      propertyPath: m_ColliderMask.m_Bits
-      value: 4294966984
-      objectReference: {fileID: 0}
-    - target: {fileID: 169886, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
-      propertyPath: m_Name
-      value: LeftBoundary
-      objectReference: {fileID: 0}
-    - target: {fileID: 120358, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
-      propertyPath: m_Name
-      value: TopBoundary
-      objectReference: {fileID: 0}
-    - target: {fileID: 135594, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
-      propertyPath: m_Name
-      value: RightBoundary
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
   m_IsPrefabParent: 0
