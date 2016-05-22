@@ -5,8 +5,8 @@ public class DrawWalls : MonoBehaviour {
 	private GameObject rightWall;
 
 	void Start() {
-		leftWall = transform.Find("LeftWall").gameObject;
-		rightWall = transform.Find("RightWall").gameObject;
+		leftWall = transform.Find("LeftBoundary").gameObject;
+		rightWall = transform.Find("RightBoundary").gameObject;
 	}
 
 	void Update() {

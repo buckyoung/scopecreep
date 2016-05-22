@@ -1,13 +1,16 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class LilGuyMovement : MonoBehaviour {
-	public int playerNum = 2;
+public class PlayerMovement : MonoBehaviour {
+	public int playerNum = 1;
 	public Rigidbody2D rb;
-	public float speed = 100.0f;
+	public float speed = 150.0f;
 
 	void Start() {
 		rb = GetComponent<Rigidbody2D>();
+
+		// Ignore collisions between PlayerCharacters
+		Physics2D.IgnoreLayerCollision(8, 8);
 	}
 
 	void FixedUpdate() {
