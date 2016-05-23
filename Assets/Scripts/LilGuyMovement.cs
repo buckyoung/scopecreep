@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 
 public class LilGuyMovement : MonoBehaviour {
-	public int playerId = 0;
 	public Rigidbody2D rb;
 	public float speed = 100.0f;
 
