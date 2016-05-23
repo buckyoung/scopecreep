@@ -2,14 +2,23 @@
 using System.Collections;
 
 public class MothershipMovement : MonoBehaviour {
-	public int playerNum = 1;
 	public float speed = 0.02f;
 
+	private NavigationModule navigationModule;
+
+	void Start() {
+		navigationModule = GameObject.Find("NavigationModule").GetComponent<NavigationModule>();
+	}
+
 	void Update() {
-		transform.RotateAround(
-			Vector3.zero, 
-			Vector3.forward, 
-			-speed * Input.GetAxis("P" + playerNum + "_X_AXIS")
-		);
+		int playerId = navigationModule.activePlayerId;
+
+		if (playerId > 0) {
+			transform.RotateAround(
+				Vector3.zero, 
+				Vector3.forward, 
+				-speed * Input.GetAxis(playerId + "_AXIS_X")
+			);
+		}
 	}
 }

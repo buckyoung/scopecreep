@@ -48,7 +48,9 @@
      <Compile Include="Assets\Scripts\Collection.cs" />
      <Compile Include="Assets\Scripts\DrawWalls.cs" />
      <Compile Include="Assets\Scripts\LilGuyMovement.cs" />
+     <Compile Include="Assets\Scripts\Module.cs" />
      <Compile Include="Assets\Scripts\MothershipMovement.cs" />
+     <Compile Include="Assets\Scripts\NavigationModule.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\ResourceSpawner.cs" />
  <Reference Include="UnityEngine.UI">
