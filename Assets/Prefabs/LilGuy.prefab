@@ -74,9 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3646fbd3f32fa4a51bf18b505d470c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 2
   rb: {fileID: 0}
-  shipSpeed: 100
+  speed: 100
 --- !u!212 &21259912
 SpriteRenderer:
   m_ObjectHideFlags: 1

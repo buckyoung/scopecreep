@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Collector.cs" />
      <Compile Include="Assets\Scripts\DrawWalls.cs" />
      <Compile Include="Assets\Scripts\Modules\LilGuyModule.cs" />
      <Compile Include="Assets\Scripts\Modules\Module.cs" />
@@ -52,6 +53,7 @@
      <Compile Include="Assets\Scripts\Movement\LilGuyMovement.cs" />
      <Compile Include="Assets\Scripts\Movement\MothershipMovement.cs" />
      <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\ResourceSpawner.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
