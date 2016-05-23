@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
-	public int playerNum = 1;
+	public bool isAtModule = false;
+	public int playerId = 1;
 	public Rigidbody2D rb;
 	public float speed = 150.0f;
 
@@ -14,7 +15,9 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		var playerMovement = new Vector3(Input.GetAxis("P" + playerNum + "_X_AXIS"), Input.GetAxis("P" + playerNum + "_Y_AXIS"), 0);
-		rb.AddRelativeForce(playerMovement * speed * Time.deltaTime);
+		if (!isAtModule) {
+			var movement = new Vector3(Input.GetAxis(playerId + "_AXIS_X"), Input.GetAxis(playerId + "_AXIS_Y"), 0);
+			rb.AddRelativeForce(movement * speed * Time.deltaTime);
+		}
 	}
 }
