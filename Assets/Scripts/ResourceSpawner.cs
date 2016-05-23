@@ -12,7 +12,7 @@ public class ResourceSpawner : MonoBehaviour {
 		if (Input.GetKeyDown("p")) {
 			GameObject resource = (GameObject)Instantiate(
 				Resources.Load("ResourcePrefab"), 
-				mothership.transform.position - new Vector3(0, 5, 0), 
+				mothership.transform.position - new Vector3(0, 2, 0), 
 				Quaternion.identity
 			);
 

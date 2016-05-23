@@ -4,37 +4,45 @@ using System.Collections;
 public class Module : MonoBehaviour {
 	public int activePlayerId = 0;
 
-	protected bool[] isTouching;
-	protected GameObject[] players;
+	protected bool[] isTouching = new bool[2];
+	protected GameObject[] players = new GameObject[2];
 
-	void Start() {
-		players = new GameObject[2];
+	protected void Start() {
 		players[0] = GameObject.Find("Player1");
 		players[1] = GameObject.Find("Player2");
 
-		isTouching = new bool[2];
 		isTouching[0] = false;
 		isTouching[1] = false;
 	}
 
-	void OnTriggerEnter2D(Collider2D col) {
+	protected void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.tag != "Player") { return; }
 
 		setIsTouching(col.gameObject.GetComponent<PlayerMovement>(), true);
 	}
 
-	void OnTriggerExit2D(Collider2D col) {
+	protected void OnTriggerExit2D(Collider2D col) {
 		if (col.gameObject.tag != "Player") { return; }
 
 		setIsTouching(col.gameObject.GetComponent<PlayerMovement>(), false);
 	}
 
-	void Update() {
-		checkXButtonDownForPlayer(1);
-		checkXButtonDownForPlayer(2);
+	protected void Update() {
+		updateModuleInteractionForPlayer(1);
+		updateModuleInteractionForPlayer(2);
 	}
 
-	private void checkXButtonDownForPlayer(int playerId) {
+	private void setIsTouching(PlayerMovement playerMovement, bool value) {
+		if (playerMovement.playerId == 1) {
+			isTouching[0] = value;
+		}
+
+		if (playerMovement.playerId == 2) {
+			isTouching[1] = value;
+		}
+	} 
+
+	private void updateModuleInteractionForPlayer(int playerId) {
 		int index = playerId - 1;
 
 		if (Input.GetButtonDown(playerId + "_BTN_X") && isTouching[index]) { 
@@ -49,14 +57,4 @@ public class Module : MonoBehaviour {
 			}
 		}
 	}
-
-	private void setIsTouching(PlayerMovement playerMovement, bool value) {
-		if (playerMovement.playerId == 1) {
-			isTouching[0] = value;
-		}
-
-		if (playerMovement.playerId == 2) {
-			isTouching[1] = value;
-		}
-	} 
 }
