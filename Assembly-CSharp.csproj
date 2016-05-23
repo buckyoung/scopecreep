@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D1971582-5303-D198-0236-31CC4C85CD83}</ProjectGuid>
+    <ProjectGuid>{EBF96C21-7AFE-7798-7657-E78239CE7611}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,7 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Collection.cs" />
+     <Compile Include="Assets\Scripts\Collector.cs" />
      <Compile Include="Assets\Scripts\DrawWalls.cs" />
      <Compile Include="Assets\Scripts\Modules\LilGuyModule.cs" />
      <Compile Include="Assets\Scripts\Modules\Module.cs" />

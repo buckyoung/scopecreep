@@ -888,7 +888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3646fbd3f32fa4a51bf18b505d470c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerId: 0
   rb: {fileID: 0}
   speed: 100
 --- !u!114 &11426454

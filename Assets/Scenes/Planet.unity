@@ -206,6 +206,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4.07
+--- !u!1 &444946713 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 114350, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
+  m_PrefabInternal: {fileID: 725282778}
+--- !u!114 &444946719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 444946713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d1da6e0bdf942f0930433ea9b9b070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &547681315
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +318,14 @@ Prefab:
     - target: {fileID: 495264, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114350, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 112038, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
+      propertyPath: m_Name
+      value: Mothership
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
