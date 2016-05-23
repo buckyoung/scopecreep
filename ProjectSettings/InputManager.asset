@@ -133,3 +133,19 @@ InputManager:
     type: 0
     axis: 1
     joyNum: 2
+  - serializedVersion: 3
+    m_Name: DebugButton
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: p
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 2
+    dead: 5
+    sensitivity: 2
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 1
+    joyNum: 0
