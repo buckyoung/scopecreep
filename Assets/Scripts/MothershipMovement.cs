@@ -7,7 +7,7 @@ public class MothershipMovement : MonoBehaviour {
 	private NavigationModule navigationModule;
 
 	void Start() {
-		navigationModule = GameObject.Find("NavigationModule").GetComponent<Module>();
+		navigationModule = GameObject.Find("NavigationModule").GetComponent<NavigationModule>();
 	}
 
 	void Update() {

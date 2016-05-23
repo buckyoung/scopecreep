@@ -8,9 +8,11 @@ public class Module : MonoBehaviour {
 	protected GameObject[] players;
 
 	void Start() {
+		players = new GameObject[2];
 		players[0] = GameObject.Find("Player1");
 		players[1] = GameObject.Find("Player2");
 
+		isTouching = new bool[2];
 		isTouching[0] = false;
 		isTouching[1] = false;
 	}
@@ -28,11 +30,11 @@ public class Module : MonoBehaviour {
 	}
 
 	void Update() {
-		checkButtonEventForPlayer(1);
-		checkButtonEventForPlayer(2);
+		checkXButtonDownForPlayer(1);
+		checkXButtonDownForPlayer(2);
 	}
 
-	private void checkButtonEventForPlayer(int playerId) {
+	private void checkXButtonDownForPlayer(int playerId) {
 		int index = playerId - 1;
 
 		if (Input.GetButtonDown(playerId + "_BTN_X") && isTouching[index]) { 
