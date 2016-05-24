@@ -3,11 +3,16 @@ using System.Collections;
 
 public class LilGuyModule : Module {
 	private int previousActivePlayerId = 0; 
+	private GameObject lilGuy;
+	private BoxCollider2D lilGuyBoxCollider2D;
+	private BoxCollider2D msBottomBoxCollider2D;
 
 	void Start() {
 		base.Start();
 
-		canActivePlayerControlModule = false;
+		lilGuy = GameObject.Find("LilGuy");
+		lilGuyBoxCollider2D = lilGuy.GetComponent<BoxCollider2D>();
+		msBottomBoxCollider2D = GameObject.Find("MSBottom").GetComponent<BoxCollider2D>();
 	}
 
 	void Update() {
@@ -17,6 +22,10 @@ public class LilGuyModule : Module {
 			int index = activePlayerId - 1;
 			players[index].GetComponent<SpriteRenderer>().enabled = false; // Player "enters" the childship
 			previousActivePlayerId = activePlayerId;
+
+			canActivePlayerControlModule = false;
+			Physics2D.IgnoreCollision(lilGuyBoxCollider2D, msBottomBoxCollider2D, true);
+
 		}
 
 		if (activePlayerId == 0 && previousActivePlayerId > 0) { // First frame after player has disengaged with the module
