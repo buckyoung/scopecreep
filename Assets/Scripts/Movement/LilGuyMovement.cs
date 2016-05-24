@@ -10,13 +10,14 @@ public class LilGuyMovement : MonoBehaviour {
 	void Start() {
 		rb = GetComponent<Rigidbody2D>();
 		lilGuyModule = GameObject.Find("LilGuyModule").GetComponent<LilGuyModule>();
+		Physics2D.IgnoreLayerCollision(8, 9); // "PlayerCharacter", "Childship"
 	}
 
 	void FixedUpdate() {
-		int playerId = lilGuyModule.activePlayerId;
+		int activePlayerId = lilGuyModule.activePlayerId;
 
-		if (playerId > 0) {
-			var movement = new Vector2(Input.GetAxis(playerId + "_AXIS_X"), Input.GetAxis(playerId + "_AXIS_Y"));
+		if (activePlayerId > 0 && lilGuyModule.canActivePlayerControlModule) {
+			var movement = new Vector2(Input.GetAxis(activePlayerId + "_AXIS_X"), Input.GetAxis(activePlayerId + "_AXIS_Y"));
 			rb.AddRelativeForce(movement * speed * Time.deltaTime);
 		}
 	}
