@@ -22,37 +22,43 @@ public class LilGuyModule : Module {
 		// First frame after player has engaged with the module
 		if (previousActivePlayerId == 0 && activePlayerId > 0) { 
 			int index = activePlayerId - 1;
-			players[index].GetComponent<SpriteRenderer>().enabled = false; // Player "enters" the childship
 			previousActivePlayerId = activePlayerId;
 
+			players[index].GetComponent<SpriteRenderer>().enabled = false; // Player "enters" the childship
 			canActivePlayerDisengage = false; // activePlayer cannot disengage without help from other player
 
-			playShipExitAnimation();
+			StartCoroutine( playShipExitAnimation() );
 		}
 
 		// First frame after player has disengaged with the module
 		if (activePlayerId == 0 && previousActivePlayerId > 0) { 
 			int index = previousActivePlayerId - 1;
-			players[index].GetComponent<SpriteRenderer>().enabled = true; // Player "exits" the childship
 			previousActivePlayerId = 0;
+
+			players[index].GetComponent<SpriteRenderer>().enabled = true; // Player "exits" the childship
 		}
 	}
 
-	void playShipExitAnimation() {
+	IEnumerator playShipExitAnimation() {
 		var shipAnimationTravelTime = .2f;
 		var endPosition = lilGuy.transform.position - new Vector3(0f, 2f, 0f);
 
 		canActivePlayerControlModule = false; // Player has no control of childship during animation
-		Physics2D.IgnoreCollision(lilGuyBoxCollider2D, msBottomBoxCollider2D, true); // Ship will not collide with bottom of mothership
-		StartCoroutine( moveInSeconds(lilGuy, endPosition, shipAnimationTravelTime) ); // Animation: childship exits mothership
-		StartCoroutine( callbackShipExitAnimationComplete(shipAnimationTravelTime + 0.001f) ); // Things to do after animation ends
+		Physics2D.IgnoreCollision(lilGuyBoxCollider2D, msBottomBoxCollider2D, true); // Ship will not collide with bottom of mothership during animation
+
+		yield return StartCoroutine( moveInSeconds(lilGuy, endPosition, shipAnimationTravelTime) ); // Childship exits mothership over T seconds
+
+		// After animation plays
+		canActivePlayerControlModule = true; // Return childship control to player
+		Physics2D.IgnoreCollision(lilGuyBoxCollider2D, msBottomBoxCollider2D, false); // Reenable collisions with mothership
+		canInitiateTractorBeam = true; // Inactive player can now initiate the beam to bring player back
 	}
 
 	IEnumerator moveInSeconds(GameObject objectToMove, Vector3 end, float seconds) {
 		float elapsedTime = 0;
 		Vector3 start = objectToMove.transform.position;
 
-		// TODO BUCK : Consider using the rb.AddRelativeForce here...
+		// TODO BUCK : Consider using the rb.AddRelativeForce here instead of transform position...
 
 		while (elapsedTime < seconds) {
 			objectToMove.transform.position = Vector3.Lerp(start, end, (elapsedTime / seconds));
@@ -61,13 +67,5 @@ public class LilGuyModule : Module {
 		}
 
 		objectToMove.transform.position = end;
-	}
-
-	IEnumerator callbackShipExitAnimationComplete(float seconds) {
-		yield return new WaitForSeconds(seconds);
-
-		canActivePlayerControlModule = true; // Player has control of childship now
-		Physics2D.IgnoreCollision(lilGuyBoxCollider2D, msBottomBoxCollider2D, false); // Ship will not collide with bottom of mothership
-		canInitiateTractorBeam = true; // Inactive player can now initiate the beam  
 	}
 }
