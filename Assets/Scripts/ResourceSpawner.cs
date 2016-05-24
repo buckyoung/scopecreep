@@ -16,7 +16,7 @@ public class ResourceSpawner : MonoBehaviour {
 				Quaternion.identity
 			);
 
-			resource.transform.localScale = new Vector3 (0.5f, 0.5f, 0.0f);
+			resource.transform.localScale = new Vector3(0.5f, 0.5f, 0.0f);
 		}
 	}
 }

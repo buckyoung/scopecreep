@@ -16,7 +16,7 @@ public class LilGuyMovement : MonoBehaviour {
 		int playerId = lilGuyModule.activePlayerId;
 
 		if (playerId > 0) {
-			var movement = new Vector3(Input.GetAxis(playerId + "_AXIS_X"), Input.GetAxis(playerId + "_AXIS_Y"), 0);
+			var movement = new Vector2(Input.GetAxis(playerId + "_AXIS_X"), Input.GetAxis(playerId + "_AXIS_Y"));
 			rb.AddRelativeForce(movement * speed * Time.deltaTime);
 		}
 	}
