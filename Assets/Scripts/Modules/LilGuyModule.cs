@@ -27,7 +27,7 @@ public class LilGuyModule : Module {
 			players[index].GetComponent<SpriteRenderer>().enabled = false; // Player "enters" the childship
 			canActivePlayerDisengage = false; // activePlayer cannot disengage without help from other player
 
-			StartCoroutine( playShipExitAnimation() );
+			StartCoroutine( playAnimation_shipExit() );
 		}
 
 		// First frame after player has disengaged with the module
@@ -37,9 +37,18 @@ public class LilGuyModule : Module {
 
 			players[index].GetComponent<SpriteRenderer>().enabled = true; // Player "exits" the childship
 		}
+
+		// Check if inactive player has initiated the tractor beam
+		if (canInitiateTractorBeam) {
+			int inactivePlayerId = (activePlayerId % 2) + 1;
+
+			if (Input.GetButtonDown(inactivePlayerId + "_BTN_X") && isPlayerTouching[inactivePlayerId-1]) {
+				// TODO BUCK INITIATE BEAM
+			}
+		}
 	}
 
-	IEnumerator playShipExitAnimation() {
+	IEnumerator playAnimation_shipExit() {
 		var shipAnimationTravelTime = .2f;
 		var endPosition = lilGuy.transform.position - new Vector3(0f, 2f, 0f);
 
