@@ -7,6 +7,7 @@ public class LilGuyModule : Module {
 	private GameObject lilGuy;
 	private BoxCollider2D lilGuyBoxCollider2D;
 	private BoxCollider2D msBottomBoxCollider2D;
+	private SpriteRenderer tractorBeamSpriteRenderer;
 
 	void Start() {
 		base.Start();
@@ -14,6 +15,7 @@ public class LilGuyModule : Module {
 		lilGuy = GameObject.Find("LilGuy");
 		lilGuyBoxCollider2D = lilGuy.GetComponent<BoxCollider2D>();
 		msBottomBoxCollider2D = GameObject.Find("MSBottom").GetComponent<BoxCollider2D>();
+		tractorBeamSpriteRenderer = GameObject.Find("TractorBeam").GetComponent<SpriteRenderer>();
 	}
 
 	void Update() {
@@ -44,8 +46,16 @@ public class LilGuyModule : Module {
 
 			if (Input.GetButtonDown(inactivePlayerId + "_BTN_X") && isPlayerTouching[inactivePlayerId-1]) {
 				// TODO BUCK INITIATE BEAM
+				StartCoroutine( playAnimation_tractorBeam() );
+
 			}
 		}
+	}
+
+	IEnumerator playAnimation_tractorBeam() {
+		tractorBeamSpriteRenderer.enabled = true; // Turn on the beam
+		yield return new WaitForSeconds(3); // Wait 5 seconds
+		tractorBeamSpriteRenderer.enabled = false; // Turn off the beam
 	}
 
 	IEnumerator playAnimation_shipExit() {
