@@ -2,19 +2,19 @@
 using System.Collections;
 
 public class TractorBeamHandler : MonoBehaviour {
-	private SpriteRenderer spriteRenderer;
 	private BoxCollider2D boxCollider2D;
-	private LilGuyModule lilGuyModule;
-	private Rigidbody2D lilGuyRigidbody2D;
-	private LilGuyMovement lilGuyMovement;
 	private bool isChildshipTouching = false;
+	private LilGuyModule lilGuyModule;
+	private LilGuyMovement lilGuyMovement;
+	private Rigidbody2D lilGuyRigidbody2D;
+	private SpriteRenderer spriteRenderer;
 
 	void Start() {
-		spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 		boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
 		lilGuyModule = GameObject.Find("LilGuyModule").GetComponent<LilGuyModule>();
-		lilGuyRigidbody2D = GameObject.Find("LilGuy").GetComponent<Rigidbody2D>();
 		lilGuyMovement = GameObject.Find("LilGuy").GetComponent<LilGuyMovement>();
+		lilGuyRigidbody2D = GameObject.Find("LilGuy").GetComponent<Rigidbody2D>();
+		spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {

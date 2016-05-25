@@ -86,7 +86,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &114350
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -348,7 +348,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 495264}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!4 &409622
 Transform:
   m_ObjectHideFlags: 1
@@ -411,7 +411,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 2, z: 5}
   m_LocalScale: {x: 0.10000001, y: 2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 488398}
   m_Father: {fileID: 439222}
   m_RootOrder: 8
 --- !u!4 &415262
@@ -426,7 +427,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 495264}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!4 &436490
 Transform:
   m_ObjectHideFlags: 1
@@ -470,7 +471,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2, y: 3, z: 1}
+  m_LocalPosition: {x: -0.56, y: 2.96, z: 1}
   m_LocalScale: {x: 1, y: 0.7692308, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -483,7 +484,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.99, y: 4.07, z: 2}
+  m_LocalPosition: {x: 0.57, y: 2.94, z: 2}
   m_LocalScale: {x: 1, y: 0.7692308, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -501,7 +502,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
   m_Children: []
   m_Father: {fileID: 495264}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &468980
 Transform:
   m_ObjectHideFlags: 1
@@ -548,12 +549,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.9, z: 4}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalScale: {x: 0.20833333, y: 0.625, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 495264}
-  m_RootOrder: 3
+  m_Father: {fileID: 412932}
+  m_RootOrder: 0
 --- !u!4 &489404
 Transform:
   m_ObjectHideFlags: 1
@@ -566,7 +567,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_Children: []
   m_Father: {fileID: 495264}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!4 &493072
 Transform:
   m_ObjectHideFlags: 1
@@ -594,7 +595,6 @@ Transform:
   - {fileID: 439222}
   - {fileID: 445542}
   - {fileID: 448394}
-  - {fileID: 488398}
   - {fileID: 464922}
   - {fileID: 489404}
   - {fileID: 415262}
@@ -748,7 +748,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183274}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3646fbd3f32fa4a51bf18b505d470c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rigidbody2D: {fileID: 0}
   speed: 100
 --- !u!114 &11416826
 MonoBehaviour:
@@ -971,7 +971,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0113dd3a7c2724a028a4ded8776abd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInitiateTractorBeam: 0
 --- !u!114 &11469942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -985,6 +984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activePlayerId: 0
   canActivePlayerControlModule: 1
+  canActivePlayerDisengage: 1
 --- !u!114 &11477218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -998,7 +998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAtModule: 0
   playerId: 1
-  rb: {fileID: 0}
+  rigidbody2D: {fileID: 0}
   speed: 150
 --- !u!114 &11489206
 MonoBehaviour:
@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAtModule: 0
   playerId: 2
-  rb: {fileID: 0}
+  rigidbody2D: {fileID: 0}
   speed: 150
 --- !u!114 &11498874
 MonoBehaviour:
@@ -1039,6 +1039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activePlayerId: 0
   canActivePlayerControlModule: 1
+  canActivePlayerDisengage: 1
 --- !u!124 &12465100
 Behaviour:
   m_ObjectHideFlags: 1

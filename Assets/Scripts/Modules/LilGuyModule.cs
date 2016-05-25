@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class LilGuyModule : Module {
-	private int previousActivePlayerId = 0; 
 	private LilGuyMovement lilGuyMovement;
+	private int previousActivePlayerId = 0; 
 	private TractorBeamHandler tractorBeamHandler;
 
 	void Start() {

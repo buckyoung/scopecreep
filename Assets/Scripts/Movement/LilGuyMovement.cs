@@ -5,16 +5,17 @@ public class LilGuyMovement : MonoBehaviour {
 	public Rigidbody2D rigidbody2D;
 	public float speed = 100.0f;
 
-	private LilGuyModule lilGuyModule;
 	private BoxCollider2D boxCollider2D;
+	private LilGuyModule lilGuyModule;
 	private BoxCollider2D msBottomBoxCollider2D;
-
+	
 	void Start() {
-		rigidbody2D = GetComponent<Rigidbody2D>();
 		boxCollider2D = GetComponent<BoxCollider2D>();
-		msBottomBoxCollider2D = GameObject.Find("MSBottom").GetComponent<BoxCollider2D>();
 		lilGuyModule = GameObject.Find("LilGuyModule").GetComponent<LilGuyModule>();
-		Physics2D.IgnoreLayerCollision(8, 9); // "PlayerCharacter", "Childship"
+		msBottomBoxCollider2D = GameObject.Find("MSBottom").GetComponent<BoxCollider2D>();
+		rigidbody2D = GetComponent<Rigidbody2D>();
+
+		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerCharacter"), LayerMask.NameToLayer("Childship"));
 	}
 
 	void FixedUpdate() {

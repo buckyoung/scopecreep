@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 	public int playerId = 1;
 	public Rigidbody2D rigidbody2D;
 	public float speed = 150.0f;
-
+	
 	void Start() {
 		rigidbody2D = GetComponent<Rigidbody2D>();
 
