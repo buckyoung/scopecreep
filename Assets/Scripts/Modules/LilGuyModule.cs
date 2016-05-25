@@ -2,12 +2,11 @@
 using System.Collections;
 
 public class LilGuyModule : Module {
-	private bool canInitiateTractorBeam = false;
 	private int previousActivePlayerId = 0; 
 	private GameObject lilGuy;
 	private BoxCollider2D lilGuyBoxCollider2D;
 	private BoxCollider2D msBottomBoxCollider2D;
-	private SpriteRenderer tractorBeamSpriteRenderer;
+	private TractorBeamHandler tractorBeamHandler;
 
 	void Start() {
 		base.Start();
@@ -15,7 +14,7 @@ public class LilGuyModule : Module {
 		lilGuy = GameObject.Find("LilGuy");
 		lilGuyBoxCollider2D = lilGuy.GetComponent<BoxCollider2D>();
 		msBottomBoxCollider2D = GameObject.Find("MSBottom").GetComponent<BoxCollider2D>();
-		tractorBeamSpriteRenderer = GameObject.Find("TractorBeam").GetComponent<SpriteRenderer>();
+		tractorBeamHandler = GameObject.Find("TractorBeam").GetComponent<TractorBeamHandler>();
 	}
 
 	void Update() {
@@ -23,39 +22,43 @@ public class LilGuyModule : Module {
 
 		// First frame after player has engaged with the module
 		if (previousActivePlayerId == 0 && activePlayerId > 0) { 
-			int index = activePlayerId - 1;
-			previousActivePlayerId = activePlayerId;
-
-			players[index].GetComponent<SpriteRenderer>().enabled = false; // Player "enters" the childship
-			canActivePlayerDisengage = false; // activePlayer cannot disengage without help from other player
-
-			StartCoroutine( playAnimation_shipExit() );
+			engage();
 		}
 
 		// First frame after player has disengaged with the module
 		if (activePlayerId == 0 && previousActivePlayerId > 0) { 
-			int index = previousActivePlayerId - 1;
-			previousActivePlayerId = 0;
-
-			players[index].GetComponent<SpriteRenderer>().enabled = true; // Player "exits" the childship
+			disengage();
 		}
 
 		// Check if inactive player has initiated the tractor beam
-		if (canInitiateTractorBeam) {
-			int inactivePlayerId = (activePlayerId % 2) + 1;
-
-			if (Input.GetButtonDown(inactivePlayerId + "_BTN_X") && isPlayerTouching[inactivePlayerId-1]) {
-				// TODO BUCK INITIATE BEAM
-				StartCoroutine( playAnimation_tractorBeam() );
-
-			}
+		if (tractorBeamHandler.canInitiateTractorBeam) {
+			checkTractorBeam();
 		}
 	}
 
-	IEnumerator playAnimation_tractorBeam() {
-		tractorBeamSpriteRenderer.enabled = true; // Turn on the beam
-		yield return new WaitForSeconds(3); // Wait 5 seconds
-		tractorBeamSpriteRenderer.enabled = false; // Turn off the beam
+	void engage() {
+		int index = activePlayerId - 1;
+		previousActivePlayerId = activePlayerId;
+
+		players[index].GetComponent<SpriteRenderer>().enabled = false; // Player "enters" the childship
+		canActivePlayerDisengage = false; // activePlayer cannot disengage without help from other player
+
+		StartCoroutine( playAnimation_shipExit() );
+	}
+
+	void disengage() {
+		int index = previousActivePlayerId - 1;
+		previousActivePlayerId = 0;
+
+		players[index].GetComponent<SpriteRenderer>().enabled = true; // Player "exits" the childship
+	}
+
+	void checkTractorBeam() {
+		int inactivePlayerId = (activePlayerId % 2) + 1;
+
+		if (Input.GetButtonDown(inactivePlayerId + "_BTN_X") && isPlayerTouching[inactivePlayerId-1]) {
+			StartCoroutine( tractorBeamHandler.playAnimation_tractorBeam() );
+		}
 	}
 
 	IEnumerator playAnimation_shipExit() {
@@ -65,26 +68,11 @@ public class LilGuyModule : Module {
 		canActivePlayerControlModule = false; // Player has no control of childship during animation
 		Physics2D.IgnoreCollision(lilGuyBoxCollider2D, msBottomBoxCollider2D, true); // Ship will not collide with bottom of mothership during animation
 
-		yield return StartCoroutine( moveInSeconds(lilGuy, endPosition, shipAnimationTravelTime) ); // Childship exits mothership over T seconds
+		yield return StartCoroutine( Utility.moveObjectInSeconds(lilGuy, endPosition, shipAnimationTravelTime) ); // Childship exits mothership over T seconds
 
 		// After animation plays
 		canActivePlayerControlModule = true; // Return childship control to player
 		Physics2D.IgnoreCollision(lilGuyBoxCollider2D, msBottomBoxCollider2D, false); // Reenable collisions with mothership
-		canInitiateTractorBeam = true; // Inactive player can now initiate the beam to bring player back
-	}
-
-	IEnumerator moveInSeconds(GameObject objectToMove, Vector3 end, float seconds) {
-		float elapsedTime = 0;
-		Vector3 start = objectToMove.transform.position;
-
-		// TODO BUCK : Consider using the rb.AddRelativeForce here instead of transform position...
-
-		while (elapsedTime < seconds) {
-			objectToMove.transform.position = Vector3.Lerp(start, end, (elapsedTime / seconds));
-			elapsedTime += Time.deltaTime;
-			yield return null;
-		}
-
-		objectToMove.transform.position = end;
+		tractorBeamHandler.canInitiateTractorBeam = true; // Inactive player can now initiate the beam to bring player back
 	}
 }
