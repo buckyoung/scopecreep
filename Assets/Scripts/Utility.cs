@@ -2,13 +2,24 @@
 using System.Collections;
 
 public static class Utility {
-	public static IEnumerator moveObjectInSeconds (GameObject objectToMove, Vector3 end, float seconds) {
+	public static IEnumerator moveObjectInSeconds2D(GameObject objectToMove, Vector3 end, float seconds) {
 		float elapsedTime = 0;
-		Vector3 start = objectToMove.transform.position;
+		end.z = objectToMove.transform.position.z; // Maintain original Z coordinate 
 
 		while (elapsedTime < seconds) {
-			objectToMove.transform.position = Vector3.Lerp(start, end, (elapsedTime / seconds));
+			objectToMove.transform.position = Vector3.Lerp(objectToMove.transform.position, end, (elapsedTime / seconds));
 			elapsedTime += Time.deltaTime;
+			yield return null;
+		}
+
+		objectToMove.transform.position = end;
+	}
+
+	public static IEnumerator moveObjectWithSpeed2D(GameObject objectToMove, Vector3 end, float speed) {
+		end.z = objectToMove.transform.position.z; // Maintain original Z coordinate 
+
+		while (objectToMove.transform.position != end) {
+			objectToMove.transform.position = Vector3.MoveTowards(objectToMove.transform.position, end, speed * Time.deltaTime);
 			yield return null;
 		}
 

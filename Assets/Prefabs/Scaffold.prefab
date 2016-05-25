@@ -289,6 +289,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 411906}
+  - 114: {fileID: 11447700}
   - 212: {fileID: 21278370}
   - 61: {fileID: 6119296}
   m_Layer: 0
@@ -959,6 +960,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.02
+--- !u!114 &11447700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0113dd3a7c2724a028a4ded8776abd90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInitiateTractorBeam: 0
 --- !u!114 &11469942
 MonoBehaviour:
   m_ObjectHideFlags: 1
