@@ -4,8 +4,8 @@ using System.Collections;
 public class Module : MonoBehaviour {
 	public int activePlayerId = 0; // The player that is engaged with this module
 	public bool canActivePlayerControlModule = true; // There may be times when the active player cannot move the module's tool (for example: if he is in the childship when it is entering/exiting the mothership)
+	public bool canActivePlayerDisengage = true; // There may be times when the active player cannot press X to disengage (for example: if he is on the childship)
 
-	protected bool canActivePlayerDisengage = true; // There may be times when the active player cannot press X to disengage (for example: if he is on the childship)
 	protected bool[] isPlayerTouching = new bool[2];
 	protected GameObject[] players = new GameObject[2];
 
@@ -44,6 +44,11 @@ public class Module : MonoBehaviour {
 				// Engage with the module
 				activePlayerId = playerId;
 				players[index].GetComponent<PlayerMovement>().isAtModule = true;
+				players[index].transform.position = new Vector3(
+					transform.position.x, 
+					transform.position.y, 
+					players[index].transform.position.z
+				); // Move player to center of module and ensure they keep their original z coordinate
 			} else if (activePlayerId == playerId && canActivePlayerDisengage) { // You are the active player and you can disengage 
 				// Disengage with the module
 				activePlayerId = 0;

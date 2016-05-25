@@ -2,18 +2,14 @@
 using System.Collections;
 
 public class LilGuyModule : Module {
-	private bool canInitiateTractorBeam = false;
+	private LilGuyMovement lilGuyMovement;
 	private int previousActivePlayerId = 0; 
-	private GameObject lilGuy;
-	private BoxCollider2D lilGuyBoxCollider2D;
-	private BoxCollider2D msBottomBoxCollider2D;
+	private TractorBeamHandler tractorBeamHandler;
 
 	void Start() {
 		base.Start();
-
-		lilGuy = GameObject.Find("LilGuy");
-		lilGuyBoxCollider2D = lilGuy.GetComponent<BoxCollider2D>();
-		msBottomBoxCollider2D = GameObject.Find("MSBottom").GetComponent<BoxCollider2D>();
+		lilGuyMovement = GameObject.Find("LilGuy").GetComponent<LilGuyMovement>();
+		tractorBeamHandler = GameObject.Find("TractorBeam").GetComponent<TractorBeamHandler>();
 	}
 
 	void Update() {
@@ -21,53 +17,42 @@ public class LilGuyModule : Module {
 
 		// First frame after player has engaged with the module
 		if (previousActivePlayerId == 0 && activePlayerId > 0) { 
-			int index = activePlayerId - 1;
-			players[index].GetComponent<SpriteRenderer>().enabled = false; // Player "enters" the childship
-			previousActivePlayerId = activePlayerId;
-
-			canActivePlayerDisengage = false; // activePlayer cannot disengage without help from other player
-
-			playShipExitAnimation();
+			engage();
 		}
 
 		// First frame after player has disengaged with the module
 		if (activePlayerId == 0 && previousActivePlayerId > 0) { 
-			int index = previousActivePlayerId - 1;
-			players[index].GetComponent<SpriteRenderer>().enabled = true; // Player "exits" the childship
-			previousActivePlayerId = 0;
+			disengage();
+		}
+
+		// Check if inactive player has initiated the tractor beam
+		if (tractorBeamHandler.canInitiateTractorBeam()) {
+			checkTractorBeam();
 		}
 	}
 
-	void playShipExitAnimation() {
-		var shipAnimationTravelTime = .2f;
-		var endPosition = lilGuy.transform.position - new Vector3(0f, 2f, 0f);
+	void engage() {
+		int index = activePlayerId - 1;
+		previousActivePlayerId = activePlayerId;
 
-		canActivePlayerControlModule = false; // Player has no control of childship during animation
-		Physics2D.IgnoreCollision(lilGuyBoxCollider2D, msBottomBoxCollider2D, true); // Ship will not collide with bottom of mothership
-		StartCoroutine( moveInSeconds(lilGuy, endPosition, shipAnimationTravelTime) ); // Animation: childship exits mothership
-		StartCoroutine( callbackShipExitAnimationComplete(shipAnimationTravelTime + 0.001f) ); // Things to do after animation ends
+		players[index].GetComponent<SpriteRenderer>().enabled = false; // Player "enters" the childship
+		canActivePlayerDisengage = false; // activePlayer cannot disengage without help from other player
+
+		StartCoroutine( lilGuyMovement.playAnimation_shipExit() );
 	}
 
-	IEnumerator moveInSeconds(GameObject objectToMove, Vector3 end, float seconds) {
-		float elapsedTime = 0;
-		Vector3 start = objectToMove.transform.position;
+	void disengage() {
+		int index = previousActivePlayerId - 1;
+		previousActivePlayerId = 0;
 
-		// TODO BUCK : Consider using the rb.AddRelativeForce here...
+		players[index].GetComponent<SpriteRenderer>().enabled = true; // Player "exits" the childship
+	}
 
-		while (elapsedTime < seconds) {
-			objectToMove.transform.position = Vector3.Lerp(start, end, (elapsedTime / seconds));
-			elapsedTime += Time.deltaTime;
-			yield return null;
+	void checkTractorBeam() {
+		int inactivePlayerId = (activePlayerId % 2) + 1;
+
+		if (Input.GetButtonDown(inactivePlayerId + "_BTN_X") && isPlayerTouching[inactivePlayerId-1]) {
+			StartCoroutine( tractorBeamHandler.playAnimation_tractorBeam() );
 		}
-
-		objectToMove.transform.position = end;
-	}
-
-	IEnumerator callbackShipExitAnimationComplete(float seconds) {
-		yield return new WaitForSeconds(seconds);
-
-		canActivePlayerControlModule = true; // Player has control of childship now
-		Physics2D.IgnoreCollision(lilGuyBoxCollider2D, msBottomBoxCollider2D, false); // Ship will not collide with bottom of mothership
-		canInitiateTractorBeam = true; // Inactive player can now initiate the beam  
 	}
 }

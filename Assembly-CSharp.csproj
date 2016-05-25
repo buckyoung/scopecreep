@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{EBF96C21-7AFE-7798-7657-E78239CE7611}</ProjectGuid>
+    <ProjectGuid>{D1971582-5303-D198-0236-31CC4C85CD83}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -50,10 +50,12 @@
      <Compile Include="Assets\Scripts\Modules\LilGuyModule.cs" />
      <Compile Include="Assets\Scripts\Modules\Module.cs" />
      <Compile Include="Assets\Scripts\Modules\NavigationModule.cs" />
+     <Compile Include="Assets\Scripts\Modules\TractorBeamHandler.cs" />
      <Compile Include="Assets\Scripts\Movement\LilGuyMovement.cs" />
      <Compile Include="Assets\Scripts\Movement\MothershipMovement.cs" />
      <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\ResourceSpawner.cs" />
+     <Compile Include="Assets\Scripts\Utility.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
