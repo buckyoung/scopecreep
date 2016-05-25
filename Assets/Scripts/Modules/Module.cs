@@ -44,6 +44,11 @@ public class Module : MonoBehaviour {
 				// Engage with the module
 				activePlayerId = playerId;
 				players[index].GetComponent<PlayerMovement>().isAtModule = true;
+				players[index].transform.position = new Vector3(
+					transform.position.x, 
+					transform.position.y, 
+					players[index].transform.position.z
+				); // Move player to center of module and ensure they keep their original z coordinate
 			} else if (activePlayerId == playerId && canActivePlayerDisengage) { // You are the active player and you can disengage 
 				// Disengage with the module
 				activePlayerId = 0;
