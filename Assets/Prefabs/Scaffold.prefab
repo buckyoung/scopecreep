@@ -64,7 +64,7 @@ GameObject:
   - 61: {fileID: 6186056}
   m_Layer: 0
   m_Name: MSMid2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +186,7 @@ GameObject:
   - 61: {fileID: 6157576}
   m_Layer: 0
   m_Name: MSMid3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,7 +203,7 @@ GameObject:
   - 61: {fileID: 6165716}
   m_Layer: 0
   m_Name: MSBottom
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,7 +220,7 @@ GameObject:
   - 61: {fileID: 6115716}
   m_Layer: 0
   m_Name: MSMid1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -997,6 +997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAtModule: 0
+  jumpHeight: 30
   playerId: 1
   rigidbody2D: {fileID: 0}
   speed: 150
@@ -1023,6 +1024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAtModule: 0
+  jumpHeight: 30
   playerId: 2
   rigidbody2D: {fileID: 0}
   speed: 150
