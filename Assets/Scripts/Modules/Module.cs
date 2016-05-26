@@ -8,6 +8,8 @@ public class Module : MonoBehaviour {
 
 	protected bool[] isPlayerTouching = new bool[2];
 	protected GameObject[] players = new GameObject[2];
+	protected SpriteRenderer spriteRenderer;
+	protected Vector4 originalColor;
 
 	protected void Start() {
 		players[0] = GameObject.Find("Player1");
@@ -15,6 +17,8 @@ public class Module : MonoBehaviour {
 
 		isPlayerTouching[0] = false;
 		isPlayerTouching[1] = false;
+
+		spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 	}
 
 	protected void OnTriggerEnter2D(Collider2D col) {
@@ -60,10 +64,15 @@ public class Module : MonoBehaviour {
 			transform.position.y, 
 			players[index].transform.position.z
 		); // Move player to center of module and ensure they keep their original z coordinate
+
+		originalColor = spriteRenderer.color;
+		spriteRenderer.color = originalColor * 1.8f;
 	}
 
 	private void disengage(int index) {
 		activePlayerId = 0;
 		players[index].GetComponent<PlayerMovement>().isAtModule = false;
+	
+		spriteRenderer.color = originalColor;
 	}
 }
