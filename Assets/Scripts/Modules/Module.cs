@@ -41,19 +41,25 @@ public class Module : MonoBehaviour {
 
 		if (Input.GetButtonDown(playerId + "_BTN_X") && isPlayerTouching[index]) { 
 			if (activePlayerId == 0) { // No active player
-				// Engage with the module
-				activePlayerId = playerId;
-				players[index].GetComponent<PlayerMovement>().isAtModule = true;
-				players[index].transform.position = new Vector3(
-					transform.position.x, 
-					transform.position.y, 
-					players[index].transform.position.z
-				); // Move player to center of module and ensure they keep their original z coordinate
+				engage(playerId, index);
 			} else if (activePlayerId == playerId && canActivePlayerDisengage) { // You are the active player and you can disengage 
-				// Disengage with the module
-				activePlayerId = 0;
-				players[index].GetComponent<PlayerMovement>().isAtModule = false;
+				disengage(index);
 			}
 		}
+	}
+
+	private void engage(int playerId, int index) {
+		activePlayerId = playerId;
+		players[index].GetComponent<PlayerMovement>().isAtModule = true;
+		players[index].transform.position = new Vector3(
+			transform.position.x, 
+			transform.position.y, 
+			players[index].transform.position.z
+		); // Move player to center of module and ensure they keep their original z coordinate
+	}
+
+	private void disengage(int index) {
+		activePlayerId = 0;
+		players[index].GetComponent<PlayerMovement>().isAtModule = false;
 	}
 }

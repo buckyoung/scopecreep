@@ -31,7 +31,7 @@ public class LilGuyModule : Module {
 		}
 	}
 
-	void engage() {
+	private void engage() {
 		int index = activePlayerId - 1;
 		previousActivePlayerId = activePlayerId;
 
@@ -41,14 +41,14 @@ public class LilGuyModule : Module {
 		StartCoroutine( lilGuyMovement.playAnimation_shipExit() );
 	}
 
-	void disengage() {
+	private void disengage() {
 		int index = previousActivePlayerId - 1;
 		previousActivePlayerId = 0;
 
 		players[index].GetComponent<SpriteRenderer>().enabled = true; // Player "exits" the childship
 	}
 
-	void checkTractorBeam() {
+	private void checkTractorBeam() {
 		int inactivePlayerId = (activePlayerId % 2) + 1;
 
 		if (Input.GetButtonDown(inactivePlayerId + "_BTN_X") && isPlayerTouching[inactivePlayerId-1]) {

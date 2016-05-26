@@ -47,13 +47,13 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Collector.cs" />
      <Compile Include="Assets\Scripts\DrawWalls.cs" />
-     <Compile Include="Assets\Scripts\Modules\LilGuyModule.cs" />
+     <Compile Include="Assets\Scripts\Modules\LilGuy\LilGuyModule.cs" />
+     <Compile Include="Assets\Scripts\Modules\LilGuy\LilGuyMovement.cs" />
+     <Compile Include="Assets\Scripts\Modules\LilGuy\TractorBeamHandler.cs" />
      <Compile Include="Assets\Scripts\Modules\Module.cs" />
-     <Compile Include="Assets\Scripts\Modules\NavigationModule.cs" />
-     <Compile Include="Assets\Scripts\Modules\TractorBeamHandler.cs" />
-     <Compile Include="Assets\Scripts\Movement\LilGuyMovement.cs" />
-     <Compile Include="Assets\Scripts\Movement\MothershipMovement.cs" />
-     <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Modules\Navigation\MothershipMovement.cs" />
+     <Compile Include="Assets\Scripts\Modules\Navigation\NavigationModule.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\ResourceSpawner.cs" />
      <Compile Include="Assets\Scripts\Utility.cs" />
  <Reference Include="UnityEngine.UI">
