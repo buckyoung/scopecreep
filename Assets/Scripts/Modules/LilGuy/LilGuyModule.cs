@@ -40,6 +40,10 @@ public class LilGuyModule : Module {
 		}
 	}
 
+	/*
+	 * User Functions
+	 */
+
 	private void engage() {
 		int index = activePlayerId - 1;
 		previousActivePlayerId = activePlayerId;

@@ -27,6 +27,10 @@ public class LilGuyMovement : MonoBehaviour {
 		}
 	}
 
+	/*
+	 * User Functions
+	 */
+
 	public IEnumerator playAnimation_shipEnter() {
 		var speed = 2.0f;
 		var endPosition = lilGuyModule.transform.position;

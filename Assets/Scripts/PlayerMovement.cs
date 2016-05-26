@@ -18,24 +18,6 @@ public class PlayerMovement : MonoBehaviour {
 		Physics2D.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
 	}
 
-	void OnTriggerEnter2D(Collider2D col) {
-		if (col.gameObject.tag == "Ladder") {
-			isTouchingLadder = true;
-		}
-	}
-
-	void OnTriggerExit2D(Collider2D col) {
-		if (col.gameObject.tag == "Ladder") {
-			isTouchingLadder = false;
-		}
-	}
-
-	void OnCollisionEnter2D(Collision2D col) {
-		if (col.gameObject.CompareTag("Ground")) {
-			canJump = true;
-		}
-	}
-
 	void FixedUpdate() {
 		if (!isAtModule) {
 			var movement = new Vector2(Input.GetAxis(playerId + "_AXIS_X"), 0);
@@ -53,6 +35,24 @@ public class PlayerMovement : MonoBehaviour {
 				rigidbody2D.AddRelativeForce(new Vector2(0, jumpHeight) * Time.deltaTime, ForceMode2D.Impulse);
 				canJump = false;
 			}
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D col) {
+		if (col.gameObject.tag == "Ladder") {
+			isTouchingLadder = true;
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D col) {
+		if (col.gameObject.tag == "Ladder") {
+			isTouchingLadder = false;
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D col) {
+		if (col.gameObject.CompareTag("Ground")) {
+			canJump = true;
 		}
 	}
 }

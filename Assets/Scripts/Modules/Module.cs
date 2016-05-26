@@ -36,6 +36,10 @@ public class Module : MonoBehaviour {
 		updateModuleInteractionForPlayer(2);
 	}
 
+	/*
+	 * User Functions
+	 */
+
 	private void updateModuleInteractionForPlayer(int playerId) {
 		int index = playerId - 1;
 
