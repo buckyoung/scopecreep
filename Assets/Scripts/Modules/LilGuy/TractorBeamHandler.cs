@@ -33,6 +33,10 @@ public class TractorBeamHandler : MonoBehaviour {
 		}
 	}
 
+	/*
+	 *  User Functions
+	 */
+
 	public bool canInitiateTractorBeam() {
 		// Ensure that someone is in the childship and that the beam isn't already on
 		return lilGuyModule.activePlayerId > 0 && lilGuyModule.canActivePlayerControlModule && !boxCollider2D.enabled;

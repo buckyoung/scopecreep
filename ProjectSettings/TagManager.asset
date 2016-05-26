@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectible
   - Ground
+  - Ladder
   layers:
   - Default
   - TransparentFX
