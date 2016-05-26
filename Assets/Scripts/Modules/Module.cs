@@ -7,9 +7,9 @@ public class Module : MonoBehaviour {
 	public bool canActivePlayerDisengage = true; // There may be times when the active player cannot press X to disengage (for example: if he is on the childship)
 
 	protected bool[] isPlayerTouching = new bool[2];
+	protected Vector4 originalColor;
 	protected GameObject[] players = new GameObject[2];
 	protected SpriteRenderer spriteRenderer;
-	protected Vector4 originalColor;
 
 	protected void Start() {
 		players[0] = GameObject.Find("Player1");

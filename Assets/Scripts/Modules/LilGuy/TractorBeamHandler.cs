@@ -7,6 +7,7 @@ public class TractorBeamHandler : MonoBehaviour {
 	private LilGuyModule lilGuyModule;
 	private LilGuyMovement lilGuyMovement;
 	private Rigidbody2D lilGuyRigidbody2D;
+	private Vector4 originalColor;
 	private SpriteRenderer spriteRenderer;
 
 	void Start() {
@@ -22,6 +23,9 @@ public class TractorBeamHandler : MonoBehaviour {
 			isChildshipTouching = true;
 			lilGuyRigidbody2D.velocity = Vector2.zero; // Immediate stop
 
+			originalColor = spriteRenderer.color;
+			spriteRenderer.color = originalColor * 1.2f;
+
 			StartCoroutine( lilGuyMovement.playAnimation_shipEnter() );
 		}
 	}
@@ -30,6 +34,8 @@ public class TractorBeamHandler : MonoBehaviour {
 		if (col.gameObject.layer == LayerMask.NameToLayer("Childship")) { 
 			isChildshipTouching = false;
 			toggleBeam(false);
+
+			spriteRenderer.color = originalColor;
 		}
 	}
 
