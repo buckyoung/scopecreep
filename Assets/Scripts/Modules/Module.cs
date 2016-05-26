@@ -44,16 +44,11 @@ public class Module : MonoBehaviour {
 	 * User Functions
 	 */
 
-	private void updateModuleInteractionForPlayer(int playerId) {
-		int index = playerId - 1;
-
-		if (Input.GetButtonDown(playerId + "_BTN_X") && isPlayerTouching[index]) { 
-			if (activePlayerId == 0) { // No active player
-				engage(playerId, index);
-			} else if (activePlayerId == playerId && canActivePlayerDisengage) { // You are the active player and you can disengage 
-				disengage(index);
-			}
-		}
+	private void disengage(int index) {
+		activePlayerId = 0;
+		players[index].GetComponent<PlayerMovement>().isAtModule = false;
+	
+		spriteRenderer.color = originalColor;
 	}
 
 	private void engage(int playerId, int index) {
@@ -69,10 +64,15 @@ public class Module : MonoBehaviour {
 		spriteRenderer.color = originalColor * 1.8f;
 	}
 
-	private void disengage(int index) {
-		activePlayerId = 0;
-		players[index].GetComponent<PlayerMovement>().isAtModule = false;
-	
-		spriteRenderer.color = originalColor;
+	private void updateModuleInteractionForPlayer(int playerId) {
+		int index = playerId - 1;
+
+		if (Input.GetButtonDown(playerId + "_BTN_X") && isPlayerTouching[index]) { 
+			if (activePlayerId == 0) { // No active player
+				engage(playerId, index);
+			} else if (activePlayerId == playerId && canActivePlayerDisengage) { // You are the active player and you can disengage 
+				disengage(index);
+			}
+		}
 	}
 }

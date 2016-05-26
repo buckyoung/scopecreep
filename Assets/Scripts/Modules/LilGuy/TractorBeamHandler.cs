@@ -48,11 +48,6 @@ public class TractorBeamHandler : MonoBehaviour {
 		return lilGuyModule.activePlayerId > 0 && lilGuyModule.canActivePlayerControlModule && !boxCollider2D.enabled;
 	}
 
-	void toggleBeam(bool isOn) {
-		spriteRenderer.enabled = isOn;
-		boxCollider2D.enabled = isOn;
-	}
-
 	public IEnumerator playAnimation_tractorBeam() {
 		toggleBeam(true);
 
@@ -61,5 +56,10 @@ public class TractorBeamHandler : MonoBehaviour {
 		if (!isChildshipTouching) {
 			toggleBeam(false);
 		}
+	}
+
+	void toggleBeam(bool isOn) {
+		spriteRenderer.enabled = isOn;
+		boxCollider2D.enabled = isOn;
 	}
 }

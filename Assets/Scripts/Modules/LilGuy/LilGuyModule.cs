@@ -43,15 +43,13 @@ public class LilGuyModule : Module {
 	/*
 	 * User Functions
 	 */
+	
+	private void checkTractorBeam() {
+		int inactivePlayerId = (activePlayerId % 2) + 1;
 
-	private void engage() {
-		int index = activePlayerId - 1;
-		previousActivePlayerId = activePlayerId;
-
-		players[index].GetComponent<SpriteRenderer>().enabled = false; // Player "enters" the childship
-		canActivePlayerDisengage = false; // activePlayer cannot disengage without help from other player
-
-		StartCoroutine( lilGuyMovement.playAnimation_shipExit() );
+		if (Input.GetButtonDown(inactivePlayerId + "_BTN_X") && isPlayerTouching[inactivePlayerId-1]) {
+			StartCoroutine( tractorBeamHandler.playAnimation_tractorBeam() );
+		}
 	}
 
 	private void disengage() {
@@ -61,11 +59,13 @@ public class LilGuyModule : Module {
 		players[index].GetComponent<SpriteRenderer>().enabled = true; // Player "exits" the childship
 	}
 
-	private void checkTractorBeam() {
-		int inactivePlayerId = (activePlayerId % 2) + 1;
+	private void engage() {
+		int index = activePlayerId - 1;
+		previousActivePlayerId = activePlayerId;
 
-		if (Input.GetButtonDown(inactivePlayerId + "_BTN_X") && isPlayerTouching[inactivePlayerId-1]) {
-			StartCoroutine( tractorBeamHandler.playAnimation_tractorBeam() );
-		}
+		players[index].GetComponent<SpriteRenderer>().enabled = false; // Player "enters" the childship
+		canActivePlayerDisengage = false; // activePlayer cannot disengage without help from other player
+
+		StartCoroutine( lilGuyMovement.playAnimation_shipExit() );
 	}
 }
