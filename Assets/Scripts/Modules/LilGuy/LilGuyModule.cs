@@ -7,7 +7,7 @@ public class LilGuyModule : Module {
 	private TractorBeamHandler tractorBeamHandler;
 
 	delegate void UpdateDelegate();
-	private UpdateDelegate update;
+	private UpdateDelegate updateDelegate;
 
 	void Start() {
 		base.Start();
@@ -18,25 +18,25 @@ public class LilGuyModule : Module {
 	void Update() {
 		base.Update();
 
-		update = null;
+		updateDelegate = null;
 
 		// First frame after player has engaged with the module
 		if (previousActivePlayerId == 0 && activePlayerId > 0) { 
-			update += engage;
+			updateDelegate += engage;
 		}
 
 		// First frame after player has disengaged with the module
 		if (activePlayerId == 0 && previousActivePlayerId > 0) { 
-			update += disengage;
+			updateDelegate += disengage;
 		}
 
 		// Check if inactive player has initiated the tractor beam
 		if (tractorBeamHandler.canInitiateTractorBeam()) {
-			update += checkTractorBeam;
+			updateDelegate += checkTractorBeam;
 		}
 
-		if (update != null) {
-			update();
+		if (updateDelegate != null) {
+			updateDelegate();
 		}
 	}
 
