@@ -3,12 +3,12 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 	public bool isAtModule = false;
-	public int jumpHeight = 30;
 	public int playerId = 1;
-	public Rigidbody2D rigidbody2D;
-	public float speed = 150.0f;
 
 	private bool canJump = true;
+	private float speed = 150.0f;
+	private int jumpHeight = 30;
+	private Rigidbody2D rigidbody2D;
 	
 	void Start() {
 		rigidbody2D = GetComponent<Rigidbody2D>();

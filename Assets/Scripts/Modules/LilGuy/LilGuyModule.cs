@@ -6,6 +6,9 @@ public class LilGuyModule : Module {
 	private int previousActivePlayerId = 0; 
 	private TractorBeamHandler tractorBeamHandler;
 
+	delegate void UpdateDelegate();
+	private UpdateDelegate update;
+
 	void Start() {
 		base.Start();
 		lilGuyMovement = GameObject.Find("LilGuy").GetComponent<LilGuyMovement>();
@@ -15,19 +18,25 @@ public class LilGuyModule : Module {
 	void Update() {
 		base.Update();
 
+		update = null;
+
 		// First frame after player has engaged with the module
 		if (previousActivePlayerId == 0 && activePlayerId > 0) { 
-			engage();
+			update += engage;
 		}
 
 		// First frame after player has disengaged with the module
 		if (activePlayerId == 0 && previousActivePlayerId > 0) { 
-			disengage();
+			update += disengage;
 		}
 
 		// Check if inactive player has initiated the tractor beam
 		if (tractorBeamHandler.canInitiateTractorBeam()) {
-			checkTractorBeam();
+			update += checkTractorBeam;
+		}
+
+		if (update != null) {
+			update();
 		}
 	}
 
