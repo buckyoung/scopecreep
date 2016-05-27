@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TractorBeamHandler : MonoBehaviour {
+public class TractorBeam : MonoBehaviour {
 	private BoxCollider2D boxCollider2D;
 	private bool isChildshipTouching = false;
 	private LilGuyModule lilGuyModule;

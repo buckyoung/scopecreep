@@ -2,10 +2,10 @@
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
-	public bool isAtModule = false;
 	public int playerId = 1;
 
 	private bool canJump = true;
+	private bool isAtModule = false;
 	private bool isTouchingLadder = false;
 	private float speed = 150.0f;
 	private int jumpHeight = 30;
@@ -14,11 +14,12 @@ public class PlayerMovement : MonoBehaviour {
 	
 	void Start() {
 		rigidbody2D = GetComponent<Rigidbody2D>();
-
 		planetPointEffector2D = GameObject.Find("Planet").GetComponent<PointEffector2D>();
 
 		// Ignore collisions between PlayerCharacters
 		Physics2D.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
+
+		subscribe();
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
@@ -57,5 +58,16 @@ public class PlayerMovement : MonoBehaviour {
 				canJump = false;
 			}
 		}
+	}
+
+	/*
+	 * User Functions
+	 */
+	void subscribe() {
+		Module.onModuleInteraction += (eventObject, playerId, isEngaged) => {
+			if (this.playerId == playerId) {
+				this.isAtModule = isEngaged;
+			}
+		};
 	}
 }

@@ -11,13 +11,13 @@ public class MothershipMovement : MonoBehaviour {
 	}
 
 	void Update() {
-		int playerId = mothershipModule.activePlayerId;
+		int activePlayerId = mothershipModule.activePlayerId;
 
-		if (playerId > 0) {
+		if (activePlayerId > 0) {
 			transform.RotateAround(
 				Vector3.zero, 
 				Vector3.forward, 
-				-speed * Input.GetAxis(playerId + "_AXIS_X")
+				-speed * Input.GetAxis(activePlayerId + "_AXIS_X")
 			);
 		}
 	}
