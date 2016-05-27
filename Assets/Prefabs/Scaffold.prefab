@@ -1121,6 +1121,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 0}
   speed: 100
+  boxCollider2D: {fileID: 0}
+  lilGuyModule: {fileID: 0}
+  msBottomBoxCollider2D: {fileID: 0}
 --- !u!114 &11416826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1144,6 +1147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.02
+  mothershipModule: {fileID: 0}
 --- !u!114 &11447700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1155,6 +1159,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0113dd3a7c2724a028a4ded8776abd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxCollider2D: {fileID: 0}
+  isChildshipTouching: 0
+  lilGuyModule: {fileID: 0}
+  lilGuyMovement: {fileID: 0}
+  lilGuyRigidbody2D: {fileID: 0}
+  originalColor: {x: 0, y: 0, z: 0, w: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &11469942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1169,6 +1180,14 @@ MonoBehaviour:
   activePlayerId: 0
   canActivePlayerControlModule: 1
   canActivePlayerDisengage: 1
+  isPlayerTouching:
+  - 0
+  - 0
+  originalColor: {x: 0, y: 0, z: 0, w: 0}
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &11477218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1180,8 +1199,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46292eb72cc7f4496a5708151251d34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAtModule: 0
   playerId: 1
+  canJump: 1
+  isAtModule: 0
+  isTouchingLadder: 0
+  speed: 150
+  jumpHeight: 30
+  rigidbody2D: {fileID: 0}
+  planetPointEffector2D: {fileID: 0}
 --- !u!114 &11489206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1193,6 +1218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2c7ee7875a266498e5b0375b77d9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftWall: {fileID: 0}
+  rightWall: {fileID: 0}
 --- !u!114 &11489970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1204,8 +1231,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46292eb72cc7f4496a5708151251d34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAtModule: 0
   playerId: 2
+  canJump: 1
+  isAtModule: 0
+  isTouchingLadder: 0
+  speed: 150
+  jumpHeight: 30
+  rigidbody2D: {fileID: 0}
+  planetPointEffector2D: {fileID: 0}
 --- !u!114 &11498874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1220,6 +1253,17 @@ MonoBehaviour:
   activePlayerId: 0
   canActivePlayerControlModule: 1
   canActivePlayerDisengage: 1
+  isPlayerTouching:
+  - 0
+  - 0
+  originalColor: {x: 0, y: 0, z: 0, w: 0}
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  lilGuyMovement: {fileID: 0}
+  previousActivePlayerId: 0
+  tractorBeam: {fileID: 0}
 --- !u!124 &12465100
 Behaviour:
   m_ObjectHideFlags: 1

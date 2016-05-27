@@ -11,6 +11,10 @@ public class Module : MonoBehaviour {
 	protected GameObject[] players = new GameObject[2];
 	protected SpriteRenderer spriteRenderer;
 
+	// Events
+	public delegate void PlayerAtModuleEvent(Module eventObject, int playerId, bool isEngaged);
+	public static event PlayerAtModuleEvent playerAtModuleEvent;
+
 	protected void Start() {
 		players[0] = GameObject.Find("Player1");
 		players[1] = GameObject.Find("Player2");
@@ -49,9 +53,7 @@ public class Module : MonoBehaviour {
 		activePlayerId = 0;
 		spriteRenderer.color = originalColor;
 
-		if (playerAtModuleEvent != null) { 
-			playerAtModuleEvent(this, new PlayerAtModuleArgs(playerId, false)); 
-		}
+		if (playerAtModuleEvent != null) { playerAtModuleEvent(this, playerId, false); }
 	}
 
 	private void engage(int playerId, int index) {
@@ -64,9 +66,7 @@ public class Module : MonoBehaviour {
 			players[index].transform.position.z
 		); // Move player to center of module and ensure they keep their original z coordinate
 
-		if (playerAtModuleEvent != null) { 
-			playerAtModuleEvent(this, new PlayerAtModuleArgs(playerId, true)); 
-		}
+		if (playerAtModuleEvent != null) { playerAtModuleEvent(this, playerId, true); }
 	}
 
 	private void updateModuleInteractionForPlayer(int playerId) {
@@ -79,22 +79,5 @@ public class Module : MonoBehaviour {
 				disengage(playerId);
 			}
 		}
-	}
-
-	/*
-	 * Delegates
-	 */ 
-
-	public delegate void PlayerAtModuleEvent(Module eventObject, PlayerAtModuleArgs args);
-	public event PlayerAtModuleEvent playerAtModuleEvent;
-}
-
-public class PlayerAtModuleArgs : System.EventArgs {
-	public int playerId;
-	public bool isAtModule;
-
-	public PlayerAtModuleArgs(int playerId, bool isAtModule) {
-		this.playerId = playerId;
-		this.isAtModule = isAtModule;
 	}
 }

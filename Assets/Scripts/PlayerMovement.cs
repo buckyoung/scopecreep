@@ -64,17 +64,9 @@ public class PlayerMovement : MonoBehaviour {
 	 * User Functions
 	 */
 	void subscribeToModules() {
-		LilGuyModule lilGuyModule = GameObject.Find("LilGuyModule").GetComponent<LilGuyModule>();
-		lilGuyModule.playerAtModuleEvent += (eventObject, args) => {
-			if (playerId == args.playerId) {
-				isAtModule = args.isAtModule;
-			}
-		};
-
-		MothershipModule mothershipModule = GameObject.Find("MothershipModule").GetComponent<MothershipModule>();
-		mothershipModule.playerAtModuleEvent += (eventObject, args) => {
-			if (playerId == args.playerId) {
-				isAtModule = args.isAtModule;
+		Module.playerAtModuleEvent += (eventObject, playerId, isEngaged) => {
+			if (this.playerId == playerId) {
+				this.isAtModule = isEngaged;
 			}
 		};
 	}
