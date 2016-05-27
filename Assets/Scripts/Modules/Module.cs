@@ -19,6 +19,7 @@ public class Module : MonoBehaviour {
 		isPlayerTouching[1] = false;
 
 		spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+		originalColor = spriteRenderer.color;
 	}
 
 	protected void OnTriggerEnter2D(Collider2D col) {
@@ -44,24 +45,28 @@ public class Module : MonoBehaviour {
 	 * User Functions
 	 */
 
-	private void disengage(int index) {
+	private void disengage(int playerId) {
 		activePlayerId = 0;
-		players[index].GetComponent<PlayerMovement>().isAtModule = false;
-	
 		spriteRenderer.color = originalColor;
+
+		if (playerAtModuleEvent != null) { 
+			playerAtModuleEvent(this, new PlayerAtModuleArgs(playerId, false)); 
+		}
 	}
 
 	private void engage(int playerId, int index) {
 		activePlayerId = playerId;
-		players[index].GetComponent<PlayerMovement>().isAtModule = true;
+		spriteRenderer.color = originalColor * 1.8f;
+
 		players[index].transform.position = new Vector3(
 			transform.position.x, 
 			transform.position.y, 
 			players[index].transform.position.z
 		); // Move player to center of module and ensure they keep their original z coordinate
 
-		originalColor = spriteRenderer.color;
-		spriteRenderer.color = originalColor * 1.8f;
+		if (playerAtModuleEvent != null) { 
+			playerAtModuleEvent(this, new PlayerAtModuleArgs(playerId, true)); 
+		}
 	}
 
 	private void updateModuleInteractionForPlayer(int playerId) {
@@ -71,8 +76,25 @@ public class Module : MonoBehaviour {
 			if (activePlayerId == 0) { // No active player
 				engage(playerId, index);
 			} else if (activePlayerId == playerId && canActivePlayerDisengage) { // You are the active player and you can disengage 
-				disengage(index);
+				disengage(playerId);
 			}
 		}
+	}
+
+	/*
+	 * Delegates
+	 */ 
+
+	public delegate void PlayerAtModuleEvent(Module eventObject, PlayerAtModuleArgs args);
+	public event PlayerAtModuleEvent playerAtModuleEvent;
+}
+
+public class PlayerAtModuleArgs : System.EventArgs {
+	public int playerId;
+	public bool isAtModule;
+
+	public PlayerAtModuleArgs(int playerId, bool isAtModule) {
+		this.playerId = playerId;
+		this.isAtModule = isAtModule;
 	}
 }

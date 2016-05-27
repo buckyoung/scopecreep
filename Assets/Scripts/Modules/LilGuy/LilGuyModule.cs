@@ -4,7 +4,7 @@ using System.Collections;
 public class LilGuyModule : Module {
 	private LilGuyMovement lilGuyMovement;
 	private int previousActivePlayerId = 0; 
-	private TractorBeamHandler tractorBeamHandler;
+	private TractorBeam tractorBeam;
 
 	delegate void UpdateDelegate();
 	private UpdateDelegate updateDelegate;
@@ -12,7 +12,7 @@ public class LilGuyModule : Module {
 	void Start() {
 		base.Start();
 		lilGuyMovement = GameObject.Find("LilGuy").GetComponent<LilGuyMovement>();
-		tractorBeamHandler = GameObject.Find("TractorBeam").GetComponent<TractorBeamHandler>();
+		tractorBeam = GameObject.Find("TractorBeam").GetComponent<TractorBeam>();
 	}
 
 	void Update() {
@@ -31,7 +31,7 @@ public class LilGuyModule : Module {
 		}
 
 		// Check if inactive player has initiated the tractor beam
-		if (tractorBeamHandler.canInitiateTractorBeam()) {
+		if (tractorBeam.canInitiateTractorBeam()) {
 			updateDelegate += checkTractorBeam;
 		}
 
@@ -48,7 +48,7 @@ public class LilGuyModule : Module {
 		int inactivePlayerId = (activePlayerId % 2) + 1;
 
 		if (Input.GetButtonDown(inactivePlayerId + "_BTN_X") && isPlayerTouching[inactivePlayerId-1]) {
-			StartCoroutine( tractorBeamHandler.playAnimation_tractorBeam() );
+			StartCoroutine( tractorBeam.playAnimation_tractorBeam() );
 		}
 	}
 
