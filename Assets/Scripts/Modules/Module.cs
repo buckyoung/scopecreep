@@ -12,8 +12,8 @@ public class Module : MonoBehaviour {
 	protected SpriteRenderer spriteRenderer;
 
 	// Events
-	public delegate void PlayerAtModuleEvent(Module eventObject, int playerId, bool isEngaged);
-	public static event PlayerAtModuleEvent playerAtModuleEvent;
+	public delegate void ModuleInteractionEvent(Module eventObject, int playerId, bool isEngaged);
+	public static event ModuleInteractionEvent onModuleInteraction;
 
 	protected void Start() {
 		players[0] = GameObject.Find("Player1");
@@ -53,7 +53,7 @@ public class Module : MonoBehaviour {
 		activePlayerId = 0;
 		spriteRenderer.color = originalColor;
 
-		if (playerAtModuleEvent != null) { playerAtModuleEvent(this, playerId, false); }
+		if (onModuleInteraction != null) { onModuleInteraction(this, playerId, false); }
 	}
 
 	private void engage(int playerId, int index) {
@@ -66,7 +66,7 @@ public class Module : MonoBehaviour {
 			players[index].transform.position.z
 		); // Move player to center of module and ensure they keep their original z coordinate
 
-		if (playerAtModuleEvent != null) { playerAtModuleEvent(this, playerId, true); }
+		if (onModuleInteraction != null) { onModuleInteraction(this, playerId, true); }
 	}
 
 	private void updateModuleInteractionForPlayer(int playerId) {

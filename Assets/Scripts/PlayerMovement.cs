@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour {
 		// Ignore collisions between PlayerCharacters
 		Physics2D.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
 
-		subscribeToModules();
+		subscribe();
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
@@ -63,8 +63,8 @@ public class PlayerMovement : MonoBehaviour {
 	/*
 	 * User Functions
 	 */
-	void subscribeToModules() {
-		Module.playerAtModuleEvent += (eventObject, playerId, isEngaged) => {
+	void subscribe() {
+		Module.onModuleInteraction += (eventObject, playerId, isEngaged) => {
 			if (this.playerId == playerId) {
 				this.isAtModule = isEngaged;
 			}
