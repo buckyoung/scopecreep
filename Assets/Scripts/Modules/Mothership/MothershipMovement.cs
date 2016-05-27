@@ -4,14 +4,14 @@ using System.Collections;
 public class MothershipMovement : MonoBehaviour {
 	public float speed = 0.02f;
 
-	private NavigationModule navigationModule;
+	private MothershipModule mothershipModule;
 
 	void Start() {
-		navigationModule = GameObject.Find("NavigationModule").GetComponent<NavigationModule>();
+		mothershipModule = GameObject.Find("MothershipModule").GetComponent<MothershipModule>();
 	}
 
 	void Update() {
-		int playerId = navigationModule.activePlayerId;
+		int playerId = mothershipModule.activePlayerId;
 
 		if (playerId > 0) {
 			transform.RotateAround(

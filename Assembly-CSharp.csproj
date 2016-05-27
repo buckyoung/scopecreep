@@ -51,8 +51,8 @@
      <Compile Include="Assets\Scripts\Modules\LilGuy\LilGuyMovement.cs" />
      <Compile Include="Assets\Scripts\Modules\LilGuy\TractorBeamHandler.cs" />
      <Compile Include="Assets\Scripts\Modules\Module.cs" />
-     <Compile Include="Assets\Scripts\Modules\Navigation\MothershipMovement.cs" />
-     <Compile Include="Assets\Scripts\Modules\Navigation\NavigationModule.cs" />
+     <Compile Include="Assets\Scripts\Modules\Mothership\MothershipModule.cs" />
+     <Compile Include="Assets\Scripts\Modules\Mothership\MothershipMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\ResourceSpawner.cs" />
      <Compile Include="Assets\Scripts\Utility.cs" />
