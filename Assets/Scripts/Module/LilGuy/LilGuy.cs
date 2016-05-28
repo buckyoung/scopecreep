@@ -8,6 +8,7 @@ namespace ScopeCreep.Module.LilGuy {
 		private int previousActivePlayerId = 0; 
 		private TractorBeam tractorBeam;
 
+		// Events
 		public delegate void LilGuyInteractionEvent(LilGuy eventObject, bool isEngaged);
 		public static event LilGuyInteractionEvent onLilGuyInteraction;
 
