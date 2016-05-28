@@ -13,8 +13,8 @@ public class PlayerMovement : MonoBehaviour {
 	private PointEffector2D planetPointEffector2D;
 	
 	void Start() {
-		rigidbody2D = GetComponent<Rigidbody2D>();
 		planetPointEffector2D = GameObject.Find("Planet").GetComponent<PointEffector2D>();
+		rigidbody2D = GetComponent<Rigidbody2D>();
 
 		// Ignore collisions between PlayerCharacters
 		Physics2D.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
