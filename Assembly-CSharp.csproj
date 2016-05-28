@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Collector.cs" />
      <Compile Include="Assets\Scripts\DrawWalls.cs" />
+     <Compile Include="Assets\Scripts\FramesPerSecond.cs" />
      <Compile Include="Assets\Scripts\Modules\LilGuy\LilGuyModule.cs" />
      <Compile Include="Assets\Scripts\Modules\LilGuy\LilGuyMovement.cs" />
      <Compile Include="Assets\Scripts\Modules\LilGuy\TractorBeam.cs" />
