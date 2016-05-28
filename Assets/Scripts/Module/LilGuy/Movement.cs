@@ -46,7 +46,7 @@ namespace ScopeCreep.Module.LilGuy {
 		}
 
 		public IEnumerator playAnimation_shipExit() {
-			var time = .2f;
+			var time = 0.2f;
 			var endPosition = transform.position - (transform.up * 2.0f);
 
 			lilGuy.canActivePlayerControlModule = false; // Player has no control of childship during animation

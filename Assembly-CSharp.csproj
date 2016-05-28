@@ -55,9 +55,9 @@
      <Compile Include="Assets\Scripts\Module\Mothership\Movement.cs" />
      <Compile Include="Assets\Scripts\Player\Movement.cs" />
      <Compile Include="Assets\Scripts\System\DrawWalls.cs" />
+     <Compile Include="Assets\Scripts\System\Extender.cs" />
      <Compile Include="Assets\Scripts\System\FramesPerSecond.cs" />
      <Compile Include="Assets\Scripts\System\ResourceSpawner.cs" />
-     <Compile Include="Assets\Scripts\System\Utility.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

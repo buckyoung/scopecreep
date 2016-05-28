@@ -53,7 +53,8 @@ namespace ScopeCreep.Module.LilGuy {
 			int index = previousActivePlayerId - 1;
 			previousActivePlayerId = 0;
 
-			onLilGuyInteraction(this, false);
+			if (onLilGuyInteraction != null) onLilGuyInteraction(this, false);
+
 			players[index].GetComponent<SpriteRenderer>().enabled = true; // Player "exits" the childship
 		}
 
@@ -61,7 +62,8 @@ namespace ScopeCreep.Module.LilGuy {
 			int index = activePlayerId - 1;
 			previousActivePlayerId = activePlayerId;
 
-			onLilGuyInteraction(this, true);
+			if (onLilGuyInteraction != null) onLilGuyInteraction(this, true);
+
 			players[index].GetComponent<SpriteRenderer>().enabled = false; // Player "enters" the childship
 			canActivePlayerDisengage = false; // activePlayer cannot disengage without help from other player
 

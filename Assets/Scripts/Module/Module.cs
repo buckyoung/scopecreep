@@ -55,7 +55,7 @@ namespace ScopeCreep.Module {
 			activePlayerId = 0;
 			spriteRenderer.color = originalColor;
 
-			if (onModuleInteraction != null) { onModuleInteraction(this, playerId, false); }
+			if (onModuleInteraction != null) onModuleInteraction(this, playerId, false);
 		}
 
 		private void engage(int playerId, int index) {
@@ -68,7 +68,7 @@ namespace ScopeCreep.Module {
 				players[index].transform.position.z
 			); // Move player to center of module and ensure they keep their original z coordinate
 
-			if (onModuleInteraction != null) { onModuleInteraction(this, playerId, true); }
+			if (onModuleInteraction != null) onModuleInteraction(this, playerId, true);
 		}
 
 		private void updateModuleInteractionForPlayer(int playerId) {

@@ -2,7 +2,7 @@
 using System.Collections;
 using ScopeCreep;
 
-namespace ScopeCreep.Module.LilGuy { 
+namespace ScopeCreep.Module.LilGuy {
 	public class GUIHandler : MonoBehaviour {
 		private ResourceHandler resourceHandler;
 		private bool isVisible = false;
