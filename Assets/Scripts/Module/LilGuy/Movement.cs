@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections;
 using ScopeCreep;
+using ScopeCreep.System;
 
 namespace ScopeCreep.Module.LilGuy { 
 	public class Movement : MonoBehaviour {
-		public Rigidbody2D rigidbody2D;
+		public Rigidbody2D rb2D;
 		public float speed = 100.0f;
 
 		private BoxCollider2D boxCollider2D;
@@ -15,7 +16,7 @@ namespace ScopeCreep.Module.LilGuy {
 			boxCollider2D = GetComponent<BoxCollider2D>();
 			lilGuy = GameObject.Find("LilGuyModule").GetComponent<LilGuy>();
 			msBottomBoxCollider2D = GameObject.Find("MSBottom").GetComponent<BoxCollider2D>();
-			rigidbody2D = GetComponent<Rigidbody2D>();
+			rb2D = GetComponent<Rigidbody2D>();
 
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerCharacter"), LayerMask.NameToLayer("Childship"));
 		}
@@ -25,7 +26,7 @@ namespace ScopeCreep.Module.LilGuy {
 
 			if (activePlayerId > 0 && lilGuy.canActivePlayerControlModule) {
 				var movement = new Vector2(Input.GetAxis(activePlayerId + "_AXIS_X"), Input.GetAxis(activePlayerId + "_AXIS_Y"));
-				rigidbody2D.AddRelativeForce(movement * speed * Time.deltaTime);
+				rb2D.AddRelativeForce(movement * speed * Time.deltaTime);
 			}
 		}
 
@@ -39,7 +40,7 @@ namespace ScopeCreep.Module.LilGuy {
 			lilGuy.canActivePlayerControlModule = false; // Player has no control of childship during animation
 			Physics2D.IgnoreCollision(boxCollider2D, msBottomBoxCollider2D, true); // Ship will not collide with bottom of mothership during animation
 
-			yield return StartCoroutine( gameObject.moveToObjectWithSpeed2D(lilGuyModule.gameObject, speed) );
+			yield return StartCoroutine( gameObject.moveToObjectWithSpeed2D(lilGuy.gameObject, speed) );
 
 			lilGuy.canActivePlayerDisengage = true; // Allow player to exit the childship
 		}

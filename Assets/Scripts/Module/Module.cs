@@ -30,14 +30,14 @@ namespace ScopeCreep.Module {
 
 		protected void OnTriggerEnter2D(Collider2D col) {
 			if (col.gameObject.tag == "Player") { 
-				var index = col.gameObject.GetComponent<PlayerMovement>().playerId - 1;
+				var index = col.gameObject.GetComponent<Player.Movement>().playerId - 1;
 				isPlayerTouching[index] = true;
 			}
 		}
 
 		protected void OnTriggerExit2D(Collider2D col) {
 			if (col.gameObject.tag == "Player") { 
-				var index = col.gameObject.GetComponent<PlayerMovement>().playerId - 1;
+				var index = col.gameObject.GetComponent<Player.Movement>().playerId - 1;
 				isPlayerTouching[index] = false;
 			}
 		}

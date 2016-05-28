@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 436490}
   - 212: {fileID: 21219724}
   - 61: {fileID: 6142220}
-  - 114: {fileID: 11469942}
+  - 114: {fileID: 11406936}
   m_Layer: 0
   m_Name: MothershipModule
   m_TagString: Untagged
@@ -26,9 +26,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 495264}
-  - 114: {fileID: 11426454}
   - 114: {fileID: 11489206}
   - 114: {fileID: 11484924}
+  - 114: {fileID: 11443300}
   m_Layer: 0
   m_Name: Scaffold
   m_TagString: Untagged
@@ -311,10 +311,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445542}
-  - 114: {fileID: 11477218}
   - 212: {fileID: 21244652}
   - 50: {fileID: 5031150}
   - 61: {fileID: 6108078}
+  - 114: {fileID: 11477218}
   m_Layer: 8
   m_Name: Player1
   m_TagString: Player
@@ -362,9 +362,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 411906}
-  - 114: {fileID: 11447700}
   - 212: {fileID: 21278370}
   - 61: {fileID: 6119296}
+  - 114: {fileID: 11447700}
   m_Layer: 0
   m_Name: TractorBeam
   m_TagString: Untagged
@@ -396,8 +396,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 412932}
   - 212: {fileID: 21289328}
-  - 114: {fileID: 11498874}
   - 61: {fileID: 6183958}
+  - 114: {fileID: 11498874}
   m_Layer: 0
   m_Name: LilGuyModule
   m_TagString: Untagged
@@ -413,10 +413,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 448394}
-  - 114: {fileID: 11489970}
   - 212: {fileID: 21288244}
   - 50: {fileID: 5063336}
   - 61: {fileID: 6185338}
+  - 114: {fileID: 11489970}
   m_Layer: 8
   m_Name: Player2
   m_TagString: Player
@@ -1110,6 +1110,20 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168554}
   m_Enabled: 1
+--- !u!114 &11406936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3277b79cbb5456a90e8201fff7ef94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activePlayerId: 0
+  canActivePlayerControlModule: 1
+  canActivePlayerDisengage: 1
 --- !u!114 &11414264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1118,10 +1132,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 114350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3646fbd3f32fa4a51bf18b505d470c7f, type: 3}
+  m_Script: {fileID: 11500000, guid: d9c2757e69efc433db73f692c720e5cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody2D: {fileID: 0}
+  rb2D: {fileID: 0}
   speed: 100
 --- !u!114 &11414392
 MonoBehaviour:
@@ -1134,18 +1148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b7f682c4b434eadb7b3f9f1e5710b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11426454
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 102860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd37d5c8a76ff4ac69e0419a64f866d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.02
 --- !u!114 &11431582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1157,6 +1159,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412feb774729940e58bbd5baaa442635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11443300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891dc540424dd4d2fbe118eab9bb0879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.02
 --- !u!114 &11447700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1168,20 +1182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0113dd3a7c2724a028a4ded8776abd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11469942
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 102278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c9c5283a5ce4a37b3ded850814f9e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activePlayerId: 0
-  canActivePlayerControlModule: 1
-  canActivePlayerDisengage: 1
 --- !u!114 &11477218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 170050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46292eb72cc7f4496a5708151251d34d, type: 3}
+  m_Script: {fileID: 11500000, guid: 871cd88e4d6c84096ae83c908daba80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 1
@@ -1226,7 +1226,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 197970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46292eb72cc7f4496a5708151251d34d, type: 3}
+  m_Script: {fileID: 11500000, guid: 871cd88e4d6c84096ae83c908daba80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 2
@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 197704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8f6298724ef14848bde4c66ecc93ff7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fdee4cdfffd64bb8bc2faa34bad6870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activePlayerId: 0
