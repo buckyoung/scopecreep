@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour {
 
 			if (isTouchingLadder) {
 				var scalar = -planetPointEffector2D.forceMagnitude;
-				rigidbody2D.AddForce(Vector2.up * scalar); // Effectively undo gravity when on ladder
+				rigidbody2D.AddForce(transform.up * scalar); // Effectively undo gravity when on ladder
 
 				movement += new Vector2(0, Input.GetAxis(playerId + "_AXIS_Y")); // Allow Y movement on ladder
 			}
