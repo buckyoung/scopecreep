@@ -10,9 +10,6 @@ namespace ScopeCreep.Enemy.TurretBase {
 		public delegate void EnemyFoundEvent(TurretBase eventObject, bool isFound);
 		public static event EnemyFoundEvent onEnemyFound;
 
-		void Start() {
-		}
-		
 		void Update() {
 			if (target != null) {
 				Vector3 vectorToTarget = target.transform.position - transform.position;
