@@ -3,14 +3,19 @@ using System.Collections;
 using ScopeCreep;
 
 namespace ScopeCreep.Module.LilGuy { 
-	public class ResourceHandler : MonoBehaviour {
-		private int total = 0;
+	public class ResourceHandler : ResourceManager {
 		private int maximum = 10;
 
 		void OnTriggerEnter2D(Collider2D other) {
-			if (total < maximum && other.gameObject.tag == "Collectible") {
-				total++;
-				Destroy(other.gameObject);
+			if (other.gameObject.tag == "Collectible") {
+
+				Collectible.Collectible.CollectibleType type = other.GetComponent<Collectible.Collectible>().type;
+
+				if (cargoHold[type] < maximum) {
+					base.addResource(type, 1.0f);
+
+					Destroy(other.gameObject);
+				}
 			}
 		}
 
@@ -19,10 +24,6 @@ namespace ScopeCreep.Module.LilGuy {
 		 */
 		public int getMaximum() {
 			return maximum;
-		}
-
-		public int getTotal() {
-			return total;
 		}
 	}
 }

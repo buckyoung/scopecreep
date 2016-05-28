@@ -15,7 +15,11 @@ namespace ScopeCreep.Module.LilGuy {
 
 		void OnGUI() {
 			if (isVisible) {
-				GUI.Label(new Rect(300, 370, 140, 100), "resources: " + resourceHandler.getTotal() + "/" + resourceHandler.getMaximum()); 
+				int offset = 35;
+				foreach(Collectible.Collectible.CollectibleType type in ((Collectible.Collectible.CollectibleType[]) Collectible.Collectible.CollectibleType.GetValues(typeof(Collectible.Collectible.CollectibleType)))) {
+					GUI.Label(new Rect(Screen.width - 150, Screen.height - offset, 140, 30), "|$| " + resourceHandler.getResource(type)); 
+					offset -= 15;
+				}
 			}
 		}
 
