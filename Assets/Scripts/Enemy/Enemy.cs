@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace ScopeCreep.Enemy {
-	public class Tower : MonoBehaviour {
+	public class Enemy : MonoBehaviour {
 		public int hitPoints = 50;
 	}
 }

@@ -6,8 +6,8 @@ namespace ScopeCreep.Enemy.Gun {
 	public class Gun : MonoBehaviour {
 		public int ammo = 100;
 		public float attackSpeed = 3f;
-		public string projectilePrefab;
-		public float projectileForce = 20f;
+		public string projectilePrefab = "TurretBullet";
+		public float projectileForce = 100f;
 
 		private bool isReadyToShoot = true;
 		private bool isTargetShootable;
