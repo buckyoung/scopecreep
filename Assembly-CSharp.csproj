@@ -45,14 +45,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Collectible\Collectible.cs" />
+     <Compile Include="Assets\Scripts\Module\IResourceHandler.cs" />
      <Compile Include="Assets\Scripts\Module\LilGuy\GUIHandler.cs" />
      <Compile Include="Assets\Scripts\Module\LilGuy\LilGuy.cs" />
      <Compile Include="Assets\Scripts\Module\LilGuy\Movement.cs" />
      <Compile Include="Assets\Scripts\Module\LilGuy\ResourceHandler.cs" />
      <Compile Include="Assets\Scripts\Module\LilGuy\TractorBeam.cs" />
      <Compile Include="Assets\Scripts\Module\Module.cs" />
+     <Compile Include="Assets\Scripts\Module\Mothership\GUIHandler.cs" />
      <Compile Include="Assets\Scripts\Module\Mothership\Mothership.cs" />
      <Compile Include="Assets\Scripts\Module\Mothership\Movement.cs" />
+     <Compile Include="Assets\Scripts\Module\Mothership\ResourceHandler.cs" />
+     <Compile Include="Assets\Scripts\Module\ResourceManager.cs" />
      <Compile Include="Assets\Scripts\Player\Movement.cs" />
      <Compile Include="Assets\Scripts\System\DrawWalls.cs" />
      <Compile Include="Assets\Scripts\System\Extender.cs" />

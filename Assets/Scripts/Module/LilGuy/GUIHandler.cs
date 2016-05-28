@@ -15,7 +15,7 @@ namespace ScopeCreep.Module.LilGuy {
 
 		void OnGUI() {
 			if (isVisible) {
-				GUI.Label(new Rect(300, 370, 140, 100), "resources: " + resourceHandler.getTotal() + "/" + resourceHandler.getMaximum()); 
+				GUI.Label(new Rect(Screen.width - 150, Screen.height - 30, 140, 30), "|$| " + resourceHandler.getSpaceDollars() + "/" + resourceHandler.getMaximum()); 
 			}
 		}
 

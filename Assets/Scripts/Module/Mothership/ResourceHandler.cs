@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ScopeCreep;
+using ScopeCreep.Collectible;
 
-namespace ScopeCreep.Module.LilGuy { 
+namespace ScopeCreep.Module.Mothership { 
 	public class ResourceHandler : ResourceManager, IResourceHandler {
 		private float spaceDollars = 0;
-		private int maximum = 10;
 
 		void OnTriggerEnter2D(Collider2D other) {
-			if (spaceDollars < maximum && other.gameObject.tag == "Collectible") {
+			if (other.gameObject.tag == "Collectible") {
 
 				ResourceManager.collect(this, other.GetComponent<Collectible.Collectible>());
 
@@ -21,10 +21,6 @@ namespace ScopeCreep.Module.LilGuy {
 		 */
 		public void addSpaceDollars(float amount) {
 			spaceDollars += amount;
-		}
-
-		public int getMaximum() {
-			return maximum;
 		}
 
 		public float getSpaceDollars() {
