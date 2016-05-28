@@ -48,8 +48,10 @@
      <Compile Include="Assets\Scripts\Collector.cs" />
      <Compile Include="Assets\Scripts\DrawWalls.cs" />
      <Compile Include="Assets\Scripts\FramesPerSecond.cs" />
+     <Compile Include="Assets\Scripts\Modules\LilGuy\GUIHandler.cs" />
      <Compile Include="Assets\Scripts\Modules\LilGuy\LilGuyModule.cs" />
      <Compile Include="Assets\Scripts\Modules\LilGuy\LilGuyMovement.cs" />
+     <Compile Include="Assets\Scripts\Modules\LilGuy\ResourceHandler.cs" />
      <Compile Include="Assets\Scripts\Modules\LilGuy\TractorBeam.cs" />
      <Compile Include="Assets\Scripts\Modules\Module.cs" />
      <Compile Include="Assets\Scripts\Modules\Mothership\MothershipModule.cs" />

@@ -9,8 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 436490}
   - 212: {fileID: 21219724}
-  - 114: {fileID: 11469942}
   - 61: {fileID: 6142220}
+  - 114: {fileID: 11469942}
   m_Layer: 0
   m_Name: MothershipModule
   m_TagString: Untagged
@@ -96,10 +96,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 488398}
   - 212: {fileID: 21228420}
-  - 114: {fileID: 11414264}
   - 50: {fileID: 5012666}
   - 61: {fileID: 6140042}
-  - 114: {fileID: 11416826}
+  - 114: {fileID: 11414264}
+  - 114: {fileID: 11431582}
+  - 114: {fileID: 11414392}
   m_Layer: 9
   m_Name: LilGuy
   m_TagString: Untagged
@@ -570,7 +571,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.046666667, y: 7.5, z: 0}
+  m_LocalPosition: {x: -0.046666667, y: 2.5, z: 0}
   m_LocalScale: {x: 0.083333336, y: 3.846154, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1122,7 +1123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 0}
   speed: 100
---- !u!114 &11416826
+--- !u!114 &11414392
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1130,7 +1131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 114350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7d1da6e0bdf942f0930433ea9b9b070, type: 3}
+  m_Script: {fileID: 11500000, guid: a1b7f682c4b434eadb7b3f9f1e5710b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11426454
@@ -1144,7 +1145,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd37d5c8a76ff4ac69e0419a64f866d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.02
+  speed: 0.02
+--- !u!114 &11431582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412feb774729940e58bbd5baaa442635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11447700
 MonoBehaviour:
   m_ObjectHideFlags: 1

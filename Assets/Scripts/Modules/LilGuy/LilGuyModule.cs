@@ -6,37 +6,31 @@ public class LilGuyModule : Module {
 	private int previousActivePlayerId = 0; 
 	private TractorBeam tractorBeam;
 
-	delegate void UpdateDelegate();
-	private UpdateDelegate updateDelegate;
+	public delegate void LilGuyInteractionEvent(LilGuyModule eventObject, bool isEngaged);
+	public static event LilGuyInteractionEvent onLilGuyInteraction;
 
-	void Start() {
+	new void Start() {
 		base.Start();
 		lilGuyMovement = GameObject.Find("LilGuy").GetComponent<LilGuyMovement>();
 		tractorBeam = GameObject.Find("TractorBeam").GetComponent<TractorBeam>();
 	}
 
-	void Update() {
+	new void Update() {
 		base.Update();
-
-		updateDelegate = null;
 
 		// First frame after player has engaged with the module
 		if (previousActivePlayerId == 0 && activePlayerId > 0) { 
-			updateDelegate += engage;
+			engage();
 		}
 
 		// First frame after player has disengaged with the module
 		if (activePlayerId == 0 && previousActivePlayerId > 0) { 
-			updateDelegate += disengage;
+			disengage();
 		}
 
 		// Check if inactive player has initiated the tractor beam
 		if (tractorBeam.canInitiateTractorBeam()) {
-			updateDelegate += checkTractorBeam;
-		}
-
-		if (updateDelegate != null) {
-			updateDelegate();
+			checkTractorBeam();
 		}
 	}
 
@@ -56,6 +50,7 @@ public class LilGuyModule : Module {
 		int index = previousActivePlayerId - 1;
 		previousActivePlayerId = 0;
 
+		onLilGuyInteraction(this, false);
 		players[index].GetComponent<SpriteRenderer>().enabled = true; // Player "exits" the childship
 	}
 
@@ -63,6 +58,7 @@ public class LilGuyModule : Module {
 		int index = activePlayerId - 1;
 		previousActivePlayerId = activePlayerId;
 
+		onLilGuyInteraction(this, true);
 		players[index].GetComponent<SpriteRenderer>().enabled = false; // Player "enters" the childship
 		canActivePlayerDisengage = false; // activePlayer cannot disengage without help from other player
 
