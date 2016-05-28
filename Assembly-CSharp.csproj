@@ -45,20 +45,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Collector.cs" />
-     <Compile Include="Assets\Scripts\DrawWalls.cs" />
-     <Compile Include="Assets\Scripts\FramesPerSecond.cs" />
-     <Compile Include="Assets\Scripts\Modules\LilGuy\GUIHandler.cs" />
-     <Compile Include="Assets\Scripts\Modules\LilGuy\LilGuyModule.cs" />
-     <Compile Include="Assets\Scripts\Modules\LilGuy\LilGuyMovement.cs" />
-     <Compile Include="Assets\Scripts\Modules\LilGuy\ResourceHandler.cs" />
-     <Compile Include="Assets\Scripts\Modules\LilGuy\TractorBeam.cs" />
-     <Compile Include="Assets\Scripts\Modules\Module.cs" />
-     <Compile Include="Assets\Scripts\Modules\Mothership\MothershipModule.cs" />
-     <Compile Include="Assets\Scripts\Modules\Mothership\MothershipMovement.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\ResourceSpawner.cs" />
-     <Compile Include="Assets\Scripts\Utility.cs" />
+     <Compile Include="Assets\Scripts\Module\LilGuy\GUIHandler.cs" />
+     <Compile Include="Assets\Scripts\Module\LilGuy\LilGuy.cs" />
+     <Compile Include="Assets\Scripts\Module\LilGuy\Movement.cs" />
+     <Compile Include="Assets\Scripts\Module\LilGuy\ResourceHandler.cs" />
+     <Compile Include="Assets\Scripts\Module\LilGuy\TractorBeam.cs" />
+     <Compile Include="Assets\Scripts\Module\Module.cs" />
+     <Compile Include="Assets\Scripts\Module\Mothership\Mothership.cs" />
+     <Compile Include="Assets\Scripts\Module\Mothership\Movement.cs" />
+     <Compile Include="Assets\Scripts\Player\Movement.cs" />
+     <Compile Include="Assets\Scripts\System\DrawWalls.cs" />
+     <Compile Include="Assets\Scripts\System\FramesPerSecond.cs" />
+     <Compile Include="Assets\Scripts\System\ResourceSpawner.cs" />
+     <Compile Include="Assets\Scripts\System\Utility.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
