@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Collectible\Collectible.cs" />
-     <Compile Include="Assets\Scripts\Module\IResourceHandler.cs" />
      <Compile Include="Assets\Scripts\Module\LilGuy\GUIHandler.cs" />
      <Compile Include="Assets\Scripts\Module\LilGuy\LilGuy.cs" />
      <Compile Include="Assets\Scripts\Module\LilGuy\Movement.cs" />

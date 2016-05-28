@@ -5,7 +5,8 @@ using ScopeCreep;
 namespace ScopeCreep.Collectible {
 	public class Collectible : MonoBehaviour {
 		public enum CollectibleType{
-			SPACEDOLLARS
+			SPACEDOLLARS,
+			TEST
 		};
 
 		public CollectibleType type;
