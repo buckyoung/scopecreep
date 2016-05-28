@@ -5,14 +5,12 @@ namespace ScopeCreep.Enemy {
 	public class Tower : MonoBehaviour {
 		public int hitPoints = 50;
 
-		// Use this for initialization
 		void Start () {
 
 		}
 		
-		// Update is called once per frame
 		void Update () {
-		
+			// TODO: We'll need to do some onCollider stuff with PlayerBullets or something-
 		}
 	}
 }

@@ -1,36 +1,55 @@
 ﻿using UnityEngine;
 using System.Collections;
+using ScopeCreep.Enemy.TurretBase;
 
-namespace Enemy.Gun {
+namespace ScopeCreep.Enemy.Gun {
 	public class Gun : MonoBehaviour {
-		public GameObject target = null;
 		public int ammo = 100;
-		public float speed = 5;
+		public string projectilePrefab;
+		public float projectileForce = 20f;
+		public float attackSpeed = 3f;
+		private bool isReadyToShoot = true;
+		private bool isTargetShootable;
 
-		// Use this for initialization
-		void Start() {
+		private void Start() {
+			subscribe();
 		}
 		
-		// Update is called once per frame
-		void Update() {
-			if (target != null) {
-				Vector3 vectorToTarget = target.transform.position - transform.position;
-				float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-				Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-				transform.rotation = Quaternion.SlerpUnclamped(transform.rotation, q, Time.deltaTime *speed);
+		private void Update() {
+			if (isTargetShootable && ammo > 0 && isReadyToShoot) {
+				shoot();
 			}
 		}
 
-		private void OnTriggerEnter2D(Collider2D col) {
-			if ( col.gameObject.layer == LayerMask.NameToLayer("Childship") ) {
-				target = col.gameObject;
-			}
+		private void shoot() {
+			GameObject projectile = (GameObject)Instantiate(
+				Resources.Load(projectilePrefab), 
+				transform.position,
+				transform.rotation
+			);
+
+			projectile.GetComponent<Rigidbody2D>().AddForce(projectile.transform.right * projectileForce * Time.deltaTime);
+
+			ammo--;
+
+			isReadyToShoot = false;
+			StartCoroutine( shootCoolDown() );
+
 		}
 
-		private void OnTriggerExit2D(Collider2D col) {
-			if ( col.gameObject.layer == LayerMask.NameToLayer("Childship") ) {
-				target = null;
-			}
+		private IEnumerator shootCoolDown() {
+			yield return new WaitForSeconds(1f / attackSpeed);
+			isReadyToShoot = true;
+		}
+
+		/* 
+		 * User Functions
+		 */
+
+		void subscribe() {
+			TurretBase.TurretBase.onEnemyFound += (eventObject, isFound) => {
+				isTargetShootable = isFound;
+			};
 		}
 	}
 }

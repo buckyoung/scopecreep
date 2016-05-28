@@ -299,7 +299,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  ammo: 50
   speed: 1
 --- !u!1 &547681315
 GameObject:
@@ -522,7 +521,7 @@ GameObject:
   - 212: {fileID: 1552310552}
   - 114: {fileID: 1552310553}
   m_Layer: 0
-  m_Name: Barrel
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -579,12 +578,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1552310550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81c4250387fd24ed08339eb7c8ac4948, type: 3}
+  m_Script: {fileID: 11500000, guid: b22162e31d04544b79a609fa0b742d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  ammo: 50
-  speed: 1
+  ammo: 100
+  projectilePrefab: TurretBullet
+  projectileForce: 20000
 --- !u!1 &2127258702
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +596,7 @@ GameObject:
   - 114: {fileID: 2127258706}
   - 58: {fileID: 2127258705}
   m_Layer: 0
-  m_Name: Gun
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -673,5 +672,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  ammo: 100
   speed: 5
