@@ -33,12 +33,11 @@ public class LilGuyMovement : MonoBehaviour {
 
 	public IEnumerator playAnimation_shipEnter() {
 		var speed = 2.0f;
-		var endPosition = lilGuyModule.transform.position;
 
 		lilGuyModule.canActivePlayerControlModule = false; // Player has no control of childship during animation
 		Physics2D.IgnoreCollision(boxCollider2D, msBottomBoxCollider2D, true); // Ship will not collide with bottom of mothership during animation
 
-		yield return StartCoroutine( gameObject.moveObjectWithSpeed2D(endPosition, speed) );
+		yield return StartCoroutine( gameObject.moveToObjectWithSpeed2D(lilGuyModule.gameObject, speed) );
 
 		lilGuyModule.canActivePlayerDisengage = true; // Allow player to exit the childship
 	}
@@ -50,7 +49,7 @@ public class LilGuyMovement : MonoBehaviour {
 		lilGuyModule.canActivePlayerControlModule = false; // Player has no control of childship during animation
 		Physics2D.IgnoreCollision(boxCollider2D, msBottomBoxCollider2D, true); // Ship will not collide with bottom of mothership during animation
 
-		yield return StartCoroutine( gameObject.moveObjectInSeconds2D(endPosition, time) ); // Childship exits mothership over T seconds
+		yield return StartCoroutine( gameObject.moveInSeconds2D(endPosition, time) ); // Childship exits mothership over T seconds
 
 		lilGuyModule.canActivePlayerControlModule = true; // Return childship control to player
 		Physics2D.IgnoreCollision(boxCollider2D, msBottomBoxCollider2D, false); // Reenable collisions with mothership

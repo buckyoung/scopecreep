@@ -275,7 +275,7 @@ GameObject:
   - 4: {fileID: 728842150}
   - 212: {fileID: 728842149}
   m_Layer: 0
-  m_Name: ' '
+  m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,10 +362,6 @@ Prefab:
     - target: {fileID: 495264, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11426454, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
-      propertyPath: speed
-      value: 0.82
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5893f8cef81541e7a252b8a382fae94, type: 2}
