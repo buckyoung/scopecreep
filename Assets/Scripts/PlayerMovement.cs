@@ -9,10 +9,12 @@ public class PlayerMovement : MonoBehaviour {
 	private bool isTouchingLadder = false;
 	private float speed = 150.0f;
 	private int jumpHeight = 30;
+	private Rigidbody2D rigidbody2D;
 	private PointEffector2D planetPointEffector2D;
 	
 	void Start() {
 		planetPointEffector2D = GameObject.Find("Planet").GetComponent<PointEffector2D>();
+		rigidbody2D = GetComponent<Rigidbody2D>();
 
 		// Ignore collisions between PlayerCharacters
 		Physics2D.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
@@ -44,15 +46,15 @@ public class PlayerMovement : MonoBehaviour {
 
 			if (isTouchingLadder) {
 				var scalar = -planetPointEffector2D.forceMagnitude;
-				GetComponent<Rigidbody2D>().AddForce(transform.up * scalar); // Effectively undo gravity when on ladder
+				rigidbody2D.AddForce(transform.up * scalar); // Effectively undo gravity when on ladder
 
 				movement += new Vector2(0, Input.GetAxis(playerId + "_AXIS_Y")); // Allow Y movement on ladder
 			}
 
-			GetComponent<Rigidbody2D>().AddRelativeForce(movement * speed * Time.deltaTime);
+			rigidbody2D.AddRelativeForce(movement * speed * Time.deltaTime);
 
 			if (Input.GetButtonDown(playerId + "_BTN_A") && canJump) {
-				GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(0, jumpHeight) * Time.deltaTime, ForceMode2D.Impulse);
+				rigidbody2D.AddRelativeForce(new Vector2(0, jumpHeight) * Time.deltaTime, ForceMode2D.Impulse);
 				canJump = false;
 			}
 		}
