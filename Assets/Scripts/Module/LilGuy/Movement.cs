@@ -42,7 +42,7 @@ namespace ScopeCreep.Module.LilGuy {
 
 			yield return StartCoroutine( gameObject.moveToObjectWithSpeed2D(lilGuy.gameObject, speed) );
 
-			lilGuy.canActivePlayerDisengage = true; // Allow player to exit the childship
+			lilGuy.disengage(lilGuy.activePlayerId); // Exit the childship
 		}
 
 		public IEnumerator playAnimation_shipExit() {

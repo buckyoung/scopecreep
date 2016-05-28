@@ -51,7 +51,7 @@ namespace ScopeCreep.Module {
 		 * User Functions
 		 */
 
-		private void disengage(int playerId) {
+		public void disengage(int playerId) {
 			activePlayerId = 0;
 			spriteRenderer.color = originalColor;
 
