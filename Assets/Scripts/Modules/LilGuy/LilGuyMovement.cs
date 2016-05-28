@@ -45,7 +45,7 @@ public class LilGuyMovement : MonoBehaviour {
 
 	public IEnumerator playAnimation_shipExit() {
 		var time = .2f;
-		var endPosition = transform.position - new Vector3(0f, 2f, 0f);
+		var endPosition = transform.position - (transform.up * 2.0f);
 
 		lilGuyModule.canActivePlayerControlModule = false; // Player has no control of childship during animation
 		Physics2D.IgnoreCollision(boxCollider2D, msBottomBoxCollider2D, true); // Ship will not collide with bottom of mothership during animation
