@@ -11,7 +11,9 @@ namespace ScopeCreep.Enemy.Bullet {
 		}
 
 		void OnCollisionEnter2D(Collision2D col) {
-//			Destroy(this.gameObject);
+			if ( col.gameObject.layer != LayerMask.NameToLayer("Enemy") ) {
+				Destroy(this.gameObject);
+			}
 		}
 	}
 }

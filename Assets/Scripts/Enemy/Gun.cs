@@ -22,13 +22,16 @@ namespace ScopeCreep.Enemy.Gun {
 		}
 
 		private void shoot() {
+			Vector3 bulletPosition = transform.position;
+			bulletPosition.z = 10;
+
 			GameObject projectile = (GameObject)Instantiate(
 				Resources.Load(projectilePrefab), 
-				transform.position,
+				bulletPosition,
 				transform.rotation
 			);
 
-			projectile.GetComponent<Rigidbody2D>().AddForce(projectile.transform.right * projectileForce * Time.deltaTime);
+			projectile.GetComponent<Rigidbody2D>().AddForce(projectile.transform.right * projectileForce);
 
 			ammo--;
 

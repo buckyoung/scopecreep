@@ -143,7 +143,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 243539463}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TowerGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   - 212: {fileID: 1059591738}
   - 50: {fileID: 1059591740}
   - 61: {fileID: 1059591741}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   - 4: {fileID: 1552310551}
   - 212: {fileID: 1552310552}
   - 114: {fileID: 1552310553}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammo: 100
   projectilePrefab: TurretBullet
-  projectileForce: 20000
+  projectileForce: 200
+  attackSpeed: 3
 --- !u!1 &2127258702
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +596,7 @@ GameObject:
   - 212: {fileID: 2127258704}
   - 114: {fileID: 2127258706}
   - 58: {fileID: 2127258705}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
