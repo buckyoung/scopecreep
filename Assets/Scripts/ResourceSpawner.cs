@@ -3,20 +3,23 @@ using System.Collections;
 
 public class ResourceSpawner : MonoBehaviour {
 	private GameObject mothership;
+	private int count = 0;
 
 	void Start() {
 		mothership = GameObject.Find("Mothership");
 	}
 
 	void Update () {
-		if (Input.GetKeyDown("p")) {
+		if (Input.GetButton("DebugButton")) {
 			GameObject resource = (GameObject)Instantiate(
 				Resources.Load("ResourcePrefab"), 
-				mothership.transform.position - new Vector3(0, 2, 0), 
+				mothership.transform.position - (mothership.transform.up * 2.0f), 
 				Quaternion.identity
 			);
 
 			resource.transform.localScale = new Vector3(0.5f, 0.5f, 0.0f);
+
+			Debug.Log("Number of coins: " + ++count);
 		}
 	}
 }
