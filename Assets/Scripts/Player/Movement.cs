@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ScopeCreep;
+using ScopeCreep.Module;
 
 namespace ScopeCreep.Player {
 	public class Movement : MonoBehaviour {
-		public int playerId = 1;
-
 		private bool canJump = true;
 		private bool isAtModule = false;
 		private bool isTouchingLadder = false;
@@ -13,6 +12,7 @@ namespace ScopeCreep.Player {
 		private int jumpHeight = 30;
 		private Rigidbody2D rb2D;
 		private PointEffector2D planetPointEffector2D;
+		private PlayerInfo player;
 		
 		void Start() {
 			planetPointEffector2D = GameObject.Find("Planet").GetComponent<PointEffector2D>();
@@ -22,6 +22,8 @@ namespace ScopeCreep.Player {
 			Physics2D.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
 
 			subscribe();
+
+			player = this.GetComponent<PlayerInfo>();
 		}
 
 		void OnTriggerEnter2D(Collider2D col) {
@@ -44,18 +46,18 @@ namespace ScopeCreep.Player {
 
 		void FixedUpdate() {
 			if (!isAtModule) {
-				var movement = new Vector2(Input.GetAxis(playerId + "_AXIS_X"), 0);
+				var movement = new Vector2(Input.GetAxis(player.id + "_AXIS_X"), 0);
 
 				if (isTouchingLadder) {
 					var scalar = -planetPointEffector2D.forceMagnitude;
 					rb2D.AddForce(transform.up * scalar); // Effectively undo gravity when on ladder
 
-					movement += new Vector2(0, Input.GetAxis(playerId + "_AXIS_Y")); // Allow Y movement on ladder
+					movement += new Vector2(0, Input.GetAxis(player.id + "_AXIS_Y")); // Allow Y movement on ladder
 				}
 
 				rb2D.AddRelativeForce(movement * speed * Time.deltaTime);
 
-				if (Input.GetButtonDown(playerId + "_BTN_A") && canJump) {
+				if (Input.GetButtonDown(player.id + "_BTN_A") && canJump) {
 					rb2D.AddRelativeForce(new Vector2(0, jumpHeight) * Time.deltaTime, ForceMode2D.Impulse);
 					canJump = false;
 				}
@@ -66,8 +68,8 @@ namespace ScopeCreep.Player {
 		 * User Functions
 		 */
 		void subscribe() {
-			Module.ShipModule.onModuleInteraction += (eventObject, playerId, isEngaged) => {
-				if (this.playerId == playerId) {
+			ShipModule.onModuleInteraction += (eventObject, player, isEngaged) => {
+				if (this.GetComponent<PlayerInfo>().id == player.id) {
 					this.isAtModule = isEngaged;
 				}
 			};
