@@ -5,7 +5,7 @@ using ScopeCreep.Collectible;
 
 namespace ScopeCreep.Module.LilGuy { 
 	public class ResourceHandler : ResourceManager {
-		private int maximum = 10;
+		private float maximum = 10.0f;
 
 		void OnTriggerEnter2D(Collider2D other) {
 			if (other.gameObject.tag == "Collectible") {
@@ -23,7 +23,7 @@ namespace ScopeCreep.Module.LilGuy {
 		/*
 		 * User Functions
 		 */
-		public int getMaximum() {
+		public float getMaximum() {
 			return maximum;
 		}
 	}

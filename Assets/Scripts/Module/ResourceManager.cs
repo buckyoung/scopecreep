@@ -30,14 +30,16 @@ namespace ScopeCreep.Module {
 		}
 
 		private void subscribe() {
-			// Collect all childship resources upon redocking with mothership
-			LilGuy.LilGuy.onLilGuyInteraction += (eventObject, isEngaged) => {
-				if (!isEngaged) {
-					emptyInto(lilGuyResourceHandler.cargoHold, mothershipResourceHandler.cargoHold);
-				} else {
-					refuel(mothershipResourceHandler.cargoHold, lilGuyResourceHandler.cargoHold);
-				}
-			};
+			// Collect all childship resources upon redocking with mothership // And refuel upon exiting
+			if (gameObject.name == "LilGuy") {
+				LilGuy.LilGuy.onLilGuyInteraction += (eventObject, isEngaged) => {
+					if (!isEngaged) {
+						emptyInto(lilGuyResourceHandler.cargoHold, mothershipResourceHandler.cargoHold);
+					} else {
+						refuelLilGuy();
+					}
+				};
+			}
 		}
 
 		protected void addResource(Resource.ResourceType type, float amount) {
@@ -51,8 +53,14 @@ namespace ScopeCreep.Module {
 			}
 		}
 
-		protected void refuel(Dictionary<Resource.ResourceType, float> source, Dictionary<Resource.ResourceType, float> destination) {
-			
+		protected void refuelLilGuy() {
+			float available = mothershipResourceHandler.cargoHold[Resource.ResourceType.FUEL];
+			float requested = lilGuyResourceHandler.getMaximum();
+
+			float amount = available >= requested ? requested : available; // Give childship the requested amount unless mothership has less than that
+
+			lilGuyResourceHandler.cargoHold[Resource.ResourceType.FUEL] += amount;
+			mothershipResourceHandler.cargoHold[Resource.ResourceType.FUEL] -= amount;
 		}
 
 		public float getResource(Resource.ResourceType type) {
