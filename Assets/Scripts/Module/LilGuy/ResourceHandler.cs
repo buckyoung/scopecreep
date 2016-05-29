@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ScopeCreep;
+using ScopeCreep.Collectible;
 
 namespace ScopeCreep.Module.LilGuy { 
 	public class ResourceHandler : ResourceManager {
@@ -9,7 +10,7 @@ namespace ScopeCreep.Module.LilGuy {
 		void OnTriggerEnter2D(Collider2D other) {
 			if (other.gameObject.tag == "Collectible") {
 
-				Collectible.Collectible.CollectibleType type = other.GetComponent<Collectible.Collectible>().type;
+				Resource.ResourceType type = other.GetComponent<Resource>().type;
 
 				if (cargoHold[type] < maximum) {
 					base.addResource(type, 1.0f);

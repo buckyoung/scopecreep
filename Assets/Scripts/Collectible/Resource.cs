@@ -3,12 +3,12 @@ using System.Collections;
 using ScopeCreep;
 
 namespace ScopeCreep.Collectible {
-	public class Collectible : MonoBehaviour {
-		public enum CollectibleType{
+	public class Resource : MonoBehaviour {
+		public enum ResourceType{
 			SPACEDOLLARS,
-			TEST
+			FUEL
 		};
 
-		public CollectibleType type;
+		public ResourceType type;
 	}
 }
