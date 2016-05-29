@@ -73,7 +73,7 @@ namespace ScopeCreep.Player {
 
 			// The player wants to jump
 			ButtonEventManager.onAButtonDown += (eventObject, playerId) => {
-				if (canJump) {
+				if (this.GetComponent<PlayerInfo>().id == playerId && canJump) {
 					rb2D.AddRelativeForce(new Vector2(0, jumpHeight) * Time.deltaTime, ForceMode2D.Impulse);
 					canJump = false;
 				}
