@@ -8,10 +8,16 @@ namespace ScopeCreep.System {
 
 		void Start() {
 			mothership = GameObject.Find("Mothership");
+
+			subscribe();
 		}
 
-		void Update () {
-			if (Input.GetButton("DebugButton")) {
+		/*
+		 * User Functions
+		 */
+		private void subscribe() {
+			// Drop resource under ship (DEBUG)
+			ButtonEventManager.onDebugButtonDown += (eventObject, playerId) => {
 				GameObject resource = (GameObject)Instantiate(
 					Resources.Load("ResourcePrefab"), 
 					mothership.transform.position - (mothership.transform.up * 2.0f), 
@@ -19,7 +25,7 @@ namespace ScopeCreep.System {
 				);
 
 				resource.transform.localScale = new Vector3(0.5f, 0.5f, 0.0f);
-			}
+			};
 		}
 	}
 }

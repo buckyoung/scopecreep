@@ -2,6 +2,7 @@
 using System.Collections;
 using ScopeCreep;
 using ScopeCreep.Module;
+using ScopeCreep.System;
 
 namespace ScopeCreep.Player {
 	public class Movement : MonoBehaviour {
@@ -68,9 +69,18 @@ namespace ScopeCreep.Player {
 		 * User Functions
 		 */
 		void subscribe() {
+			// The player interacted with a module
 			ShipModule.onModuleInteraction += (eventObject, player, isEngaged) => {
 				if (this.GetComponent<PlayerInfo>().id == player.id) {
 					this.isAtModule = isEngaged;
+				}
+			};
+
+			// The player wants to jump
+			ButtonEventManager.onAButtonDown += (eventObject, playerId) => {
+				if (canJump) {
+					rb2D.AddRelativeForce(new Vector2(0, jumpHeight) * Time.deltaTime, ForceMode2D.Impulse);
+					canJump = false;
 				}
 			};
 		}
