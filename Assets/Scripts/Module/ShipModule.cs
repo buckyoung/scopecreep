@@ -2,6 +2,7 @@
 using System.Collections;
 using ScopeCreep;
 using ScopeCreep.Player;
+using ScopeCreep.System;
 
 namespace ScopeCreep.Module {
 	public abstract class ShipModule : MonoBehaviour {
@@ -31,6 +32,8 @@ namespace ScopeCreep.Module {
 
 			spriteRenderer = this.GetComponent<SpriteRenderer>();
 			originalColor = spriteRenderer.color;
+
+			subscribe();
 		}
 
 		protected void OnTriggerEnter2D(Collider2D col) {
@@ -47,14 +50,22 @@ namespace ScopeCreep.Module {
 			}
 		}
 
-		protected void Update() {
-			updateModuleInteractionForPlayer(1);
-			updateModuleInteractionForPlayer(2);
-		}
-
 		/*
 		 * User Functions
 		 */
+
+		private void subscribe() {
+			// Check if module interaction
+			ButtonEventManager.onXButtonDown += (eventObject, playerId) => {
+				if (isPlayerTouching[ playerId - 1 ]) { // Is the player touching this module when they hit X?
+					if (activePlayerId == 0) { // No active player
+						performEngage(playerId);
+					} else if (activePlayerId == playerId && canActivePlayerDisengage) { // You are the active player and you can disengage 
+						performDisengage(playerId);
+					}
+				}
+			};
+		}
 
 		public void performDisengage(int playerId) {
 			int index = playerId -1;
@@ -74,18 +85,6 @@ namespace ScopeCreep.Module {
 			toggleModuleGlow(true);
 
 			if (onModuleInteraction != null) onModuleInteraction(this, players[index], true);
-		}
-
-		private void updateModuleInteractionForPlayer(int playerId) {
-			int index = playerId - 1;
-
-			if (Input.GetButtonDown(playerId + "_BTN_X") && isPlayerTouching[index]) { 
-				if (activePlayerId == 0) { // No active player
-					performEngage(playerId);
-				} else if (activePlayerId == playerId && canActivePlayerDisengage) { // You are the active player and you can disengage 
-					performDisengage(playerId);
-				}
-			}
 		}
 
 		private void toggleModuleGlow(bool isEngage) {

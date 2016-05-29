@@ -1,58 +1,44 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ScopeCreep;
+using ScopeCreep.System;
 
 namespace ScopeCreep.Module.LilGuy { 
 	public class Module : ShipModule {
 		private Movement movement;
-		private int previousActivePlayerId = 0; 
 		private TractorBeam tractorBeam;
 
 		new void Start() {
 			base.Start();
+
 			movement = GameObject.Find("LilGuy").GetComponent<Movement>();
 			tractorBeam = GameObject.Find("TractorBeam").GetComponent<TractorBeam>();
-		}
 
-		new void Update() {
-			base.Update();
-
-			// First frame after player has engaged with the module
-			if (previousActivePlayerId == 0 && activePlayerId > 0) { 
-				engage();
-			}
-
-			// First frame after player has disengaged with the module
-			if (activePlayerId == 0 && previousActivePlayerId > 0) { 
-				disengage();
-			}
-
-			// Check if inactive player has initiated the tractor beam
-			if (tractorBeam.canInitiateTractorBeam()) {
-				checkTractorBeam();
-			}
+			subscribe();
 		}
 
 		/*
 		 * User Functions
 		 */
-		
-		private void checkTractorBeam() {
-			int inactivePlayerId = (activePlayerId % 2) + 1;
 
-			if (Input.GetButtonDown(inactivePlayerId + "_BTN_X") && isPlayerTouching[inactivePlayerId-1]) {
-				StartCoroutine( tractorBeam.playAnimation_tractorBeam() );
-			}
-		}
+		private void subscribe() {
+			// Check if inactive player has initiated the tractor beam
+			ButtonEventManager.onXButtonDown += (eventObject, playerId) => {
+				if (tractorBeam.canInitiateTractorBeam()) {
+					int inactivePlayerId = (activePlayerId % 2) + 1;
 
-		private void disengage() {
-			previousActivePlayerId = 0;
-		}
+					if (inactivePlayerId == playerId && isPlayerTouching[inactivePlayerId-1]) {
+						StartCoroutine( tractorBeam.playAnimation_tractorBeam() );
+					}
+				}
+			};
 
-		private void engage() {
-			previousActivePlayerId = activePlayerId;
-
-			StartCoroutine( movement.playAnimation_shipExit() );
+			// Run ship exit animation
+			ShipModule.onModuleInteraction += (eventObject, playerId, isEngaged) => {
+				if (eventObject is LilGuy.Module && isEngaged) {
+					StartCoroutine( movement.playAnimation_shipExit() );
+				}
+			};
 		}
 	}
 }
