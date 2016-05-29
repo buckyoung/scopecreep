@@ -3,7 +3,7 @@ using System.Collections;
 using ScopeCreep;
 
 namespace ScopeCreep.Module.LilGuy { 
-	public class LilGuy : Module {
+	public class LilGuy : ShipModule {
 		private Movement movement;
 		private int previousActivePlayerId = 0; 
 		private TractorBeam tractorBeam;

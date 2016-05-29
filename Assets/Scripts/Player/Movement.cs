@@ -66,7 +66,7 @@ namespace ScopeCreep.Player {
 		 * User Functions
 		 */
 		void subscribe() {
-			Module.Module.onModuleInteraction += (eventObject, playerId, isEngaged) => {
+			Module.ShipModule.onModuleInteraction += (eventObject, playerId, isEngaged) => {
 				if (this.playerId == playerId) {
 					this.isAtModule = isEngaged;
 				}

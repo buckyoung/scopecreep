@@ -3,7 +3,7 @@ using System.Collections;
 using ScopeCreep;
 
 namespace ScopeCreep.Module {
-	public abstract class Module : MonoBehaviour {
+	public abstract class ShipModule : MonoBehaviour {
 		public int activePlayerId = 0; // The player that is engaged with this module
 		public bool canActivePlayerControlModule = true; // There may be times when the active player cannot move the module's tool (for example: if he is in the childship when it is entering/exiting the mothership)
 		public bool canActivePlayerDisengage = true; // There may be times when the active player cannot press X to disengage (for example: if he is on the childship)
@@ -14,7 +14,7 @@ namespace ScopeCreep.Module {
 		protected SpriteRenderer spriteRenderer;
 
 		// Events
-		public delegate void ModuleInteractionEvent(Module eventObject, int playerId, bool isEngaged);
+		public delegate void ModuleInteractionEvent(ShipModule eventObject, int playerId, bool isEngaged);
 		public static event ModuleInteractionEvent onModuleInteraction;
 
 		protected void Start() {
