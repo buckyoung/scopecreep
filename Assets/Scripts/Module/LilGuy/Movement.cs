@@ -11,6 +11,11 @@ namespace ScopeCreep.Module.LilGuy {
 		private BoxCollider2D boxCollider2D;
 		private LilGuy lilGuy;
 		private BoxCollider2D msBottomBoxCollider2D;
+		private bool hasFuel = true;
+
+		// Events
+		public delegate void LilGuyMovementEvent(Movement eventObject, float totalForce);
+		public static event LilGuyMovementEvent onLilGuyMovement;
 		
 		void Start() {
 			boxCollider2D = GetComponent<BoxCollider2D>();
@@ -19,14 +24,20 @@ namespace ScopeCreep.Module.LilGuy {
 			rb2D = GetComponent<Rigidbody2D>();
 
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerCharacter"), LayerMask.NameToLayer("Childship"));
+
+			subscribe();
 		}
 
 		void FixedUpdate() {
 			int activePlayerId = lilGuy.activePlayerId;
 
-			if (activePlayerId > 0 && lilGuy.canActivePlayerControlModule) {
-				var movement = new Vector2(Input.GetAxis(activePlayerId + "_AXIS_X"), Input.GetAxis(activePlayerId + "_AXIS_Y"));
-				rb2D.AddRelativeForce(movement * speed * Time.deltaTime);
+			if (activePlayerId > 0 && lilGuy.canActivePlayerControlModule && hasFuel) {
+				Vector2 movement = new Vector2(Input.GetAxis(activePlayerId + "_AXIS_X"), Input.GetAxis(activePlayerId + "_AXIS_Y"));
+				Vector2 totalForce = movement * speed * Time.deltaTime;
+
+				rb2D.AddRelativeForce(totalForce);
+
+				onLilGuyMovement(this, totalForce.magnitude);
 			}
 		}
 
@@ -57,6 +68,14 @@ namespace ScopeCreep.Module.LilGuy {
 
 			lilGuy.canActivePlayerControlModule = true; // Return childship control to player
 			Physics2D.IgnoreCollision(boxCollider2D, msBottomBoxCollider2D, false); // Reenable collisions with mothership
+		}
+
+		private void subscribe() {
+			ResourceHandler.onFuelEvent += (eventObject, hasFuel) => {
+				if (eventObject.gameObject.name == "LilGuy") {
+					this.hasFuel = hasFuel;
+				}
+			};
 		}
 	}
 }

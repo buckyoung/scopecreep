@@ -1,15 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ScopeCreep;
+using ScopeCreep.Collectible;
 
 namespace ScopeCreep.Module.LilGuy { 
 	public class ResourceHandler : ResourceManager {
-		private int maximum = 10;
+		private float maximum = 25.0f; 
+
+		new void Start() {
+			base.Start();
+
+			subscribe();
+		}
 
 		void OnTriggerEnter2D(Collider2D other) {
 			if (other.gameObject.tag == "Collectible") {
 
-				Collectible.Collectible.CollectibleType type = other.GetComponent<Collectible.Collectible>().type;
+				Resource.ResourceType type = other.GetComponent<Resource>().type;
 
 				if (cargoHold[type] < maximum) {
 					base.addResource(type, 1.0f);
@@ -22,8 +29,22 @@ namespace ScopeCreep.Module.LilGuy {
 		/*
 		 * User Functions
 		 */
-		public int getMaximum() {
+		public float getMaximum() {
 			return maximum;
+		}
+
+		private void subscribe() {
+			Movement.onLilGuyMovement += (eventObject, totalForce) => {
+				float fuelExpenditure = Mathf.Abs(totalForce/100);
+				float currentFuel = cargoHold[Resource.ResourceType.FUEL];
+
+				if (currentFuel - fuelExpenditure <= 0) {
+					cargoHold[Resource.ResourceType.FUEL] = 0;
+					throwFuelEvent(this);
+				} else {
+					cargoHold[Resource.ResourceType.FUEL] -= fuelExpenditure;
+				}
+			};
 		}
 	}
 }
