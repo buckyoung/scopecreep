@@ -11,6 +11,8 @@ GameObject:
   - 212: {fileID: 21219724}
   - 61: {fileID: 6142220}
   - 114: {fileID: 11406936}
+  - 114: {fileID: 11402914}
+  - 114: {fileID: 11488838}
   m_Layer: 0
   m_Name: MothershipModule
   m_TagString: Untagged
@@ -1110,6 +1112,17 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168554}
   m_Enabled: 1
+--- !u!114 &11402914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c32bac1b4d6449379b3be1624c833c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11406936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1207,6 +1220,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showFPS: 1
   sampleDelay: 0.5
+--- !u!114 &11488838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6de1d44ad1641fcb65c5b60b504fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11489206
 MonoBehaviour:
   m_ObjectHideFlags: 1

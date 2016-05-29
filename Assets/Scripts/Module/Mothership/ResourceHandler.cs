@@ -8,6 +8,8 @@ namespace ScopeCreep.Module.Mothership {
 		new void Start() {
 			base.Start();
 			base.addResource(Resource.ResourceType.FUEL, 100.0f);
+
+			subscribe();
 		}
 
 		void OnTriggerEnter2D(Collider2D other) {
@@ -17,6 +19,25 @@ namespace ScopeCreep.Module.Mothership {
 
 				Destroy(other.gameObject);
 			}
+		}
+
+
+		/*
+		 * User Functions
+		 */
+
+		private void subscribe() {
+			Movement.onMothershipMovement += (eventObject, totalForce) => {
+				float fuelExpenditure = Mathf.Abs(totalForce/10);
+				float currentFuel = cargoHold[Resource.ResourceType.FUEL];
+
+				if (currentFuel - fuelExpenditure <= 0) {
+					cargoHold[Resource.ResourceType.FUEL] = 0;
+					throwOutOfFuelEvent(this);
+				} else {
+					cargoHold[Resource.ResourceType.FUEL] -= fuelExpenditure;
+				}
+			};
 		}
 	}
 }

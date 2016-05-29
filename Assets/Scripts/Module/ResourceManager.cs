@@ -11,6 +11,10 @@ namespace ScopeCreep.Module {
 		private LilGuy.ResourceHandler lilGuyResourceHandler;
 		private Mothership.ResourceHandler mothershipResourceHandler;
 
+		// Events
+		public delegate void OutOfFuelEvent(ResourceManager eventObject);
+		public static event OutOfFuelEvent onOutOfFuel;
+
 		protected void Start() {
 			lilGuyResourceHandler = GameObject.Find("LilGuy").GetComponent<ScopeCreep.Module.LilGuy.ResourceHandler>();
 			mothershipResourceHandler = GameObject.Find("MothershipModule").GetComponent<ScopeCreep.Module.Mothership.ResourceHandler>();
@@ -57,7 +61,8 @@ namespace ScopeCreep.Module {
 			float available = mothershipResourceHandler.cargoHold[Resource.ResourceType.FUEL];
 			float requested = lilGuyResourceHandler.getMaximum();
 
-			float amount = available >= requested ? requested : available; // Give childship the requested amount unless mothership has less than that
+			// Give childship the requested amount unless mothership doesnt have enough, in which case give it all
+			float amount = available >= requested ? requested : available; 
 
 			lilGuyResourceHandler.cargoHold[Resource.ResourceType.FUEL] += amount;
 			mothershipResourceHandler.cargoHold[Resource.ResourceType.FUEL] -= amount;
@@ -65,6 +70,10 @@ namespace ScopeCreep.Module {
 
 		public float getResource(Resource.ResourceType type) {
 			return cargoHold[type];
+		}
+
+		protected void throwOutOfFuelEvent(ResourceManager eventObject) {
+			onOutOfFuel(eventObject);
 		}
 	}
 }
