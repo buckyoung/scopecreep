@@ -32,7 +32,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 495264}
   - 114: {fileID: 11489206}
-  - 114: {fileID: 11484924}
   - 114: {fileID: 11443300}
   m_Layer: 0
   m_Name: Scaffold
@@ -1283,19 +1282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 871cd88e4d6c84096ae83c908daba80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11484924
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 102860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a55f52e522ed4c4e892e8f357a96bae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showFPS: 1
-  sampleDelay: 0.5
 --- !u!114 &11488838
 MonoBehaviour:
   m_ObjectHideFlags: 1
