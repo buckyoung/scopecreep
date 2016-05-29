@@ -57,11 +57,6 @@ namespace ScopeCreep.Player {
 				}
 
 				rb2D.AddRelativeForce(movement * speed * Time.deltaTime);
-
-				if (Input.GetButtonDown(player.id + "_BTN_A") && canJump) {
-					rb2D.AddRelativeForce(new Vector2(0, jumpHeight) * Time.deltaTime, ForceMode2D.Impulse);
-					canJump = false;
-				}
 			}
 		}
 
