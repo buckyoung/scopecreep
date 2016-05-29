@@ -3,13 +3,13 @@ using System.Collections;
 using ScopeCreep;
 
 namespace ScopeCreep.Module.LilGuy { 
-	public class LilGuy : ShipModule {
+	public class Module : ShipModule {
 		private Movement movement;
 		private int previousActivePlayerId = 0; 
 		private TractorBeam tractorBeam;
 
 		// Events
-		public delegate void LilGuyInteractionEvent(LilGuy eventObject, bool isEngaged);
+		public delegate void LilGuyInteractionEvent(Module eventObject, bool isEngaged);
 		public static event LilGuyInteractionEvent onLilGuyInteraction;
 
 		new void Start() {

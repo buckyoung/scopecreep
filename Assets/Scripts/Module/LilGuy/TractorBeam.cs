@@ -6,7 +6,7 @@ namespace ScopeCreep.Module.LilGuy {
 	public class TractorBeam : MonoBehaviour {
 		private BoxCollider2D boxCollider2D;
 		private bool isChildshipTouching = false;
-		private LilGuy lilGuy;
+		private Module lilGuy;
 		private Movement movement;
 		private Rigidbody2D lilGuyRigidbody2D;
 		private Vector4 originalColor;
@@ -14,7 +14,7 @@ namespace ScopeCreep.Module.LilGuy {
 
 		void Start() {
 			boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
-			lilGuy = GameObject.Find("LilGuyModule").GetComponent<LilGuy>();
+			lilGuy = GameObject.Find("LilGuyModule").GetComponent<Module>();
 			movement = GameObject.Find("LilGuy").GetComponent<Movement>();
 			lilGuyRigidbody2D = GameObject.Find("LilGuy").GetComponent<Rigidbody2D>();
 			spriteRenderer = gameObject.GetComponent<SpriteRenderer>();

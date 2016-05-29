@@ -36,7 +36,7 @@ namespace ScopeCreep.Module {
 		private void subscribe() {
 			// Collect all childship resources upon redocking with mothership // And refuel upon exiting
 			if (gameObject.name == "LilGuy") {
-				LilGuy.LilGuy.onLilGuyInteraction += (eventObject, isEngaged) => {
+				LilGuy.Module.onLilGuyInteraction += (eventObject, isEngaged) => {
 					if (!isEngaged) {
 						emptyInto(lilGuyResourceHandler.cargoHold, mothershipResourceHandler.cargoHold);
 					} else {
