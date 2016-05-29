@@ -7,7 +7,7 @@ namespace ScopeCreep.Module.Mothership {
 	public class ResourceHandler : ResourceManager{
 		new void Start() {
 			base.Start();
-			base.addResource(Resource.ResourceType.FUEL, 100.0f);
+			base.addResource(Resource.ResourceType.FUEL, 25.0f);
 
 			subscribe();
 		}
@@ -33,7 +33,7 @@ namespace ScopeCreep.Module.Mothership {
 
 				if (currentFuel - fuelExpenditure <= 0) {
 					cargoHold[Resource.ResourceType.FUEL] = 0;
-					throwOutOfFuelEvent(this);
+					throwFuelEvent(this);
 				} else {
 					cargoHold[Resource.ResourceType.FUEL] -= fuelExpenditure;
 				}

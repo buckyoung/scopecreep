@@ -11,6 +11,7 @@ namespace ScopeCreep.Module.LilGuy {
 		private BoxCollider2D boxCollider2D;
 		private LilGuy lilGuy;
 		private BoxCollider2D msBottomBoxCollider2D;
+		private bool hasFuel = true;
 
 		// Events
 		public delegate void LilGuyMovementEvent(Movement eventObject, float totalForce);
@@ -30,14 +31,14 @@ namespace ScopeCreep.Module.LilGuy {
 		void FixedUpdate() {
 			int activePlayerId = lilGuy.activePlayerId;
 
-			if (activePlayerId > 0 && lilGuy.canActivePlayerControlModule) {
+			if (activePlayerId > 0 && lilGuy.canActivePlayerControlModule && hasFuel) {
 				Vector2 movement = new Vector2(Input.GetAxis(activePlayerId + "_AXIS_X"), Input.GetAxis(activePlayerId + "_AXIS_Y"));
 				Vector2 totalForce = movement * speed * Time.deltaTime;
 
 				rb2D.AddRelativeForce(totalForce);
 
 				onLilGuyMovement(this, totalForce.magnitude);
-			}
+			}å
 		}
 
 		/*
@@ -70,9 +71,9 @@ namespace ScopeCreep.Module.LilGuy {
 		}
 
 		private void subscribe() {
-			ResourceHandler.onOutOfFuel += (eventObject) => {
+			ResourceHandler.onFuelEvent += (eventObject, hasFuel) => {
 				if (eventObject.gameObject.name == "LilGuy") {
-					lilGuy.canActivePlayerControlModule = false;
+					this.hasFuel = hasFuel;
 				}
 			};
 		}

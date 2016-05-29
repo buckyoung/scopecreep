@@ -40,7 +40,7 @@ namespace ScopeCreep.Module.LilGuy {
 
 				if (currentFuel - fuelExpenditure <= 0) {
 					cargoHold[Resource.ResourceType.FUEL] = 0;
-					throwOutOfFuelEvent(this);
+					throwFuelEvent(this);
 				} else {
 					cargoHold[Resource.ResourceType.FUEL] -= fuelExpenditure;
 				}

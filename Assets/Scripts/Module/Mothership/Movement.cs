@@ -7,6 +7,7 @@ namespace ScopeCreep.Module.Mothership {
 		public float speed = 0.02f;
 
 		private Mothership mothership;
+		private bool hasFuel = true;
 
 		// Events
 		public delegate void MothershipMovementEvent(Movement eventObject, float totalForce);
@@ -21,7 +22,7 @@ namespace ScopeCreep.Module.Mothership {
 		void Update() {
 			int activePlayerId = mothership.activePlayerId;
 
-			if (activePlayerId > 0 && mothership.canActivePlayerControlModule) {
+			if (activePlayerId > 0 && mothership.canActivePlayerControlModule && hasFuel) {
 				float totalForce = -speed * Input.GetAxis(activePlayerId + "_AXIS_X");
 
 				transform.RotateAround(
@@ -38,9 +39,9 @@ namespace ScopeCreep.Module.Mothership {
 		 * User Functions
 		 */
 		private void subscribe() {
-			ResourceHandler.onOutOfFuel += (eventObject) => {
+			ResourceHandler.onFuelEvent += (eventObject, hasFuel) => {
 				if (eventObject.gameObject.name == "MothershipModule") {
-					mothership.canActivePlayerControlModule = false;
+					this.hasFuel = hasFuel;
 				}
 			};
 		}
