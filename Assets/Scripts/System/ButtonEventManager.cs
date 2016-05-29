@@ -8,10 +8,6 @@ namespace ScopeCreep.System {
 		public static event ButtonDownEvent onAButtonDown;
 		public static event ButtonDownEvent onXButtonDown;
 		public static event ButtonDownEvent onDebugButtonDown;
-			
-		void FixedUpdate() {
-			
-		}
 
 		void Update() {
 			// P1 & 2: Button A
