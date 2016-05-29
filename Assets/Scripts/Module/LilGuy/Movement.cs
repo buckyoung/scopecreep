@@ -9,7 +9,7 @@ namespace ScopeCreep.Module.LilGuy {
 		public float speed = 100.0f;
 
 		private BoxCollider2D boxCollider2D;
-		private LilGuy lilGuy;
+		private Module lilGuy;
 		private BoxCollider2D msBottomBoxCollider2D;
 		private bool hasFuel = true;
 
@@ -19,7 +19,7 @@ namespace ScopeCreep.Module.LilGuy {
 		
 		void Start() {
 			boxCollider2D = GetComponent<BoxCollider2D>();
-			lilGuy = GameObject.Find("LilGuyModule").GetComponent<LilGuy>();
+			lilGuy = GameObject.Find("LilGuyModule").GetComponent<Module>();
 			msBottomBoxCollider2D = GameObject.Find("MSBottom").GetComponent<BoxCollider2D>();
 			rb2D = GetComponent<Rigidbody2D>();
 
@@ -54,7 +54,7 @@ namespace ScopeCreep.Module.LilGuy {
 			yield return StartCoroutine( gameObject.moveToObjectWithSpeed2D(lilGuy.gameObject, speed) );
 
 			lilGuy.canActivePlayerDisengage = true; // Allow player to exit the childship
-			lilGuy.disengage(lilGuy.activePlayerId); // Exit the childship automatically
+			lilGuy.performDisengage(lilGuy.activePlayerId); // Exit the childship automatically
 		}
 
 		public IEnumerator playAnimation_shipExit() {

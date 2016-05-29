@@ -25,8 +25,10 @@ namespace ScopeCreep.Module.LilGuy {
 		 * User Functions
 		 */
 		void subscribe() {
-			LilGuy.onLilGuyInteraction += (eventObject, isEngaged) => {
-				isVisible = isEngaged;
+			ShipModule.onModuleInteraction += (eventObject, player, isEngaged) => {
+				if (eventObject is LilGuy.Module) {
+					isVisible = isEngaged;
+				}
 			};
 		}
 	}

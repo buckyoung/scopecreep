@@ -3,14 +3,10 @@ using System.Collections;
 using ScopeCreep;
 
 namespace ScopeCreep.Module.LilGuy { 
-	public class LilGuy : Module {
+	public class Module : ShipModule {
 		private Movement movement;
 		private int previousActivePlayerId = 0; 
 		private TractorBeam tractorBeam;
-
-		// Events
-		public delegate void LilGuyInteractionEvent(LilGuy eventObject, bool isEngaged);
-		public static event LilGuyInteractionEvent onLilGuyInteraction;
 
 		new void Start() {
 			base.Start();
@@ -50,22 +46,11 @@ namespace ScopeCreep.Module.LilGuy {
 		}
 
 		private void disengage() {
-			int index = previousActivePlayerId - 1;
 			previousActivePlayerId = 0;
-
-			if (onLilGuyInteraction != null) onLilGuyInteraction(this, false);
-
-			players[index].GetComponent<SpriteRenderer>().enabled = true; // Player "exits" the childship
 		}
 
 		private void engage() {
-			int index = activePlayerId - 1;
 			previousActivePlayerId = activePlayerId;
-
-			if (onLilGuyInteraction != null) onLilGuyInteraction(this, true);
-
-			players[index].GetComponent<SpriteRenderer>().enabled = false; // Player "enters" the childship
-			canActivePlayerDisengage = false; // activePlayer cannot disengage without help from other player
 
 			StartCoroutine( movement.playAnimation_shipExit() );
 		}

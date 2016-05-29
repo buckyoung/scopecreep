@@ -6,7 +6,7 @@ namespace ScopeCreep.Module.Mothership {
 	public class Movement : MonoBehaviour {
 		public float speed = 0.02f;
 
-		private Mothership mothership;
+		private Module mothership;
 		private bool hasFuel = true;
 
 		// Events
@@ -14,7 +14,7 @@ namespace ScopeCreep.Module.Mothership {
 		public static event MothershipMovementEvent onMothershipMovement;
 
 		void Start() {
-			mothership = GameObject.Find("MothershipModule").GetComponent<Mothership>();
+			mothership = GameObject.Find("MothershipModule").GetComponent<Module>();
 
 			subscribe();
 		}

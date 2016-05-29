@@ -1,43 +1,48 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ScopeCreep;
+using ScopeCreep.Player;
 
 namespace ScopeCreep.Module {
-	public class Module : MonoBehaviour {
+	public abstract class ShipModule : MonoBehaviour {
 		public int activePlayerId = 0; // The player that is engaged with this module
 		public bool canActivePlayerControlModule = true; // There may be times when the active player cannot move the module's tool (for example: if he is in the childship when it is entering/exiting the mothership)
 		public bool canActivePlayerDisengage = true; // There may be times when the active player cannot press X to disengage (for example: if he is on the childship)
+		public PlayerInfo[] players = new PlayerInfo[2];
 
+		protected IEngage engageBehavior;
 		protected bool[] isPlayerTouching = new bool[2];
-		protected Vector4 originalColor;
-		protected GameObject[] players = new GameObject[2];
-		protected SpriteRenderer spriteRenderer;
+
+		private SpriteRenderer spriteRenderer;
+		private Vector4 originalColor;
 
 		// Events
-		public delegate void ModuleInteractionEvent(Module eventObject, int playerId, bool isEngaged);
+		public delegate void ModuleInteractionEvent(ShipModule eventObject, PlayerInfo player, bool isEngaged);
 		public static event ModuleInteractionEvent onModuleInteraction;
 
 		protected void Start() {
-			players[0] = GameObject.Find("Player1");
-			players[1] = GameObject.Find("Player2");
+			players[0] = GameObject.Find("Player1").GetComponent<PlayerInfo>();
+			players[1] = GameObject.Find("Player2").GetComponent<PlayerInfo>();
 
 			isPlayerTouching[0] = false;
 			isPlayerTouching[1] = false;
 
-			spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+			engageBehavior = this.GetComponent<IEngage>();
+
+			spriteRenderer = this.GetComponent<SpriteRenderer>();
 			originalColor = spriteRenderer.color;
 		}
 
 		protected void OnTriggerEnter2D(Collider2D col) {
 			if (col.gameObject.tag == "Player") { 
-				var index = col.gameObject.GetComponent<Player.Movement>().playerId - 1;
+				var index = col.gameObject.GetComponent<PlayerInfo>().id - 1;
 				isPlayerTouching[index] = true;
 			}
 		}
 
 		protected void OnTriggerExit2D(Collider2D col) {
 			if (col.gameObject.tag == "Player") { 
-				var index = col.gameObject.GetComponent<Player.Movement>().playerId - 1;
+				var index = col.gameObject.GetComponent<PlayerInfo>().id - 1;
 				isPlayerTouching[index] = false;
 			}
 		}
@@ -51,24 +56,24 @@ namespace ScopeCreep.Module {
 		 * User Functions
 		 */
 
-		public void disengage(int playerId) {
-			activePlayerId = 0;
-			spriteRenderer.color = originalColor;
+		public void performDisengage(int playerId) {
+			int index = playerId -1;
 
-			if (onModuleInteraction != null) onModuleInteraction(this, playerId, false);
+			activePlayerId = 0;
+			engageBehavior.disengage(this, players[index]);
+			toggleModuleGlow(false);
+
+			if (onModuleInteraction != null) onModuleInteraction(this, players[index], false);
 		}
 
-		private void engage(int playerId, int index) {
+		private void performEngage(int playerId) {
+			int index = playerId -1;
+
 			activePlayerId = playerId;
-			spriteRenderer.color = originalColor * 1.8f;
+			engageBehavior.engage(this, players[playerId-1]);
+			toggleModuleGlow(true);
 
-			players[index].transform.position = new Vector3(
-				transform.position.x, 
-				transform.position.y, 
-				players[index].transform.position.z
-			); // Move player to center of module and ensure they keep their original z coordinate
-
-			if (onModuleInteraction != null) onModuleInteraction(this, playerId, true);
+			if (onModuleInteraction != null) onModuleInteraction(this, players[index], true);
 		}
 
 		private void updateModuleInteractionForPlayer(int playerId) {
@@ -76,10 +81,18 @@ namespace ScopeCreep.Module {
 
 			if (Input.GetButtonDown(playerId + "_BTN_X") && isPlayerTouching[index]) { 
 				if (activePlayerId == 0) { // No active player
-					engage(playerId, index);
+					performEngage(playerId);
 				} else if (activePlayerId == playerId && canActivePlayerDisengage) { // You are the active player and you can disengage 
-					disengage(playerId);
+					performDisengage(playerId);
 				}
+			}
+		}
+
+		private void toggleModuleGlow(bool isEngage) {
+			if (isEngage) {
+				spriteRenderer.color = originalColor * 1.8f;
+			} else {
+				spriteRenderer.color = originalColor;
 			}
 		}
 	}
