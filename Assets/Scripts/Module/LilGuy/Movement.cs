@@ -38,7 +38,7 @@ namespace ScopeCreep.Module.LilGuy {
 				rb2D.AddRelativeForce(totalForce);
 
 				onLilGuyMovement(this, totalForce.magnitude);
-			}å
+			}
 		}
 
 		/*
