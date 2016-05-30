@@ -30,6 +30,12 @@ namespace ScopeCreep.Enemy.TurretBase {
 				target = col.gameObject;
 				onEnemyFound(this, true);
 			}
+
+			// TODO BUCK Generalize this rule -- this is used during the planet gen process
+			if (col.gameObject.transform.parent.name == "TowerGun(Clone)" 
+				&& !col.gameObject.transform.parent.gameObject.Equals(this.gameObject.transform.parent.gameObject)) {
+				Destroy(col.gameObject.transform.parent.gameObject);
+			}
 		}
 
 		private void OnTriggerExit2D(Collider2D col) {

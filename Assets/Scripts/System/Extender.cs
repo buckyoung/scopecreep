@@ -32,9 +32,9 @@ namespace ScopeCreep.System {
 			}
 		}
 
-		public static Quaternion getRotationTo(this Vector3 sourcePosition, Vector3 targetPosition, float offset = 0.0f) {
+		public static Quaternion getRotationTo(this Vector3 sourcePosition, Vector3 targetPosition, float angleOffset = 0.0f) {
 			Vector3 vectorToTarget = targetPosition - sourcePosition;
-			float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg + offset;
+			float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg + angleOffset;
 			return Quaternion.AngleAxis(angle, Vector3.forward);
 		}
 	}
