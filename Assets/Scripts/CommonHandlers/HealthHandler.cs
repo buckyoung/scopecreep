@@ -30,7 +30,7 @@ namespace ScopeCreep.CommonHandlers {
 		 * User Functions
 		 */
 		public int gethitPoints() {
-			return this.hitPoints;
+			return this.hitPoints; 
 		}
 	}
 }
