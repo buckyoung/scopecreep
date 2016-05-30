@@ -12,9 +12,9 @@ GameObject:
   - 50: {fileID: 5027124}
   - 58: {fileID: 5864840}
   - 114: {fileID: 11429778}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: TurretBullet
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdee3f95a1a2d470d9e676146535d705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageToDeal: 2
 --- !u!212 &21249904
 SpriteRenderer:
   m_ObjectHideFlags: 1
