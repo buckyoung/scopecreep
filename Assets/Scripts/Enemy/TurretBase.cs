@@ -10,6 +10,10 @@ namespace ScopeCreep.Enemy.TurretBase {
 		public delegate void EnemyFoundEvent(TurretBase eventObject, bool isFound);
 		public static event EnemyFoundEvent onEnemyFound;
 
+		void Start() {
+			subscribe();
+		}
+
 		void Update() {
 			if (target != null) {
 				Vector3 vectorToTarget = target.transform.position - transform.position;
@@ -31,6 +35,17 @@ namespace ScopeCreep.Enemy.TurretBase {
 				target = null;
 				onEnemyFound(this, false);
 			}
+		}
+
+		/*
+		 * User Functions
+		 */
+		void subscribe() {
+			ScopeCreep.CommonHandlers.HealthHandler.onDeath += (eventObject, isDead) => {
+				if (eventObject.gameObject == target) {
+					onEnemyFound(this, !isDead);
+				}
+			};
 		}
 	}
 }
