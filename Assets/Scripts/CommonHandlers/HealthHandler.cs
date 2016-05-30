@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using ScopeCreep.CommonHandlers;
 
 namespace ScopeCreep.CommonHandlers {
 	public class HealthHandler : MonoBehaviour {
