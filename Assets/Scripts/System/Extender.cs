@@ -30,7 +30,12 @@ namespace ScopeCreep.System {
 				targetPosition.z = sourcePosition.z; // Maintain original z coordinate
 				yield return null;
 			}
+		}
 
+		public static Quaternion getRotationTo(this Vector3 sourcePosition, Vector3 targetPosition, float offset = 0.0f) {
+			Vector3 vectorToTarget = targetPosition - sourcePosition;
+			float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg + offset;
+			return Quaternion.AngleAxis(angle, Vector3.forward);
 		}
 	}
 }
