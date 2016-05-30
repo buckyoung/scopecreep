@@ -139,6 +139,7 @@ GameObject:
   - 58: {fileID: 439264654}
   - 58: {fileID: 439264651}
   - 250: {fileID: 439264652}
+  - 114: {fileID: 439264653}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Ground
@@ -222,6 +223,17 @@ PointEffector2D:
   m_ForceSource: 1
   m_ForceTarget: 0
   m_ForceMode: 0
+--- !u!114 &439264653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 439264648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8775ba2aea6664be6a8df54d4cac6bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &439264654
 CircleCollider2D:
   m_ObjectHideFlags: 0
