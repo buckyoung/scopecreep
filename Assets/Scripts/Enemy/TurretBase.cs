@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using ScopeCreep.System;
 
 namespace ScopeCreep.Enemy.TurretBase {
 	public class TurretBase : MonoBehaviour {
@@ -16,10 +17,11 @@ namespace ScopeCreep.Enemy.TurretBase {
 
 		void Update() {
 			if (target != null) {
-				Vector3 vectorToTarget = target.transform.position - transform.position;
-				float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-				Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-				transform.rotation = Quaternion.SlerpUnclamped(transform.rotation, q, Time.deltaTime *speed);
+				transform.rotation = Quaternion.SlerpUnclamped(
+					transform.rotation,
+					transform.position.getRotationTo(target.transform.position), 
+					Time.deltaTime * speed
+				);
 			}
 		}
 
@@ -27,6 +29,12 @@ namespace ScopeCreep.Enemy.TurretBase {
 			if ( col.gameObject.layer == LayerMask.NameToLayer("Childship") ) {
 				target = col.gameObject;
 				onEnemyFound(this, true);
+			}
+
+			// TODO BUCK Generalize this rule -- this is used during the planet gen process
+			if (col.gameObject.transform.parent.name == "TowerGun(Clone)" 
+				&& !col.gameObject.transform.parent.gameObject.Equals(this.gameObject.transform.parent.gameObject)) {
+				Destroy(col.gameObject.transform.parent.gameObject);
 			}
 		}
 
