@@ -22,6 +22,10 @@ namespace ScopeCreep.Enemy.Gun {
 			}
 		}
 
+		private void OnDestroy() {
+			TurretBase.TurretBase.onEnemyFound -= onEnemyFoundListener;
+		}
+
 		/* 
 		 * User Functions
 		 */
@@ -50,11 +54,13 @@ namespace ScopeCreep.Enemy.Gun {
 		}
 
 		void subscribe() {
-			TurretBase.TurretBase.onEnemyFound += (eventObject, isFound) => {
-				if ( eventObject == GetComponentInParent<TurretBase.TurretBase>() ) {
-					isTargetShootable = isFound;
-				}
-			};
+			TurretBase.TurretBase.onEnemyFound += onEnemyFoundListener;
+		}
+
+		private void onEnemyFoundListener(TurretBase.TurretBase eventObject, bool isFound) {
+			if ( eventObject == GetComponentInParent<TurretBase.TurretBase>() ) {
+				isTargetShootable = isFound;
+			}
 		}
 	}
 }
