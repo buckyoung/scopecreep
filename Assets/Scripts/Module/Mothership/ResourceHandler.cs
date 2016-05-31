@@ -7,7 +7,7 @@ namespace ScopeCreep.Module.Mothership {
 	public class ResourceHandler : ResourceManager{
 		new void Start() {
 			base.Start();
-			base.addResource(Resource.ResourceType.FUEL, 100.0f); // Starting fuel in mothership
+			base.addResource(Resource.ResourceType.FUEL, 500.0f); // Starting fuel in mothership
 
 			subscribe();
 		}

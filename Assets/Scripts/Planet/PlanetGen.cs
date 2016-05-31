@@ -20,7 +20,7 @@ namespace ScopeCreep.Planet {
 			// The TurretBase OnTriggerEnter2D will destroy a guns that is too close to another
 			// So in the end you will have <= 30 turrets
 			// TODO BUCK -- this is the first pass, we will need to generalize this solution
-			for (var i = 0; i < 30; i++) {
+			for (var i = 0; i < 50; i++) {
 				GameObject resource = Resources.Load("TowerGun") as GameObject;
 				resource.transform.position = getRandomPositionOnOusideOfPlanet(resource);
 

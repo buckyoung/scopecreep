@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ScopeCreep.System;
+using ScopeCreep.CommonHandlers;
 
 namespace ScopeCreep.Enemy.TurretBase {
 	public class TurretBase : MonoBehaviour {
@@ -25,6 +26,14 @@ namespace ScopeCreep.Enemy.TurretBase {
 			}
 		}
 
+		private void OnDestroy() {
+			HealthHandler.onDeath -= onDeathListener;
+		}
+
+		/*
+		 * User Functions
+		 */
+
 		private void OnTriggerEnter2D(Collider2D col) {
 			if ( col.gameObject.layer == LayerMask.NameToLayer("Childship") ) {
 				target = col.gameObject;
@@ -32,7 +41,8 @@ namespace ScopeCreep.Enemy.TurretBase {
 			}
 
 			// TODO BUCK Generalize this rule -- this is used during the planet gen process
-			if (col.gameObject.transform.parent.name == "TowerGun(Clone)" 
+			if (col.gameObject.transform.parent != null 
+				&& col.gameObject.transform.parent.name == "TowerGun(Clone)" 
 				&& !col.gameObject.transform.parent.gameObject.Equals(this.gameObject.transform.parent.gameObject)) {
 				Destroy(col.gameObject.transform.parent.gameObject);
 			}
@@ -48,12 +58,15 @@ namespace ScopeCreep.Enemy.TurretBase {
 		/*
 		 * User Functions
 		 */
-		void subscribe() {
-			ScopeCreep.CommonHandlers.HealthHandler.onDeath += (eventObject, isDead) => {
-				if (eventObject.gameObject == target) {
-					onEnemyFound(this, !isDead);
-				}
-			};
+		private void subscribe() {
+			HealthHandler.onDeath += onDeathListener;
+		}
+
+
+		private void onDeathListener(HealthHandler eventObject, bool isDead) {
+			if (eventObject.gameObject == target) {
+				onEnemyFound(this, !isDead);
+			}
 		}
 	}
 }
