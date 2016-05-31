@@ -7,10 +7,12 @@ namespace ScopeCreep.Enemy.Gun {
 		public int ammo = 100;
 		public float attackSpeed = 3f;
 		public string projectilePrefab = "TurretBullet";
+		public string resourcePrefab = "SpaceDollarsPrefab";
 		public float projectileForce = 100f;
 
 		private bool isReadyToShoot = true;
 		private bool isTargetShootable;
+		private bool isApplicationQuitting = false;
 
 		private void Start() {
 			subscribe();
@@ -24,6 +26,22 @@ namespace ScopeCreep.Enemy.Gun {
 
 		private void OnDestroy() {
 			TurretBase.TurretBase.onEnemyFound -= onEnemyFoundListener;
+
+			// Spawn in resources upon enemy death
+			if (!isApplicationQuitting) { // This is needed if you are going to instantiate objects on an object destroy
+				int amt = ammo / 30; // One spacebux for every 30 ammo
+				for (int i = 0; i < amt; i++) {
+					Instantiate(
+						Resources.Load(resourcePrefab), 
+						transform.position,
+						transform.rotation
+					);
+				}
+			}
+		}
+
+		private void OnApplicationQuit() {
+			isApplicationQuitting = true;
 		}
 
 		/* 
@@ -45,7 +63,6 @@ namespace ScopeCreep.Enemy.Gun {
 
 			isReadyToShoot = false;
 			StartCoroutine( shootCoolDown() );
-
 		}
 
 		private IEnumerator shootCoolDown() {

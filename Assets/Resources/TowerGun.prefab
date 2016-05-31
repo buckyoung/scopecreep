@@ -76,9 +76,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195570}
   m_LocalRotation: {x: 0.000000871033, y: -0.00000007467382, z: -0.99634534, w: -0.085416906}
-  m_LocalPosition: {x: 46.734116, y: 19.29605, z: -8}
+  m_LocalPosition: {x: -42.89599, y: 7.416014, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.0001, z: 170.2}
   m_Children:
   - {fileID: 473734}
   - {fileID: 492006}
@@ -183,6 +183,7 @@ MonoBehaviour:
   ammo: 100
   attackSpeed: 3
   projectilePrefab: TurretBullet
+  resourcePrefab: SpaceDollarsPrefab
   projectileForce: 100
 --- !u!114 &11475326
 MonoBehaviour:
