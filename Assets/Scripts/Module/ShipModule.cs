@@ -5,6 +5,10 @@ using ScopeCreep.Player;
 using ScopeCreep.System;
 
 namespace ScopeCreep.Module {
+
+	[RequireComponent (typeof (IEngage))]
+	[RequireComponent (typeof (SpriteRenderer))]
+
 	public abstract class ShipModule : MonoBehaviour {
 		public int activePlayerId = 0; // The player that is engaged with this module
 		public bool canActivePlayerControlModule = true; // There may be times when the active player cannot move the module's tool (for example: if he is in the childship when it is entering/exiting the mothership)

@@ -3,6 +3,10 @@ using System.Collections;
 using ScopeCreep;
 
 namespace ScopeCreep.Module.LilGuy { 
+
+	[RequireComponent (typeof (BoxCollider2D))]
+	[RequireComponent (typeof (SpriteRenderer))]
+
 	public class TractorBeam : MonoBehaviour {
 		private BoxCollider2D boxCollider2D;
 		private bool isChildshipTouching = false;
@@ -13,11 +17,11 @@ namespace ScopeCreep.Module.LilGuy {
 		private SpriteRenderer spriteRenderer;
 
 		void Start() {
-			boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
+			boxCollider2D = this.GetComponent<BoxCollider2D>();
 			lilGuy = GameObject.Find("LilGuyModule").GetComponent<Module>();
 			movement = GameObject.Find("LilGuy").GetComponent<Movement>();
 			lilGuyRigidbody2D = GameObject.Find("LilGuy").GetComponent<Rigidbody2D>();
-			spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+			spriteRenderer = this.GetComponent<SpriteRenderer>();
 		}
 
 		void OnTriggerEnter2D(Collider2D col) {

@@ -5,12 +5,15 @@ using ScopeCreep.Collectible;
 using ScopeCreep.CommonHandlers;
 
 namespace ScopeCreep.Module.Mothership {
+
+	[RequireComponent (typeof (ResourceHandler))]
+
 	public class GUIHandler : MonoBehaviour {
 		private ResourceHandler resourceHandler;
 		private HealthHandler healthHandler;
 
 		void Start() {
-			resourceHandler = GetComponent<ResourceHandler>();
+			resourceHandler = this.GetComponent<ResourceHandler>();
 			healthHandler = transform.parent.GetComponentInParent<HealthHandler>();
 		}
 
