@@ -51,7 +51,9 @@ namespace ScopeCreep.Enemy.Gun {
 
 		void subscribe() {
 			TurretBase.TurretBase.onEnemyFound += (eventObject, isFound) => {
-				isTargetShootable = isFound;
+				if ( eventObject == GetComponentInParent<TurretBase.TurretBase>() ) {
+					isTargetShootable = isFound;
+				}
 			};
 		}
 	}
