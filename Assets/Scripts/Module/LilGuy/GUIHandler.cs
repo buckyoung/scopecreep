@@ -5,14 +5,18 @@ using ScopeCreep.Collectible;
 using ScopeCreep.CommonHandlers;
 
 namespace ScopeCreep.Module.LilGuy {
+
+	[RequireComponent (typeof (HealthHandler))]
+	[RequireComponent (typeof (ResourceHandler))]
+
 	public class GUIHandler : MonoBehaviour {
 		private ResourceHandler resourceHandler;
 		private HealthHandler healthHandler;
 		private bool isVisible = false;
 
 		void Start() {
-			resourceHandler = GetComponent<ResourceHandler>();
 			healthHandler = GetComponent<HealthHandler>();
+			resourceHandler = GetComponent<ResourceHandler>();
 
 			subscribe();
 		}

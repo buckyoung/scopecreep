@@ -5,6 +5,10 @@ using ScopeCreep.Module;
 using ScopeCreep.System;
 
 namespace ScopeCreep.Player {
+
+	[RequireComponent (typeof (PlayerInfo))]
+	[RequireComponent (typeof (Rigidbody2D))]
+
 	public class Movement : MonoBehaviour {
 		private bool canJump = true;
 		private bool isAtModule = false;

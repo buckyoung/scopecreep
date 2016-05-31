@@ -3,6 +3,9 @@ using System.Collections;
 using ScopeCreep.System;
 
 namespace ScopeCreep.Planet {
+	
+	[RequireComponent (typeof (CircleCollider2D))]
+
 	public class PlanetGen : MonoBehaviour {
 		CircleCollider2D cc2D;
 

@@ -4,6 +4,10 @@ using ScopeCreep;
 using ScopeCreep.System;
 
 namespace ScopeCreep.Module.LilGuy { 
+
+	[RequireComponent (typeof (BoxCollider2D))]
+	[RequireComponent (typeof (Rigidbody2D))]
+
 	public class Movement : MonoBehaviour {
 		public Rigidbody2D rb2D;
 		public float speed = 100.0f;
@@ -18,10 +22,10 @@ namespace ScopeCreep.Module.LilGuy {
 		public static event LilGuyMovementEvent onLilGuyMovement;
 		
 		void Start() {
-			boxCollider2D = GetComponent<BoxCollider2D>();
+			boxCollider2D = this.GetComponent<BoxCollider2D>();
 			lilGuy = GameObject.Find("LilGuyModule").GetComponent<Module>();
 			msBottomBoxCollider2D = GameObject.Find("MSBottom").GetComponent<BoxCollider2D>();
-			rb2D = GetComponent<Rigidbody2D>();
+			rb2D = this.GetComponent<Rigidbody2D>();
 
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerCharacter"), LayerMask.NameToLayer("Childship"));
 
