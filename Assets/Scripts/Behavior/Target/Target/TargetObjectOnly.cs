@@ -26,7 +26,7 @@ namespace ScopeCreep.Behavior {
 			}
 
 			// Ignore targets that are not `objectToTarget`
-			if (objectToTarget.name != target.getName()) {
+			if (objectToTarget.GetInstanceID() != target.getGameObject().GetInstanceID()) {
 				return;
 			}
 

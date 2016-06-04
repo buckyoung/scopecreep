@@ -34,7 +34,7 @@ namespace ScopeCreep.Enemy.StationaryTurret {
 
 			// Clear target if it leaves the radar zone
 			if (targetableObject != null && currentTarget != null) {
-				if (targetableObject.getId() == currentTarget.getId()) {
+				if (targetableObject.getGameObject().GetInstanceID() == currentTarget.getGameObject().GetInstanceID()) {
 					targetBehavior.clearTarget();
 				}
 			}
