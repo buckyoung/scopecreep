@@ -17,11 +17,11 @@ namespace ScopeCreep.Module.LilGuy {
 		private SpriteRenderer spriteRenderer;
 
 		void Start() {
-			boxCollider2D = this.GetComponent<BoxCollider2D>();
+			boxCollider2D = GetComponent<BoxCollider2D>();
 			lilGuy = GameObject.Find("LilGuyModule").GetComponent<Module>();
 			lilGuyAnimation = GameObject.Find("LilGuy").GetComponent<Animations>();
 			lilGuyRigidbody2D = GameObject.Find("LilGuy").GetComponent<Rigidbody2D>();
-			spriteRenderer = this.GetComponent<SpriteRenderer>();
+			spriteRenderer = GetComponent<SpriteRenderer>();
 		}
 
 		void OnTriggerEnter2D(Collider2D col) {

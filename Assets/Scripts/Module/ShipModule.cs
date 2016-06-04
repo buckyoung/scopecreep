@@ -32,9 +32,9 @@ namespace ScopeCreep.Module {
 			isPlayerTouching[0] = false;
 			isPlayerTouching[1] = false;
 
-			engageBehavior = this.GetComponent<IEngage>();
+			engageBehavior = GetComponent<IEngage>();
 
-			spriteRenderer = this.GetComponent<SpriteRenderer>();
+			spriteRenderer = GetComponent<SpriteRenderer>();
 			originalColor = spriteRenderer.color;
 
 			subscribe();

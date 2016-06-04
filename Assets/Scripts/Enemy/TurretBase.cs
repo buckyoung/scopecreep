@@ -18,7 +18,7 @@ namespace ScopeCreep.Enemy.TurretBase {
 		public static event EnemyFoundEvent onEnemyFound;
 
 		void Start() {
-			aimBehavior = this.GetComponent<IAimable>();
+			aimBehavior = GetComponent<IAimable>();
 
 			subscribe();
 		}
