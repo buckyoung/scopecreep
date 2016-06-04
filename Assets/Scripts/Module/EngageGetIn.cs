@@ -9,7 +9,7 @@ namespace ScopeCreep.Module {
 		private ShipModule[] modules;
 		private Vector4 originalColor;
 
-		public void engage(ShipModule module, PlayerInfo player) {
+		public void engage(ShipModule module, Player.Player player) {
 			player.transform.position = new Vector3(
 				transform.position.x, 
 				transform.position.y, 
@@ -21,7 +21,7 @@ namespace ScopeCreep.Module {
 			module.canActivePlayerDisengage = false; // activePlayer cannot disengage without help from other player
 		}
 
-		public void disengage(ShipModule module, PlayerInfo player) {
+		public void disengage(ShipModule module, Player.Player player) {
 			player.GetComponent<SpriteRenderer>().enabled = true; // Player "gets out"
 		}
 	}

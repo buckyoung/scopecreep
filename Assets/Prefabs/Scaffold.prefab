@@ -225,7 +225,6 @@ GameObject:
   - 50: {fileID: 5064298}
   - 61: {fileID: 6102030}
   - 114: {fileID: 11444406}
-  - 114: {fileID: 11445264}
   m_Layer: 8
   m_Name: Player1
   m_TagString: Player
@@ -406,7 +405,6 @@ GameObject:
   - 50: {fileID: 5080374}
   - 61: {fileID: 6145476}
   - 114: {fileID: 11409390}
-  - 114: {fileID: 11470830}
   m_Layer: 8
   m_Name: Player2
   m_TagString: Player
@@ -1166,6 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 871cd88e4d6c84096ae83c908daba80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 2
 --- !u!114 &11422998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1233,6 +1232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 871cd88e4d6c84096ae83c908daba80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 1
 --- !u!114 &11444608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1244,18 +1244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c32bac1b4d6449379b3be1624c833c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11445264
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dcf3e4859f8b407aa847a0cbe97a389, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 1
 --- !u!114 &11458370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1301,18 +1289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95273fa510ef844e5911004ac8b080d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11470830
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dcf3e4859f8b407aa847a0cbe97a389, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 2
 --- !u!114 &11473282
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,15 +9,15 @@ namespace ScopeCreep.Module {
 		private ShipModule[] modules;
 		private Vector4 originalColor;
 
-		public void engage(ShipModule module, PlayerInfo player) {
+		public void engage(ShipModule module, Player.Player player) {
 			moveHalfwayTowardCenter(player, module);
 		}
 
-		public void disengage(ShipModule module, PlayerInfo player) {
+		public void disengage(ShipModule module, Player.Player player) {
 			
 		}
 
-		private void moveHalfwayTowardCenter(PlayerInfo player, ShipModule module) {
+		private void moveHalfwayTowardCenter(Player.Player player, ShipModule module) {
 			float halfwayX = (module.transform.position.x - player.transform.position.x) / 2;
 			float newX = player.transform.position.x + halfwayX;
 

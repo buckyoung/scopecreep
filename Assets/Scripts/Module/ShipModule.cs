@@ -13,7 +13,7 @@ namespace ScopeCreep.Module {
 		public int activePlayerId = 0; // The player that is engaged with this module
 		public bool canActivePlayerControlModule = true; // There may be times when the active player cannot move the module's tool (for example: if he is in the childship when it is entering/exiting the mothership)
 		public bool canActivePlayerDisengage = true; // There may be times when the active player cannot press X to disengage (for example: if he is on the childship)
-		public PlayerInfo[] players = new PlayerInfo[2];
+		public Player.Player[] players = new Player.Player[2];
 
 		protected IEngage engageBehavior;
 		protected bool[] isPlayerTouching = new bool[2];
@@ -22,12 +22,12 @@ namespace ScopeCreep.Module {
 		private Vector4 originalColor;
 
 		// Events
-		public delegate void ModuleInteractionEvent(ShipModule eventObject, PlayerInfo player, bool isEngaged);
+		public delegate void ModuleInteractionEvent(ShipModule eventObject, Player.Player player, bool isEngaged);
 		public static event ModuleInteractionEvent onModuleInteraction;
 
 		protected void Start() {
-			players[0] = GameObject.Find("Player1").GetComponent<PlayerInfo>();
-			players[1] = GameObject.Find("Player2").GetComponent<PlayerInfo>();
+			players[0] = GameObject.Find("Player1").GetComponent<Player.Player>();
+			players[1] = GameObject.Find("Player2").GetComponent<Player.Player>();
 
 			isPlayerTouching[0] = false;
 			isPlayerTouching[1] = false;
@@ -42,14 +42,14 @@ namespace ScopeCreep.Module {
 
 		protected void OnTriggerEnter2D(Collider2D col) {
 			if (col.gameObject.tag == "Player") { 
-				var index = col.gameObject.GetComponent<PlayerInfo>().id - 1;
+				var index = col.gameObject.GetComponent<Player.Player>().id - 1;
 				isPlayerTouching[index] = true;
 			}
 		}
 
 		protected void OnTriggerExit2D(Collider2D col) {
 			if (col.gameObject.tag == "Player") { 
-				var index = col.gameObject.GetComponent<PlayerInfo>().id - 1;
+				var index = col.gameObject.GetComponent<Player.Player>().id - 1;
 				isPlayerTouching[index] = false;
 			}
 		}
