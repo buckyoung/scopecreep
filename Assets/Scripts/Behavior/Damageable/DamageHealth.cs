@@ -26,7 +26,7 @@ namespace ScopeCreep.Behavior {
 			Destroy(this.gameObject); // Must be on top level game object!
 		}
 
-		public float getHealth() {
+		public float getMetric() {
 			return health;
 		}
 

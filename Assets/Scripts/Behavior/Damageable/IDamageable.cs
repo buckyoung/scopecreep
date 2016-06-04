@@ -5,7 +5,7 @@ namespace ScopeCreep.Behavior {
 	public interface IDamageable {
 		void damage(float amount);
 		void die();
-		float getHealth();
+		float getMetric();
 		void heal(float amount);
 	}
 }
