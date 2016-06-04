@@ -29,6 +29,7 @@ GameObject:
   - 4: {fileID: 424476}
   - 212: {fileID: 21200584}
   - 114: {fileID: 11421360}
+  - 114: {fileID: 11459960}
   m_Layer: 10
   m_Name: Barrel
   m_TagString: Untagged
@@ -45,6 +46,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 494766}
   - 61: {fileID: 6108718}
+  - 50: {fileID: 5090442}
   - 114: {fileID: 11415354}
   - 114: {fileID: 11485120}
   m_Layer: 10
@@ -61,7 +63,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 50, z: 10}
+  m_LocalPosition: {x: 0.023517847, y: 50.063065, z: 10}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -77,7 +79,7 @@ Transform:
   m_GameObject: {fileID: 154574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 0.8000001, y: 0.10000001, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.10000001, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 414998}
@@ -89,8 +91,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.6, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 414998}
@@ -108,6 +110,23 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!50 &5090442
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168922}
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -162,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90cf1f055633648009daf0b8b427e17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 5
+  rotationSpeed: 10
 --- !u!114 &11443754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,6 +193,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a1ba18d5e6c4f3a8d0d4841c45af42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11459960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539157b4a4b204f81819f14d570f2c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileResourceName: TurretBullet
+  projectileForce: 150
+  cooldownTime: 0.8
+  projectileDamage: 7
 --- !u!114 &11485120
 MonoBehaviour:
   m_ObjectHideFlags: 1
