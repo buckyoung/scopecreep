@@ -11,7 +11,7 @@ namespace ScopeCreep.Module.LilGuy {
 		private BoxCollider2D boxCollider2D;
 		private bool isChildshipTouching = false;
 		private Module lilGuy;
-		private Movement movement;
+		private Animations lilGuyAnimation;
 		private Rigidbody2D lilGuyRigidbody2D;
 		private Vector4 originalColor;
 		private SpriteRenderer spriteRenderer;
@@ -19,7 +19,7 @@ namespace ScopeCreep.Module.LilGuy {
 		void Start() {
 			boxCollider2D = this.GetComponent<BoxCollider2D>();
 			lilGuy = GameObject.Find("LilGuyModule").GetComponent<Module>();
-			movement = GameObject.Find("LilGuy").GetComponent<Movement>();
+			lilGuyAnimation = GameObject.Find("LilGuy").GetComponent<Animations>();
 			lilGuyRigidbody2D = GameObject.Find("LilGuy").GetComponent<Rigidbody2D>();
 			spriteRenderer = this.GetComponent<SpriteRenderer>();
 		}
@@ -32,7 +32,7 @@ namespace ScopeCreep.Module.LilGuy {
 				originalColor = spriteRenderer.color;
 				spriteRenderer.color = originalColor * 1.2f;
 
-				StartCoroutine( movement.playAnimation_shipEnter() );
+				StartCoroutine( lilGuyAnimation.shipEnter() );
 			}
 		}
 

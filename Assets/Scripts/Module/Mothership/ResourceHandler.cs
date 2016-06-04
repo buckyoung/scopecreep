@@ -14,13 +14,11 @@ namespace ScopeCreep.Module.Mothership {
 
 		void OnTriggerEnter2D(Collider2D other) {
 			if (other.gameObject.tag == "Collectible") {
-
 				base.addResource(other.GetComponent<Resource>().type, 1.0f);
 
 				Destroy(other.gameObject);
 			}
 		}
-
 
 		/*
 		 * User Functions
