@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using ScopeCreep;
 
@@ -9,16 +9,16 @@ namespace ScopeCreep.Behavior {
 	public class MoveLilGuy : MonoBehaviour, IMoveable {
 		public float speed = 1.0f;
 
-		private Rigidbody2D rb2D;
 		private Module.LilGuy.Module lilGuyModule;
+		private Rigidbody2D rb2D;
 
 		// Events
 		public delegate void LilGuyMovementEvent(MoveLilGuy eventObject, float totalForce);
 		public static event LilGuyMovementEvent onLilGuyMovement;
 
 		void Start() {
-			rb2D = GetComponent<Rigidbody2D>();
 			lilGuyModule = GameObject.Find("LilGuyModule").GetComponent<Module.LilGuy.Module>();
+			rb2D = GetComponent<Rigidbody2D>();
 
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerCharacter"), LayerMask.NameToLayer("Childship"));
 		}

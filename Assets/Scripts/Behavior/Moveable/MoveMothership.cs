@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 namespace ScopeCreep.Behavior {
 	public class MoveMothership : MonoBehaviour, IMoveable {
 		public float speed = 0.02f;
 
-		private Module.Mothership.Module mothershipModule;
 		private GameObject scaffold;
+		private Module.Mothership.Module mothershipModule;
 
 		// Events
 		public delegate void MothershipMovementEvent(MoveMothership eventObject, float totalForce);

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using ScopeCreep.Behavior;
 
@@ -7,9 +7,9 @@ namespace ScopeCreep.Module.Mothership {
 	[RequireComponent (typeof (IMoveable))]
 
 	public class Movement : MonoBehaviour {
-		private Module mothershipModule;
 		private bool hasFuel = true;
 		private IMoveable moveBehavior;
+		private Module mothershipModule;
 
 		void Start() {
 			mothershipModule = GameObject.Find("MothershipModule").GetComponent<Module>();

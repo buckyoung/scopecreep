@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using ScopeCreep.Module;
 using ScopeCreep.Behavior;

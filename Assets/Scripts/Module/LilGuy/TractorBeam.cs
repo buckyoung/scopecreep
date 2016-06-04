@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using ScopeCreep;
 
@@ -8,13 +8,13 @@ namespace ScopeCreep.Module.LilGuy {
 	[RequireComponent (typeof (SpriteRenderer))]
 
 	public class TractorBeam : MonoBehaviour {
-		private BoxCollider2D boxCollider2D;
-		private bool isChildshipTouching = false;
-		private Module lilGuy;
 		private Animations lilGuyAnimation;
+		private bool isChildshipTouching = false;
+		private BoxCollider2D boxCollider2D;
+		private Module lilGuy;
 		private Rigidbody2D lilGuyRigidbody2D;
-		private Vector4 originalColor;
 		private SpriteRenderer spriteRenderer;
+		private Vector4 originalColor;
 
 		void Start() {
 			boxCollider2D = GetComponent<BoxCollider2D>();

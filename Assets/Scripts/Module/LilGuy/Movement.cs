@@ -7,9 +7,9 @@ namespace ScopeCreep.Module.LilGuy {
 	[RequireComponent (typeof (IMoveable))]
 
 	public class Movement : MonoBehaviour {
-		private Module lilGuyModule;
 		private bool hasFuel = true;
 		private IMoveable moveBehavior;
+		private Module lilGuyModule;
 
 		void Start() {
 			lilGuyModule = GameObject.Find("LilGuyModule").GetComponent<Module>();

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using ScopeCreep.System;
 using ScopeCreep.CommonHandlers;
@@ -10,7 +10,6 @@ namespace ScopeCreep.Enemy.TurretBase {
 
 	public class TurretBase : MonoBehaviour {
 		public GameObject target = null;
-
 		public IAimable aimBehavior;
 
 		//Events

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using ScopeCreep;
 using ScopeCreep.Player;
@@ -10,13 +10,13 @@ namespace ScopeCreep.Module {
 	[RequireComponent (typeof (SpriteRenderer))]
 
 	public abstract class ShipModule : MonoBehaviour {
-		public int activePlayerId = 0; // The player that is engaged with this module
 		public bool canActivePlayerControlModule = true; // There may be times when the active player cannot move the module's tool (for example: if he is in the childship when it is entering/exiting the mothership)
 		public bool canActivePlayerDisengage = true; // There may be times when the active player cannot press X to disengage (for example: if he is on the childship)
+		public int activePlayerId = 0; // The player that is engaged with this module
 		public Player.Player[] players = new Player.Player[2];
 
-		protected IEngage engageBehavior;
 		protected bool[] isPlayerTouching = new bool[2];
+		protected IEngage engageBehavior;
 
 		private SpriteRenderer spriteRenderer;
 		private Vector4 originalColor;

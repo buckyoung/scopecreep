@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using ScopeCreep.System;
 
@@ -10,9 +10,9 @@ namespace ScopeCreep.Player {
 	public class PlayerJump : MonoBehaviour {
 		public int jumpHeight = 30;
 
-		private Rigidbody2D rb2D;
 		private bool canJump = true;
 		private int id;
+		private Rigidbody2D rb2D;
 
 		void Start() {
 			id = GetComponent<Player>().id;

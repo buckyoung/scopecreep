@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using ScopeCreep.System;
 using ScopeCreep.Player;
@@ -11,10 +11,10 @@ namespace ScopeCreep.Behavior {
 	public class MovePlayer : MonoBehaviour, IMoveable {
 		public float speed = 1.0f;
 
-		private Rigidbody2D rb2D;
 		private bool isTouchingLadder = false;
-		private PointEffector2D planetPointEffector2D;
 		private int id;
+		private PointEffector2D planetPointEffector2D;
+		private Rigidbody2D rb2D;
 
 		void Start() {
 			id = GetComponent<Player.Player>().id;

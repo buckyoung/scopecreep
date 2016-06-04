@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using ScopeCreep.Player;
 
 namespace ScopeCreep.Module {
 	public class EngageGetIn : MonoBehaviour, IEngage {
-		private SpriteRenderer[] playerSprites;
-		private SpriteRenderer[] moduleSprites;
 		private ShipModule[] modules;
+		private SpriteRenderer[] moduleSprites;
+		private SpriteRenderer[] playerSprites;
 		private Vector4 originalColor;
 
 		public void engage(ShipModule module, Player.Player player) {
