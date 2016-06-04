@@ -3,9 +3,9 @@ using System.Collections;
 
 namespace ScopeCreep.Behavior {
 	public interface IDamageable {
-		void damage(float amount);
+		void damage(IDamage damager);
 		void die();
-		float getMetric();
-		void heal(float amount);
+		float getHealth();
+		void heal(IHeal healer);
 	}
 }

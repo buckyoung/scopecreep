@@ -6,14 +6,14 @@ namespace ScopeCreep.Behavior {
 
 	[RequireComponent (typeof (Rigidbody2D))]
 
-	public class MoveLilGuy : MonoBehaviour, IMoveable {
+	public class MoveableLilGuy : MonoBehaviour, IMoveable {
 		public float speed = 1.0f;
 
 		private Module.LilGuy.Module lilGuyModule;
 		private Rigidbody2D rb2D;
 
 		// Events
-		public delegate void LilGuyMovementEvent(MoveLilGuy eventObject, float totalForce);
+		public delegate void LilGuyMovementEvent(MoveableLilGuy eventObject, float totalForce);
 		public static event LilGuyMovementEvent onLilGuyMovement;
 
 		void Start() {

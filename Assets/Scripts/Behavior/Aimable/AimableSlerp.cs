@@ -3,7 +3,7 @@ using System.Collections;
 using ScopeCreep.System;
 
 namespace ScopeCreep.Behavior {
-	public class AimSlerp : MonoBehaviour, IAimable {
+	public class AimableSlerp : MonoBehaviour, IAimable {
 		public float rotationSpeed = 1.0f;
 
 		public void aimAt(GameObject target) {

@@ -35,7 +35,7 @@ namespace ScopeCreep.Module.LilGuy {
 		}
 
 		private void subscribe() {
-			MoveLilGuy.onLilGuyMovement += (eventObject, totalForce) => {
+			MoveableLilGuy.onLilGuyMovement += (eventObject, totalForce) => {
 				float fuelExpenditure = Mathf.Abs(totalForce/100);
 				float currentFuel = cargoHold[Resource.ResourceType.FUEL];
 

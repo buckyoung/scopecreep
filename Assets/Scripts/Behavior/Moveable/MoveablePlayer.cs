@@ -8,7 +8,7 @@ namespace ScopeCreep.Behavior {
 	[RequireComponent (typeof (Player.Player))]
 	[RequireComponent (typeof (Rigidbody2D))]
 
-	public class MovePlayer : MonoBehaviour, IMoveable {
+	public class MoveablePlayer : MonoBehaviour, IMoveable {
 		public float speed = 1.0f;
 
 		private bool isTouchingLadder = false;

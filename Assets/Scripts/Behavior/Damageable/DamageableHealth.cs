@@ -5,11 +5,13 @@ namespace ScopeCreep.Behavior {
 
 	[RequireComponent (typeof (BoxCollider2D))] // Required so IDamage can collide
 
-	public class DamageHealth : MonoBehaviour, IDamageable {
+	public class DamageableHealth : MonoBehaviour, IDamageable {
 		public float health = 100.0f;
 		public float maxHealth = 100.0f;
 
-		public void damage(float amount) {
+		public void damage(IDamage damager) {
+			float amount = damager.getAmount();
+
 			if (amount < 0) {
 				Debug.LogWarning("Warning: damage amount cannot be less than 0", this);
 				return;
@@ -26,11 +28,13 @@ namespace ScopeCreep.Behavior {
 			Destroy(this.gameObject); // Must be on top level game object!
 		}
 
-		public float getMetric() {
+		public float getHealth() {
 			return health;
 		}
 
-		public void heal(float amount) {
+		public void heal(IHeal healer) {
+			float amount = healer.getAmount();
+
 			if (amount < 0) {
 				Debug.LogWarning("Warning: heal amount cannot be less than 0", this);
 				return;

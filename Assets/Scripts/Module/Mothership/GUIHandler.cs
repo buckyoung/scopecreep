@@ -21,7 +21,7 @@ namespace ScopeCreep.Module.Mothership {
 		void OnGUI() {
 			GUI.Label(new Rect(Screen.width - 150, 10, 140, 30), "   |$| " + resourceHandler.getResource(Resource.ResourceType.SPACEDOLLARS));
 			GUI.Label(new Rect(Screen.width - 150, 25, 140, 30), "  Fuel " + resourceHandler.getResource(Resource.ResourceType.FUEL));
-			GUI.Label(new Rect(Screen.width - 150, 40, 140, 30), "Health " + damageableBehavior.getMetric());
+			GUI.Label(new Rect(Screen.width - 150, 40, 140, 30), "Health " + damageableBehavior.getHealth());
 		}
 	}
 }
