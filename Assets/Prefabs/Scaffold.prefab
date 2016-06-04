@@ -170,6 +170,7 @@ GameObject:
   - 114: {fileID: 11424596}
   - 114: {fileID: 11408910}
   - 114: {fileID: 11405900}
+  - 114: {fileID: 11402582}
   m_Layer: 9
   m_Name: LilGuy
   m_TagString: Untagged
@@ -225,6 +226,8 @@ GameObject:
   - 50: {fileID: 5064298}
   - 61: {fileID: 6102030}
   - 114: {fileID: 11444406}
+  - 114: {fileID: 11463760}
+  - 114: {fileID: 11447324}
   m_Layer: 8
   m_Name: Player1
   m_TagString: Player
@@ -405,6 +408,8 @@ GameObject:
   - 50: {fileID: 5080374}
   - 61: {fileID: 6145476}
   - 114: {fileID: 11409390}
+  - 114: {fileID: 11456664}
+  - 114: {fileID: 11498716}
   m_Layer: 8
   m_Name: Player2
   m_TagString: Player
@@ -1130,6 +1135,18 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168554}
   m_Enabled: 1
+--- !u!114 &11402582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a018f38641ee4407b8a4d8138758ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
 --- !u!114 &11405900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1244,6 +1261,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c32bac1b4d6449379b3be1624c833c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11447324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4349b8967ebf24178a4a6294e681cbba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 30
+--- !u!114 &11456664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91013e0824a5042ce948b6d48e8a10fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 150
 --- !u!114 &11458370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1278,6 +1319,18 @@ MonoBehaviour:
   players:
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &11463760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91013e0824a5042ce948b6d48e8a10fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 150
 --- !u!114 &11464468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1300,8 +1353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c2757e69efc433db73f692c720e5cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb2D: {fileID: 0}
-  speed: 100
 --- !u!114 &11489206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1325,6 +1376,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 1000
+--- !u!114 &11498716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4349b8967ebf24178a4a6294e681cbba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 30
 --- !u!124 &12465100
 Behaviour:
   m_ObjectHideFlags: 1
