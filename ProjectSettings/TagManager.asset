@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Ladder
   - EnemyBullet
+  - Mothership
+  - LilGuy
   layers:
   - Default
   - TransparentFX

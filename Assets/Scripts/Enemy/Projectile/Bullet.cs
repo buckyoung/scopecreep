@@ -2,7 +2,7 @@
 using System.Collections;
 using ScopeCreep.Behavior;
 
-namespace ScopeCreep.Enemy.Bullet {
+namespace ScopeCreep.Enemy {
 
 	[RequireComponent (typeof (IDamage))]
 

@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace ScopeCreep.Behavior {
-	public interface IAimable {
-		void aimAt(GameObject target);
+	public interface ITargetable {
+		GameObject getGameObject();
 	}
 }

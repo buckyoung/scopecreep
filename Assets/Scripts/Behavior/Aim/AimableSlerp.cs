@@ -3,13 +3,13 @@ using System.Collections;
 using ScopeCreep.System;
 
 namespace ScopeCreep.Behavior {
-	public class AimableSlerp : MonoBehaviour, IAimable {
+	public class AimableSlerp: MonoBehaviour, IAimable<ITargetable> {
 		public float rotationSpeed = 1.0f;
 
-		public void aimAt(GameObject target) {
+		public void aimAt(ITargetable target) {
 			transform.rotation = Quaternion.SlerpUnclamped(
 				transform.rotation,
-				transform.position.getRotationTo(target.transform.position), 
+				transform.position.getRotationTo(target.getGameObject().transform.position), 
 				Time.deltaTime * rotationSpeed
 			);
 		}
