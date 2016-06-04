@@ -13,7 +13,7 @@ GameObject:
   - 58: {fileID: 5864840}
   - 114: {fileID: 11429778}
   - 114: {fileID: 11455088}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TurretBullet
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -86,7 +86,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef28022bbafb40888d484d98029fcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 1
 --- !u!212 &21249904
 SpriteRenderer:
   m_ObjectHideFlags: 1

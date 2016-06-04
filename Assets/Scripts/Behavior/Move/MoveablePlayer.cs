@@ -13,14 +13,14 @@ namespace ScopeCreep.Behavior {
 
 		private bool isTouchingLadder = false;
 		private int id;
-		private PointEffector2D planetPointEffector2D;
+		private PointEffector2D gravity;
 		private Rigidbody2D rb2D;
 
 		void Start() {
 			id = GetComponent<Player.Player>().id;
 			rb2D = GetComponent<Rigidbody2D>();
 
-			planetPointEffector2D = GameObject.Find("Planet").GetComponent<PointEffector2D>(); // For ladder anti-gravity
+			gravity = GameObject.Find("Gravity").GetComponent<PointEffector2D>(); // For ladder anti-gravity
 
 			// Ignore collisions between PlayerCharacters
 			Physics2D.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
@@ -46,7 +46,7 @@ namespace ScopeCreep.Behavior {
 			var movement = new Vector2(Input.GetAxis(id + "_AXIS_X"), 0);
 
 			if (isTouchingLadder) {
-				var scalar = -planetPointEffector2D.forceMagnitude;
+				var scalar = -gravity.forceMagnitude;
 				rb2D.AddForce(transform.up * scalar); // Effectively undo gravity when on ladder -- shitty HACK
 
 				movement += new Vector2(0, Input.GetAxis(id + "_AXIS_Y")); // Allow Y movement on ladder

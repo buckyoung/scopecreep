@@ -2,7 +2,7 @@
 using System.Collections;
 using ScopeCreep.Behavior;
 
-namespace ScopeCreep.Enemy {
+namespace ScopeCreep {
 
 	[RequireComponent (typeof (IDamage))]
 
@@ -13,14 +13,11 @@ namespace ScopeCreep.Enemy {
 			damager = GetComponent<IDamage>();
 		}
 
-		void OnCollisionEnter2D(Collision2D col) {
+		void OnTriggerEnter2D(Collider2D col) {
 			IDamageable damageableObject = col.gameObject.GetComponent<IDamageable>();
 
 			if (damageableObject != null) {
 				damageableObject.damage(damager);
-			}
-
-			if ( col.gameObject.layer != LayerMask.NameToLayer("Enemy") ) {
 				Destroy(this.gameObject);
 			}
 		}
