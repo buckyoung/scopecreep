@@ -2,28 +2,29 @@
 using System.Collections;
 using ScopeCreep.System;
 using ScopeCreep.CommonHandlers;
+using ScopeCreep.Behavior;
 
 namespace ScopeCreep.Enemy.TurretBase {
+
+	[RequireComponent (typeof (IAimable))]
+
 	public class TurretBase : MonoBehaviour {
 		public GameObject target = null;
-		public float speed = 5;
+
+		public IAimable aimBehavior;
 
 		//Events
 		public delegate void EnemyFoundEvent(TurretBase eventObject, bool isFound);
 		public static event EnemyFoundEvent onEnemyFound;
 
 		void Start() {
+			aimBehavior = GetComponent<IAimable>();
+
 			subscribe();
 		}
 
 		void Update() {
-			if (target != null) {
-				transform.rotation = Quaternion.SlerpUnclamped(
-					transform.rotation,
-					transform.position.getRotationTo(target.transform.position), 
-					Time.deltaTime * speed
-				);
-			}
+			aimBehavior.aimAt(target);
 		}
 
 		private void OnDestroy() {
