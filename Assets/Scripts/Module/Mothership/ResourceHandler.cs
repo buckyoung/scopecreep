@@ -26,7 +26,7 @@ namespace ScopeCreep.Module.Mothership {
 		 */
 
 		private void subscribe() {
-			MoveMothership.onMothershipMovement += (eventObject, totalForce) => {
+			MoveableMothership.onMothershipMovement += (eventObject, totalForce) => {
 				float fuelExpenditure = Mathf.Abs(totalForce/10);
 				float currentFuel = cargoHold[Resource.ResourceType.FUEL];
 

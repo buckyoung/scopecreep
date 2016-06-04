@@ -22,7 +22,7 @@ namespace ScopeCreep.Player {
 		}
 
 		void OnCollisionEnter2D(Collision2D col) {
-			if (col.gameObject.CompareTag("Ground")) {
+			if ( col.gameObject.CompareTag("Ground") ) {
 				canJump = true;
 			}
 		}

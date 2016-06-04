@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using ScopeCreep.System;
-using ScopeCreep.CommonHandlers;
 using ScopeCreep.Behavior;
 
 namespace ScopeCreep.Enemy.TurretBase {
@@ -18,16 +17,12 @@ namespace ScopeCreep.Enemy.TurretBase {
 
 		void Start() {
 			aimBehavior = GetComponent<IAimable>();
-
-			subscribe();
 		}
 
 		void Update() {
-			aimBehavior.aimAt(target);
-		}
-
-		private void OnDestroy() {
-			HealthHandler.onDeath -= onDeathListener;
+			if (target != null) {
+				aimBehavior.aimAt(target);
+			}
 		}
 
 		/*
@@ -52,20 +47,6 @@ namespace ScopeCreep.Enemy.TurretBase {
 			if ( col.gameObject.layer == LayerMask.NameToLayer("Childship") ) {
 				target = null;
 				if (onEnemyFound != null) onEnemyFound(this, false);
-			}
-		}
-
-		/*
-		 * User Functions
-		 */
-		private void subscribe() {
-			HealthHandler.onDeath += onDeathListener;
-		}
-
-
-		private void onDeathListener(HealthHandler eventObject, bool isDead) {
-			if (eventObject.gameObject == target) {
-				if (onEnemyFound != null) onEnemyFound(this, !isDead);
 			}
 		}
 	}
