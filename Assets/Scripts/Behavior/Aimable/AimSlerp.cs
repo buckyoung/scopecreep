@@ -7,8 +7,6 @@ namespace ScopeCreep.Behavior {
 		public float rotationSpeed = 1.0f;
 
 		public void aimAt(GameObject target) {
-			if (target == null) { return; }
-
 			transform.rotation = Quaternion.SlerpUnclamped(
 				transform.rotation,
 				transform.position.getRotationTo(target.transform.position), 
