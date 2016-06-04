@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace ScopeCreep.Behavior {
 
-	[RequireComponent (typeof (BoxCollider2D))] // Required so IDamage can collide
+	[RequireComponent (typeof (Collider2D))] // Required for collision with IDamage
 
 	public class DamageableHealth : MonoBehaviour, IDamageable {
 		public float health = 100.0f;
