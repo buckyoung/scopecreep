@@ -23,7 +23,7 @@ namespace ScopeCreep.Behavior {
 			if (isCoolingDown) { return; }
 
 			Vector3 bulletPosition = transform.position;
-			bulletPosition.z = bulletPosition.z - 2; // Move the bullet further back
+			bulletPosition.z = bulletPosition.z + 2; // Move the bullet further back
 
 			GameObject projectile = (GameObject)Instantiate(
 				Resources.Load(projectileResourceName), 
