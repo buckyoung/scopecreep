@@ -21,5 +21,7 @@ namespace ScopeCreep {
 				Destroy(this.gameObject);
 			}
 		}
+
+
 	}
 }
