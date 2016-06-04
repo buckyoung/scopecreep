@@ -38,7 +38,7 @@ namespace ScopeCreep.Enemy.TurretBase {
 		private void OnTriggerEnter2D(Collider2D col) {
 			if ( col.gameObject.layer == LayerMask.NameToLayer("Childship") ) {
 				target = col.gameObject;
-				onEnemyFound(this, true);
+				if (onEnemyFound != null) onEnemyFound(this, true);
 			}
 
 			// TODO BUCK Generalize this rule -- this is used during the planet gen process
@@ -52,7 +52,7 @@ namespace ScopeCreep.Enemy.TurretBase {
 		private void OnTriggerExit2D(Collider2D col) {
 			if ( col.gameObject.layer == LayerMask.NameToLayer("Childship") ) {
 				target = null;
-				onEnemyFound(this, false);
+				if (onEnemyFound != null) onEnemyFound(this, false);
 			}
 		}
 
@@ -66,7 +66,7 @@ namespace ScopeCreep.Enemy.TurretBase {
 
 		private void onDeathListener(HealthHandler eventObject, bool isDead) {
 			if (eventObject.gameObject == target) {
-				onEnemyFound(this, !isDead);
+				if (onEnemyFound != null) onEnemyFound(this, !isDead);
 			}
 		}
 	}

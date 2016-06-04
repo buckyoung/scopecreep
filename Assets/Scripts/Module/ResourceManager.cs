@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using ScopeCreep;
 using ScopeCreep.Collectible;
 
 namespace ScopeCreep.Module {
@@ -17,7 +16,7 @@ namespace ScopeCreep.Module {
 
 		protected void Start() {
 			lilGuyResourceHandler = GameObject.Find("LilGuy").GetComponent<ScopeCreep.Module.LilGuy.ResourceHandler>();
-			mothershipResourceHandler = GameObject.Find("MothershipModule").GetComponent<ScopeCreep.Module.Mothership.ResourceHandler>();
+			mothershipResourceHandler = GameObject.Find("Mothership").GetComponent<ScopeCreep.Module.Mothership.ResourceHandler>();
 
 			initializeCargoHold();
 
@@ -80,7 +79,7 @@ namespace ScopeCreep.Module {
 
 		protected void throwFuelEvent(ResourceManager eventObject) {
 			bool hasFuel = eventObject.cargoHold[Resource.ResourceType.FUEL] > 0;
-			onFuelEvent(eventObject, hasFuel);
+			if (onFuelEvent != null) onFuelEvent(eventObject, hasFuel);
 		}
 	}
 }

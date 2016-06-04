@@ -26,7 +26,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 495264}
   - 114: {fileID: 11489206}
-  - 114: {fileID: 11443300}
   m_Layer: 0
   m_Name: Scaffold
   m_TagString: Untagged
@@ -113,6 +112,10 @@ GameObject:
   - 4: {fileID: 417006}
   - 61: {fileID: 6188788}
   - 114: {fileID: 11498694}
+  - 114: {fileID: 11485920}
+  - 114: {fileID: 11426940}
+  - 114: {fileID: 11496936}
+  - 114: {fileID: 11456006}
   m_Layer: 0
   m_Name: Mothership
   m_TagString: Untagged
@@ -247,8 +250,6 @@ GameObject:
   - 212: {fileID: 21289706}
   - 61: {fileID: 6123496}
   - 114: {fileID: 11458370}
-  - 114: {fileID: 11439596}
-  - 114: {fileID: 11444608}
   - 114: {fileID: 11422998}
   m_Layer: 0
   m_Name: MothershipModule
@@ -1216,6 +1217,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412feb774729940e58bbd5baaa442635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11426940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c32bac1b4d6449379b3be1624c833c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11437906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1227,29 +1239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0113dd3a7c2724a028a4ded8776abd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11439596
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df6de1d44ad1641fcb65c5b60b504fd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11443300
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 102860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 891dc540424dd4d2fbe118eab9bb0879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.52
 --- !u!114 &11444406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1262,17 +1251,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
---- !u!114 &11444608
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c32bac1b4d6449379b3be1624c833c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11447324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1285,6 +1263,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 30
+--- !u!114 &11456006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65e1738cfff34eba88492a44f60ba41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.02
 --- !u!114 &11456664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1365,6 +1355,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c2757e69efc433db73f692c720e5cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11485920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6de1d44ad1641fcb65c5b60b504fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11489206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1374,6 +1375,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec2c7ee7875a266498e5b0375b77d9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11496936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891dc540424dd4d2fbe118eab9bb0879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11498694

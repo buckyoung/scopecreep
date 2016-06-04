@@ -5,15 +5,14 @@ namespace ScopeCreep.CommonHandlers {
 	public class HealthHandler : MonoBehaviour {
 		public int hitPoints = 100;
 
-		//Events
+		// Events
 		public delegate void DeathEvent(HealthHandler eventObject, bool isDead);
 		public static event DeathEvent onDeath;
 
 		void Update() {
 			if (this.hitPoints <= 0) {
-				if (onDeath != null) {
-					onDeath(this, true);				
-				}
+				if (onDeath != null) onDeath(this, true);
+
 				Destroy(this.gameObject);
 			}
 		}

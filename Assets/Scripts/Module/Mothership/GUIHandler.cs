@@ -6,15 +6,16 @@ using ScopeCreep.CommonHandlers;
 
 namespace ScopeCreep.Module.Mothership {
 
+	[RequireComponent (typeof (HealthHandler))]
 	[RequireComponent (typeof (ResourceHandler))]
 
 	public class GUIHandler : MonoBehaviour {
-		private ResourceHandler resourceHandler;
 		private HealthHandler healthHandler;
+		private ResourceHandler resourceHandler;
 
 		void Start() {
-			resourceHandler = this.GetComponent<ResourceHandler>();
-			healthHandler = transform.parent.GetComponentInParent<HealthHandler>();
+			healthHandler = GetComponent<HealthHandler>();
+			resourceHandler = GetComponent<ResourceHandler>();
 		}
 
 		void OnGUI() {

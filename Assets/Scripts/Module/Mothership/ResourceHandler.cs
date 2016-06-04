@@ -2,6 +2,7 @@
 using System.Collections;
 using ScopeCreep;
 using ScopeCreep.Collectible;
+using ScopeCreep.Behavior;
 
 namespace ScopeCreep.Module.Mothership { 
 	public class ResourceHandler : ResourceManager{
@@ -25,7 +26,7 @@ namespace ScopeCreep.Module.Mothership {
 		 */
 
 		private void subscribe() {
-			Movement.onMothershipMovement += (eventObject, totalForce) => {
+			MoveMothership.onMothershipMovement += (eventObject, totalForce) => {
 				float fuelExpenditure = Mathf.Abs(totalForce/10);
 				float currentFuel = cargoHold[Resource.ResourceType.FUEL];
 
