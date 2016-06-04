@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using ScopeCreep;
 
@@ -8,20 +8,20 @@ namespace ScopeCreep.Module.LilGuy {
 	[RequireComponent (typeof (SpriteRenderer))]
 
 	public class TractorBeam : MonoBehaviour {
-		private BoxCollider2D boxCollider2D;
+		private Animations lilGuyAnimation;
 		private bool isChildshipTouching = false;
+		private BoxCollider2D boxCollider2D;
 		private Module lilGuy;
-		private Movement movement;
 		private Rigidbody2D lilGuyRigidbody2D;
-		private Vector4 originalColor;
 		private SpriteRenderer spriteRenderer;
+		private Vector4 originalColor;
 
 		void Start() {
-			boxCollider2D = this.GetComponent<BoxCollider2D>();
+			boxCollider2D = GetComponent<BoxCollider2D>();
 			lilGuy = GameObject.Find("LilGuyModule").GetComponent<Module>();
-			movement = GameObject.Find("LilGuy").GetComponent<Movement>();
+			lilGuyAnimation = GameObject.Find("LilGuy").GetComponent<Animations>();
 			lilGuyRigidbody2D = GameObject.Find("LilGuy").GetComponent<Rigidbody2D>();
-			spriteRenderer = this.GetComponent<SpriteRenderer>();
+			spriteRenderer = GetComponent<SpriteRenderer>();
 		}
 
 		void OnTriggerEnter2D(Collider2D col) {
@@ -32,7 +32,7 @@ namespace ScopeCreep.Module.LilGuy {
 				originalColor = spriteRenderer.color;
 				spriteRenderer.color = originalColor * 1.2f;
 
-				StartCoroutine( movement.playAnimation_shipEnter() );
+				StartCoroutine( lilGuyAnimation.shipEnter() );
 			}
 		}
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using ScopeCreep;
 using ScopeCreep.Collectible;
+using ScopeCreep.Behavior;
 
 namespace ScopeCreep.Module.Mothership { 
 	public class ResourceHandler : ResourceManager{
@@ -14,20 +15,18 @@ namespace ScopeCreep.Module.Mothership {
 
 		void OnTriggerEnter2D(Collider2D other) {
 			if (other.gameObject.tag == "Collectible") {
-
 				base.addResource(other.GetComponent<Resource>().type, 1.0f);
 
 				Destroy(other.gameObject);
 			}
 		}
 
-
 		/*
 		 * User Functions
 		 */
 
 		private void subscribe() {
-			Movement.onMothershipMovement += (eventObject, totalForce) => {
+			MoveMothership.onMothershipMovement += (eventObject, totalForce) => {
 				float fuelExpenditure = Mathf.Abs(totalForce/10);
 				float currentFuel = cargoHold[Resource.ResourceType.FUEL];
 

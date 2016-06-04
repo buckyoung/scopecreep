@@ -1,79 +1,32 @@
 using UnityEngine;
 using System.Collections;
-using ScopeCreep;
-using ScopeCreep.System;
+using ScopeCreep.Behavior;
 
 namespace ScopeCreep.Module.LilGuy { 
 
-	[RequireComponent (typeof (BoxCollider2D))]
-	[RequireComponent (typeof (Rigidbody2D))]
+	[RequireComponent (typeof (IMoveable))]
 
 	public class Movement : MonoBehaviour {
-		public Rigidbody2D rb2D;
-		public float speed = 100.0f;
-
-		private BoxCollider2D boxCollider2D;
-		private Module lilGuy;
-		private BoxCollider2D msBottomBoxCollider2D;
 		private bool hasFuel = true;
+		private IMoveable moveBehavior;
+		private Module lilGuyModule;
 
-		// Events
-		public delegate void LilGuyMovementEvent(Movement eventObject, float totalForce);
-		public static event LilGuyMovementEvent onLilGuyMovement;
-		
 		void Start() {
-			boxCollider2D = this.GetComponent<BoxCollider2D>();
-			lilGuy = GameObject.Find("LilGuyModule").GetComponent<Module>();
-			msBottomBoxCollider2D = GameObject.Find("MSBottom").GetComponent<BoxCollider2D>();
-			rb2D = this.GetComponent<Rigidbody2D>();
-
-			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerCharacter"), LayerMask.NameToLayer("Childship"));
+			lilGuyModule = GameObject.Find("LilGuyModule").GetComponent<Module>();
+			moveBehavior = GetComponent<IMoveable>();
 
 			subscribe();
 		}
 
 		void FixedUpdate() {
-			int activePlayerId = lilGuy.activePlayerId;
-
-			if (activePlayerId > 0 && lilGuy.canActivePlayerControlModule && hasFuel) {
-				Vector2 movement = new Vector2(Input.GetAxis(activePlayerId + "_AXIS_X"), Input.GetAxis(activePlayerId + "_AXIS_Y"));
-				Vector2 totalForce = movement * speed * Time.deltaTime;
-
-				rb2D.AddRelativeForce(totalForce);
-
-				onLilGuyMovement(this, totalForce.magnitude);
+			if (lilGuyModule.activePlayerId > 0 && lilGuyModule.canActivePlayerControlModule && hasFuel) {
+				moveBehavior.move();
 			}
 		}
 
 		/*
 		 * User Functions
 		 */
-
-		public IEnumerator playAnimation_shipEnter() {
-			var speed = 2.0f;
-
-			lilGuy.canActivePlayerControlModule = false; // Player has no control of childship during animation
-			Physics2D.IgnoreCollision(boxCollider2D, msBottomBoxCollider2D, true); // Ship will not collide with bottom of mothership during animation
-
-			yield return StartCoroutine( gameObject.moveToObjectWithSpeed2D(lilGuy.gameObject, speed) );
-
-			lilGuy.canActivePlayerDisengage = true; // Allow player to exit the childship
-			lilGuy.performDisengage(lilGuy.activePlayerId); // Exit the childship automatically
-		}
-
-		public IEnumerator playAnimation_shipExit() {
-			var time = 0.2f;
-			var endPosition = transform.position - (transform.up * 2.0f);
-
-			lilGuy.canActivePlayerControlModule = false; // Player has no control of childship during animation
-			Physics2D.IgnoreCollision(boxCollider2D, msBottomBoxCollider2D, true); // Ship will not collide with bottom of mothership during animation
-
-			yield return StartCoroutine( gameObject.moveInSeconds2D(endPosition, time) ); // Childship exits mothership over T seconds
-
-			lilGuy.canActivePlayerControlModule = true; // Return childship control to player
-			Physics2D.IgnoreCollision(boxCollider2D, msBottomBoxCollider2D, false); // Reenable collisions with mothership
-		}
-
 		private void subscribe() {
 			ResourceHandler.onFuelEvent += (eventObject, hasFuel) => {
 				if (eventObject.gameObject.name == "LilGuy") {

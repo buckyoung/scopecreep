@@ -5,13 +5,13 @@ using ScopeCreep.System;
 
 namespace ScopeCreep.Module.LilGuy { 
 	public class Module : ShipModule {
-		private Movement movement;
+		private Animations lilGuyAnimation;
 		private TractorBeam tractorBeam;
 
 		new void Start() {
 			base.Start();
 
-			movement = GameObject.Find("LilGuy").GetComponent<Movement>();
+			lilGuyAnimation = GameObject.Find("LilGuy").GetComponent<Animations>();
 			tractorBeam = GameObject.Find("TractorBeam").GetComponent<TractorBeam>();
 
 			subscribe();
@@ -36,7 +36,7 @@ namespace ScopeCreep.Module.LilGuy {
 			// Run ship exit animation
 			ShipModule.onModuleInteraction += (eventObject, playerId, isEngaged) => {
 				if (eventObject is LilGuy.Module && isEngaged) {
-					StartCoroutine( movement.playAnimation_shipExit() );
+					StartCoroutine( lilGuyAnimation.shipExit() );
 				}
 			};
 		}

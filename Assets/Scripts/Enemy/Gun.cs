@@ -1,18 +1,18 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using ScopeCreep.Enemy.TurretBase;
 
 namespace ScopeCreep.Enemy.Gun {
 	public class Gun : MonoBehaviour {
-		public int ammo = 100;
 		public float attackSpeed = 3f;
+		public float projectileForce = 100f;
+		public int ammo = 100;
 		public string projectilePrefab = "TurretBullet";
 		public string resourcePrefab = "SpaceDollarsPrefab";
-		public float projectileForce = 100f;
 
+		private bool isApplicationQuitting = false;
 		private bool isReadyToShoot = true;
 		private bool isTargetShootable;
-		private bool isApplicationQuitting = false;
 
 		private void Start() {
 			subscribe();

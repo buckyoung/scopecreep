@@ -77,7 +77,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195570}
   m_LocalRotation: {x: 0.000000871033, y: -0.00000007467382, z: -0.99634534, w: -0.085416906}
-  m_LocalPosition: {x: 2.4975162, y: 53.45945, z: -8}
+  m_LocalPosition: {x: 4.944631, y: -50.31864, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -0.0001, z: 170.2}
   m_Children:
@@ -181,11 +181,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22162e31d04544b79a609fa0b742d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 100
   attackSpeed: 3
+  projectileForce: 100
+  ammo: 100
   projectilePrefab: TurretBullet
   resourcePrefab: SpaceDollarsPrefab
-  projectileForce: 100
 --- !u!114 &11439526
 MonoBehaviour:
   m_ObjectHideFlags: 1
