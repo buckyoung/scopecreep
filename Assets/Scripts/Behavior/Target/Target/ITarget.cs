@@ -2,9 +2,9 @@
 using System.Collections;
 
 namespace ScopeCreep.Behavior {
-	public interface ITarget {
-		ITargetable getTarget();
-		void setTarget(ITargetable target);
+	public interface ITarget<T> {
+		T getTarget();
+		void setTarget(T target);
 		void clearTarget();
 	}
 }

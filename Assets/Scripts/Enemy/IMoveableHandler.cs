@@ -11,10 +11,15 @@ namespace ScopeCreep.Enemy {
 	[RequireComponent (typeof (IMoveable))]
 
 	public class IMoveableHandler : MonoBehaviour {
+		public string moveToGameObjectName = "LilGuy";
+
 		private Behavior.IMoveable moveableBehavior;
 
 		void Start() {
 			moveableBehavior = GetComponent<Behavior.IMoveable>();
+
+			ITarget<GameObject> targetBehavior = GetComponent<Behavior.ITarget<GameObject>>();
+			targetBehavior.setTarget(GameObject.Find(moveToGameObjectName));
 		}
 
 		void Update() {

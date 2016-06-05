@@ -14,22 +14,21 @@ using ScopeCreep.System;
  */
 
 namespace ScopeCreep.Behavior {
-	public class MoveArcTowardObject : MonoBehaviour, IMoveable {
+	public class MoveArcTowardTarget : MonoBehaviour, IMoveable, ITarget<GameObject> {
 		public float speed = 0.05f;
-		public GameObject targetObject;
 		public float minDegrees = 2.0f;
 		public float maxDegrees = 70.0f;
+
+		private GameObject _target;
 
 		/*
 		 * User Functions
 		 */
 
 		public void move() {
-			if ( targetObject == null || targetObject.Equals(null)) { return; }
+			if ( _target == null || _target.Equals(null)) { return; }
 
-			Vector3 thisPos = this.transform.position;
-			Vector3 lilGuyPos = targetObject.transform.position;
-			float angle = Util.angleSigned(thisPos, lilGuyPos, Vector3.forward);
+			float angle = Util.angleSigned(this.transform.position, _target.transform.position, Vector3.forward);
 			float absAngle = Mathf.Abs(angle);
 
 			// Determine if `this` should move
@@ -43,6 +42,18 @@ namespace ScopeCreep.Behavior {
 				Vector3.forward, 
 				speed * Mathf.Sign(angle) // Move left or right depending on sign of angle
 			);
+		}
+
+		public GameObject getTarget() {
+			return _target;
+		}
+
+		public void setTarget(GameObject target) {
+			_target = target;
+		}
+
+		public void clearTarget() {
+			_target = null;
 		}
 	}
 }

@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb50f54747ce547ed8408e1e799fe877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceName: SpaceDollar
+  resourceName: Resource/SpaceDollar
 --- !u!212 &21214508
 SpriteRenderer:
   m_ObjectHideFlags: 1

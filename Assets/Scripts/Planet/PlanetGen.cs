@@ -7,36 +7,42 @@ namespace ScopeCreep.Planet {
 	[RequireComponent (typeof (CircleCollider2D))]
 
 	public class PlanetGen : MonoBehaviour {
-		CircleCollider2D cc2D;
+
+		private static int numberOfObjects = 2;
+
+		public string[] spawnResouceName = new string[numberOfObjects];
+		public int[] spawnAmount = new int[numberOfObjects];
+
+		private CircleCollider2D cc2D;
 
 		void Start() {
 			cc2D = GetComponent<CircleCollider2D>();
 
-			if (cc2D.radius > 4.5) {
-				Debug.LogError("GOT WRONG COLLIDER -- THIS SHOULD NEVER HAPPEN LET ME KNOW IF IT DOES - buck"); // TODO BUCK - remove this
-			}
+			int zPosition = 10; // TODO
 
-			// Will generate 30 guns in random positions around the planet
-			// The TurretBase OnTriggerEnter2D will destroy a guns that is too close to another
-			// So in the end you will have <= 30 turrets
-			// TODO BUCK -- this is the first pass, we will need to generalize this solution
-//			for (var i = 0; i < 50; i++) {
-//				GameObject resource = Resources.Load("TowerGun") as GameObject;
-//				resource.transform.position = getRandomPositionOnOusideOfPlanet(resource);
-//
-//				Instantiate(
-//					Resources.Load("TowerGun"), 
-//					resource.transform.position,
-//					resource.transform.position.getRotationTo(this.transform.position, 90.0f)
-//				);
-//			}
+			// For each spawn object...
+			for (var i = 0; i < spawnResouceName.Length; i++) {
+				zPosition += i; // Will put each new resource type on different layers
+
+				// Spawn a certain amount
+				for (var k = 0; k < spawnAmount[i]; k++) {
+					GameObject resource = Resources.Load(spawnResouceName[i]) as GameObject;
+					resource.transform.position = getRandomPositionOnOusideOfPlanet(resource, zPosition);
+
+					Instantiate(
+						resource, 
+						resource.transform.position,
+						resource.transform.position.getRotationTo(this.transform.position, 90.0f)
+					);
+				}
+			}
 		}
 
-		private Vector3 getRandomPositionOnOusideOfPlanet(GameObject resource) {
+		private Vector3 getRandomPositionOnOusideOfPlanet(GameObject resource, int zPosition) {
 			Vector3 position = transform.position;
 			position = Random.insideUnitCircle.normalized;
-			position *= cc2D.radius * this.transform.localScale.x + resource.transform.localScale.y/2;
-			position.z = -8;
+			position *= cc2D.radius * this.transform.localScale.x + resource.transform.Find("Base").transform.localScale.y/2 - 0.05f;
+			position.z = zPosition;
 			return position;
 		}
 	}

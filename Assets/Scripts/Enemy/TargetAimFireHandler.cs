@@ -9,12 +9,12 @@ using ScopeCreep.Behavior;
 
 namespace ScopeCreep.Enemy {
 	public class TargetAimFireHandler : MonoBehaviour {
-		private Behavior.ITarget targetBehavior;
+		private Behavior.ITarget<ITargetable> targetBehavior;
 		private Behavior.IAimable<ITargetable> aimBehavior;
 		private Behavior.IShoot shootBehavior;
 
 		void Start() {
-			targetBehavior = this.GetComponentInChildren<Behavior.ITarget>();
+			targetBehavior = this.GetComponentInChildren<Behavior.ITarget<ITargetable>>();
 			aimBehavior = this.GetComponentInChildren<Behavior.IAimable<ITargetable>>();
 			shootBehavior = this.GetComponentInChildren<Behavior.IShoot>();
 		}

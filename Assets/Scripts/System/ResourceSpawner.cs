@@ -4,7 +4,7 @@ using ScopeCreep;
 
 namespace ScopeCreep.System {
 	public class ResourceSpawner : MonoBehaviour {
-		public string resourceName = "SpaceDollar";
+		public string resourceName = "Resource/SpaceDollar";
 
 		private GameObject mothership;
 
