@@ -10,11 +10,8 @@ GameObject:
   - 4: {fileID: 414998}
   - 212: {fileID: 21294520}
   - 58: {fileID: 5824518}
-  - 114: {fileID: 11443754}
-  - 114: {fileID: 11438266}
-  - 114: {fileID: 11434214}
   m_Layer: 10
-  m_Name: RovingTurret
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,6 +30,24 @@ GameObject:
   - 114: {fileID: 11459960}
   m_Layer: 10
   m_Name: Barrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &167498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 472612}
+  - 114: {fileID: 11443754}
+  - 114: {fileID: 11434214}
+  - 114: {fileID: 11438266}
+  m_Layer: 10
+  m_Name: RovingTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,13 +79,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 50.35, z: 8}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 424476}
-  - {fileID: 494766}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 472612}
   m_RootOrder: 0
 --- !u!4 &424476
 Transform:
@@ -80,10 +93,26 @@ Transform:
   m_GameObject: {fileID: 154574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 0.8, y: 0.10000001, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.10000001, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 414998}
+  m_Father: {fileID: 472612}
+  m_RootOrder: 2
+--- !u!4 &472612
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167498}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 50.25, z: 8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 414998}
+  - {fileID: 494766}
+  - {fileID: 424476}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &494766
 Transform:
@@ -93,10 +122,10 @@ Transform:
   m_GameObject: {fileID: 168922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.9, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 414998}
+  m_Father: {fileID: 472612}
   m_RootOrder: 1
 --- !u!50 &5090442
 Rigidbody2D:
@@ -171,7 +200,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143418}
+  m_GameObject: {fileID: 167498}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bd6ee130711d4f9988d2c3850922bfa, type: 3}
@@ -182,13 +211,13 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143418}
+  m_GameObject: {fileID: 167498}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f9e89fe24b8c430eb9d535f7da6b851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.05
+  speed: 0.02
   targetObject: {fileID: 0}
   minDegrees: 2
   maxDegrees: 70
@@ -197,7 +226,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143418}
+  m_GameObject: {fileID: 167498}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90a1ba18d5e6c4f3a8d0d4841c45af42, type: 3}
@@ -214,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539157b4a4b204f81819f14d570f2c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileResourceName: TurretBullet
+  projectileResourceName: PurpleBullet
   projectileForce: 150
   cooldownTime: 0.8
   projectileDamage: 8
@@ -299,5 +328,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 143418}
+  m_RootGameObject: {fileID: 167498}
   m_IsPrefabParent: 1

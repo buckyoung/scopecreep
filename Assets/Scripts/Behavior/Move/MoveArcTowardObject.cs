@@ -25,6 +25,8 @@ namespace ScopeCreep.Behavior {
 		 */
 
 		public void move() {
+			if ( targetObject == null || targetObject.Equals(null)) { return; }
+
 			Vector3 thisPos = this.transform.position;
 			Vector3 lilGuyPos = targetObject.transform.position;
 			float angle = Util.angleSigned(thisPos, lilGuyPos, Vector3.forward);

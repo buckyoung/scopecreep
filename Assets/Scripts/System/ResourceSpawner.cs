@@ -4,6 +4,8 @@ using ScopeCreep;
 
 namespace ScopeCreep.System {
 	public class ResourceSpawner : MonoBehaviour {
+		public string resourceName = "SpaceDollar";
+
 		private GameObject mothership;
 
 		void Start() {
@@ -19,7 +21,7 @@ namespace ScopeCreep.System {
 			// Drop resource under ship (DEBUG)
 			ButtonEventManager.onDebugButtonDown += (eventObject, playerId) => {
 				GameObject resource = (GameObject)Instantiate(
-					Resources.Load("ResourcePrefab"), 
+					Resources.Load(resourceName), 
 					mothership.transform.position - (mothership.transform.up * 2.0f), 
 					Quaternion.identity
 				);

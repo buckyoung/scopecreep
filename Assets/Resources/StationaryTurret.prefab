@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &116906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 449852}
+  - 114: {fileID: 11443754}
+  m_Layer: 10
+  m_Name: StationaryTurret
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &143418
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,9 +27,8 @@ GameObject:
   - 212: {fileID: 21294520}
   - 61: {fileID: 6149092}
   - 50: {fileID: 5051782}
-  - 114: {fileID: 11443754}
   m_Layer: 10
-  m_Name: StationaryTurret
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,13 +78,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 50.063065, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 424476}
-  - {fileID: 494766}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 449852}
   m_RootOrder: 0
 --- !u!4 &424476
 Transform:
@@ -79,10 +92,26 @@ Transform:
   m_GameObject: {fileID: 154574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 0.8, y: 0.10000001, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.10000001, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 414998}
+  m_Father: {fileID: 449852}
+  m_RootOrder: 1
+--- !u!4 &449852
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 50.05, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 414998}
+  - {fileID: 424476}
+  - {fileID: 494766}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &494766
 Transform:
@@ -92,11 +121,11 @@ Transform:
   m_GameObject: {fileID: 168922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.5, z: 1}
+  m_LocalScale: {x: 1.2, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 414998}
-  m_RootOrder: 1
+  m_Father: {fileID: 449852}
+  m_RootOrder: 2
 --- !u!50 &5051782
 Rigidbody2D:
   serializedVersion: 2
@@ -187,7 +216,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143418}
+  m_GameObject: {fileID: 116906}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90a1ba18d5e6c4f3a8d0d4841c45af42, type: 3}
@@ -204,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539157b4a4b204f81819f14d570f2c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileResourceName: TurretBullet
+  projectileResourceName: RedBullet
   projectileForce: 100
   cooldownTime: 0.1
   projectileDamage: 2
@@ -289,5 +318,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 143418}
+  m_RootGameObject: {fileID: 116906}
   m_IsPrefabParent: 1
