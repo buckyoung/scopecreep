@@ -12,6 +12,7 @@ GameObject:
   - 58: {fileID: 5824518}
   - 114: {fileID: 11443754}
   - 114: {fileID: 11438266}
+  - 114: {fileID: 11434214}
   m_Layer: 10
   m_Name: RovingTurret
   m_TagString: Untagged
@@ -165,6 +166,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 10
+--- !u!114 &11434214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd6ee130711d4f9988d2c3850922bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11438266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,6 +190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.05
   targetObject: {fileID: 0}
+  minDegrees: 2
+  maxDegrees: 70
 --- !u!114 &11443754
 MonoBehaviour:
   m_ObjectHideFlags: 1

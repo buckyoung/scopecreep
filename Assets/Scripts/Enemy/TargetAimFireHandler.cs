@@ -7,8 +7,8 @@ using ScopeCreep.Behavior;
  * shooting and aiming at a ITarget's target.
  */
 
-namespace ScopeCreep.Enemy.StationaryTurret {
-	public class ShootHandler : MonoBehaviour {
+namespace ScopeCreep.Enemy {
+	public class TargetAimFireHandler : MonoBehaviour {
 		private Behavior.ITarget targetBehavior;
 		private Behavior.IAimable<ITargetable> aimBehavior;
 		private Behavior.IShoot shootBehavior;

@@ -8,11 +8,11 @@ using ScopeCreep.Behavior;
  * on an ITarget component. 
  */
 
-namespace ScopeCreep.Enemy.StationaryTurret {
+namespace ScopeCreep.Enemy {
 
 	[RequireComponent (typeof (ITarget))]
 
-	public class Radar : MonoBehaviour {
+	public class ITargetHandler : MonoBehaviour {
 		private Behavior.ITarget targetBehavior;
 
 		void Start() {
