@@ -15,25 +15,49 @@ namespace ScopeCreep.Behavior {
 		 */
 
 		public void move() {
-			float totalForce = -speed;
+//			float totalForce = -speed;
+//
+//			Vector3 thing = targetObject.transform.TransformDirection(Vector3.down * 10);
+//
+//			Debug.Log(targetObject.transform.position);
+//
+//			totalForce *= Mathf.Sign(thing.x - transform.position.x);
+//
+//			totalForce *= Mathf.Sign(targetObject.transform.position.y);
+//
+////			totalForce *= Mathf.Sign(transform.position.y);
+//
+//
+//
+//			transform.RotateAround(
+//				Vector3.zero, 
+//				Vector3.forward, 
+//				totalForce
+//			);
 
-			Vector3 thing = targetObject.transform.TransformDirection(Vector3.down * 10);
+			// Should I move at all?
+			Vector3 thisPos = this.transform.position;
+			Vector3 lilGuyPos = targetObject.transform.position;
+			float angle = AngleSigned(thisPos, lilGuyPos, Vector3.forward);
+			float absAngle = Mathf.Abs(angle);
 
-			Debug.Log(targetObject.transform.position);
+			if (absAngle < 2 || absAngle > 90) {
+				return; // Dont move!
+			}
 
-			totalForce *= Mathf.Sign(thing.x - transform.position.x);
-
-			totalForce *= Mathf.Sign(targetObject.transform.position.y);
-
-//			totalForce *= Mathf.Sign(transform.position.y);
-
-
-
+			// Should I move left or right?
+			float totalForce = speed * Mathf.Sign(angle);
+				
+			// Move
 			transform.RotateAround(
 				Vector3.zero, 
 				Vector3.forward, 
 				totalForce
 			);
+		}
+
+		public float AngleSigned(Vector3 v1, Vector3 v2, Vector3 n){
+			return Mathf.Atan2(Vector3.Dot(n, Vector3.Cross(v1, v2)), Vector3.Dot(v1, v2)) * Mathf.Rad2Deg;
 		}
 	}
 }

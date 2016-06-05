@@ -10,9 +10,9 @@ GameObject:
   - 4: {fileID: 414998}
   - 212: {fileID: 21294520}
   - 58: {fileID: 5824518}
-  - 50: {fileID: 5051782}
   - 114: {fileID: 11443754}
-  m_Layer: 0
+  - 114: {fileID: 11438266}
+  m_Layer: 10
   m_Name: RovingTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 212: {fileID: 21200584}
   - 114: {fileID: 11421360}
   - 114: {fileID: 11459960}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   - 50: {fileID: 5090442}
   - 114: {fileID: 11415354}
   - 114: {fileID: 11485120}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Radar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.2850947, y: 53.32034, z: 10}
+  m_LocalPosition: {x: 0, y: 50.35, z: 8}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -92,28 +92,11 @@ Transform:
   m_GameObject: {fileID: 168922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.4, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.9, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 414998}
   m_RootOrder: 1
---- !u!50 &5051782
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143418}
-  m_UseAutoMass: 1
-  m_Mass: 0.3216991
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!50 &5090442
 Rigidbody2D:
   serializedVersion: 2
@@ -181,7 +164,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90cf1f055633648009daf0b8b427e17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 5
+  rotationSpeed: 10
+--- !u!114 &11438266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9e89fe24b8c430eb9d535f7da6b851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.05
+  targetObject: {fileID: 0}
 --- !u!114 &11443754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,9 +201,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileResourceName: TurretBullet
-  projectileForce: 100
-  cooldownTime: 1.5
-  projectileDamage: 4
+  projectileForce: 150
+  cooldownTime: 0.8
+  projectileDamage: 8
 --- !u!114 &11485120
 MonoBehaviour:
   m_ObjectHideFlags: 1
