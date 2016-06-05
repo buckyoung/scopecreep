@@ -27,7 +27,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 484950}
   - 212: {fileID: 21287294}
-  - 114: {fileID: 11407714}
   m_Layer: 10
   m_Name: Gun
   m_TagString: Untagged
@@ -45,7 +44,6 @@ GameObject:
   - 4: {fileID: 492006}
   - 212: {fileID: 21260792}
   - 58: {fileID: 5861876}
-  - 114: {fileID: 11492456}
   - 114: {fileID: 11439526}
   m_Layer: 10
   m_Name: Base
@@ -76,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195570}
   m_LocalRotation: {x: 0.000000871033, y: -0.00000007467382, z: -0.99634534, w: -0.085416906}
-  m_LocalPosition: {x: 24.392134, y: 44.288136, z: -8}
+  m_LocalPosition: {x: -58.25227, y: -21.091877, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -0.0001, z: 170.2}
   m_Children:
@@ -169,25 +167,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!114 &11407714
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 173502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b22162e31d04544b79a609fa0b742d52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackSpeed: 3
-  projectileForce: 100
-  ammo: 100
-  projectilePrefab: 54757272657442756c6c6574
-  resourcePrefab: 5370616365446f6c6c617273507265666162
-  isApplicationQuitting: 0
-  isReadyToShoot: 1
-  isTargetShootable: 0
 --- !u!114 &11439526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,18 +179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 5
---- !u!114 &11492456
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 190296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81c4250387fd24ed08339eb7c8ac4948, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!212 &21260792
 SpriteRenderer:
   m_ObjectHideFlags: 1
