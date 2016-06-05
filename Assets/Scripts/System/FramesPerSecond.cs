@@ -9,6 +9,11 @@ namespace ScopeCreep.System {
 
 		private int fps = 0;
 
+		void Awake () {
+			// Make the game run as fast as possible in Windows
+			Application.targetFrameRate = 60;
+		}
+
 		void Start() {
 			StartCoroutine( calculateFPS() );
 		}

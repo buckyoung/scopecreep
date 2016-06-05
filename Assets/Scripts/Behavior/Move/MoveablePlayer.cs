@@ -37,7 +37,7 @@ namespace ScopeCreep.Behavior {
 				isTouchingLadder = false;
 			}
 		}
-			
+
 		/*
 		 * User Functions
 		 */
