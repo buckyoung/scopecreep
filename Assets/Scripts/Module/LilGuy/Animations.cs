@@ -40,7 +40,9 @@ namespace ScopeCreep.Module.LilGuy {
 			lilGuyModule.canActivePlayerControlModule = false; // Player has no control of childship during animation
 			Physics2D.IgnoreCollision(boxCollider2D, msBottomBoxCollider2D, true); // Ship will not collide with bottom of mothership during animation
 
-			yield return StartCoroutine( gameObject.moveInSeconds2D(endPosition, time) ); // Childship exits mothership over T seconds
+			//yield return StartCoroutine( gameObject.moveInSeconds2D(endPosition, time) ); // Childship exits mothership over T seconds
+
+			yield return true;
 
 			lilGuyModule.canActivePlayerControlModule = true; // Return childship control to player
 			Physics2D.IgnoreCollision(boxCollider2D, msBottomBoxCollider2D, false); // Reenable collisions with mothership
