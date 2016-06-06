@@ -13,7 +13,7 @@ GameObject:
   - 58: {fileID: 5807196}
   - 58: {fileID: 5867370}
   - 114: {fileID: 11445416}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SpaceDollar
   m_TagString: Collectible
   m_Icon: {fileID: 0}
