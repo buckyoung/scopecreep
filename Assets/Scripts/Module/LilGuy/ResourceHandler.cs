@@ -6,7 +6,7 @@ using ScopeCreep.Behavior;
 
 namespace ScopeCreep.Module.LilGuy { 
 	public class ResourceHandler : ResourceManager {
-		private float maximum = 25.0f; 
+		public float maximum = 425.0f; 
 
 		new void Start() {
 			base.Start();
