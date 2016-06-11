@@ -12,7 +12,6 @@ namespace ScopeCreep.Behavior {
 		private float y;
 		private float w;
 		private float h;
-		private float offset;
 		private DamageableHealth damageableHealth;
 
 		void Start() {
@@ -32,7 +31,6 @@ namespace ScopeCreep.Behavior {
 			y = (isUpTop ? 10 : Screen.height - 20);
 			w = 140;
 			h = 30;
-			offset = 0;
 		}
 
 		private void drawHealthGui() {

@@ -22,15 +22,13 @@ namespace ScopeCreep.Resource {
 
 		private void subscribe() {
 			// Transfer resources upon redocking
-			if (gameObject.name == "LilGuy") {
-				ShipModule.onModuleInteraction += (eventObject, player, isEngaged) => {
-					if (eventObject is Module.LilGuy.Module) {
-						if (!isEngaged) {
-							redock();
-						}
+			ShipModule.onModuleInteraction += (eventObject, player, isEngaged) => {
+				if (eventObject is Module.LilGuy.Module) {
+					if (!isEngaged) {
+						redock();
 					}
-				};
-			}
+				}
+			};
 		}
 
 		// Transfer resources depending on ProviderType relationships
@@ -43,19 +41,26 @@ namespace ScopeCreep.Resource {
 			}
 		}
 
-		private void transfer(IProviderContainer source, IProviderContainer target) {
+		private void transfer(IProviderContainer source, IProviderContainer target, bool exit = false) {
 			ProviderType sourceProviderType = source.getProviderType();
 			ProviderType targetProviderType = target.getProviderType();
 
+			if (sourceProviderType == targetProviderType) {
+				Debug.LogWarning("LilGuy and Mothership " + source.getResourceType().ToString() + " containers are both set to ProviderType: " + sourceProviderType.ToString() + ".", this);
+				return;
+			}
+
 			// Fill source from target
-			if (sourceProviderType == ProviderType.REQUESTER && targetProviderType == ProviderType.PROVIDER) {
+			if (sourceProviderType == ProviderType.REQUESTER) { // Implicitly: (&& targetProviderType == ProviderType.PROVIDER)
 				// Request capacity - amount from target
 				float amountToRequest = source.getCapacity() - source.getAmount();
 				source.add(target.remove(amountToRequest));
 			}
 
 			// Fill target from source
-			transfer(target, source);
+			if (!exit) {
+				transfer(target, source, true);
+			}
 		}
 	}
 }
