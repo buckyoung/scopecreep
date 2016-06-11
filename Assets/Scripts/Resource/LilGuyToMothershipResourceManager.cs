@@ -45,6 +45,7 @@ namespace ScopeCreep.Resource {
 			ProviderType sourceProviderType = source.getProviderType();
 			ProviderType targetProviderType = target.getProviderType();
 
+			// Ensure one requestor and one provider
 			if (sourceProviderType == targetProviderType) {
 				Debug.LogWarning("LilGuy and Mothership " + source.getResourceType().ToString() + " containers are both set to ProviderType: " + sourceProviderType.ToString() + ".", this);
 				return;
@@ -57,10 +58,11 @@ namespace ScopeCreep.Resource {
 				source.add(target.remove(amountToRequest));
 			}
 
+
+			if (exit) { return; }
+
 			// Fill target from source
-			if (!exit) {
-				transfer(target, source, true);
-			}
+			transfer(target, source, true);
 		}
 	}
 }
