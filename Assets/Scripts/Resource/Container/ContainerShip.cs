@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace ScopeCreep.Resource {
-	public class ContainerShip : ScriptableObject, IProviderContainer {
+	public class ContainerShip : IProviderContainer {
 		private ResourceType resourceType;
 		private ProviderType providerType;
 		private float amount;
