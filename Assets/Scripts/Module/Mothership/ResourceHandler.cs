@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ScopeCreep;
-using ScopeCreep.Collectible;
+using ScopeCreep.Resource;
 using ScopeCreep.Behavior;
 
 namespace ScopeCreep.Module.Mothership { 
@@ -15,7 +15,7 @@ namespace ScopeCreep.Module.Mothership {
 
 		void OnTriggerEnter2D(Collider2D other) {
 			if (other.gameObject.tag == "Collectible") {
-				base.addResource(other.GetComponent<Resource>().type, 1.0f);
+				base.addResource(other.GetComponent<Resource.Collectible>().type, 1.0f);
 
 				Destroy(other.gameObject);
 			}

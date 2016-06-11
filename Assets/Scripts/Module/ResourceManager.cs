@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using ScopeCreep.Collectible;
+using ScopeCreep.Resource;
 
 namespace ScopeCreep.Module {
 	public class ResourceManager : MonoBehaviour {

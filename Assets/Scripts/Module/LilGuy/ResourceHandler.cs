@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ScopeCreep;
-using ScopeCreep.Collectible;
+using ScopeCreep.Resource;
 using ScopeCreep.Behavior;
 
 namespace ScopeCreep.Module.LilGuy { 
@@ -17,7 +17,7 @@ namespace ScopeCreep.Module.LilGuy {
 		void OnTriggerEnter2D(Collider2D other) {
 			if (other.gameObject.tag == "Collectible") {
 
-				Resource.ResourceType type = other.GetComponent<Resource>().type;
+				Resource.ResourceType type = other.GetComponent<Resource.Collectible>().type;
 
 				if (cargoHold[type] < maximum) {
 					base.addResource(type, 1.0f);

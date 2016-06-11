@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using ScopeCreep;
-using ScopeCreep.Collectible;
+using ScopeCreep.Resource;
 using ScopeCreep.Behavior;
 
 namespace ScopeCreep.Module.Mothership {
