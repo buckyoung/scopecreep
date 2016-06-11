@@ -3,7 +3,7 @@ using System.Collections;
 using ScopeCreep.Player;
 
 namespace ScopeCreep.Module {
-	public class EngageSitDown : MonoBehaviour, IEngage {
+	public class EngageableSitDown : MonoBehaviour, IEngageable {
 		private ShipModule[] modules;
 		private SpriteRenderer[] moduleSprites;
 		private SpriteRenderer[] playerSprites;
