@@ -160,9 +160,9 @@ GameObject:
   - 114: {fileID: 11456006}
   - 114: {fileID: 11416428}
   - 114: {fileID: 11471034}
-  - 114: {fileID: 11492298}
   - 114: {fileID: 11493584}
   - 114: {fileID: 11470276}
+  - 114: {fileID: 11446732}
   m_Layer: 0
   m_Name: Mothership
   m_TagString: Untagged
@@ -1439,11 +1439,15 @@ MonoBehaviour:
   - resourceType: 1
     providerType: 0
     initialValue: 0
-    maximumCapacity: 100
+    maximumCapacity: 1000
   - resourceType: 2
     providerType: 0
     initialValue: 0
-    maximumCapacity: 25
+    maximumCapacity: 350
+  - resourceType: 3
+    providerType: 1
+    initialValue: 250
+    maximumCapacity: 250
 --- !u!114 &11437906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1467,6 +1471,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+--- !u!114 &11446732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4040b1b966e4373afc5e11f7212cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inits:
+  - resourceType: 0
+    providerType: 0
+    initialValue: 1000
+    maximumCapacity: 5000
+  - resourceType: 1
+    providerType: 1
+    initialValue: 0
+    maximumCapacity: 1000000
+  - resourceType: 2
+    providerType: 1
+    initialValue: 0
+    maximumCapacity: 10000
+  - resourceType: 3
+    providerType: 0
+    initialValue: 1000
+    maximumCapacity: 100000
 --- !u!114 &11447324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1664,30 +1696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2c7ee7875a266498e5b0375b77d9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11492298
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 123762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c4040b1b966e4373afc5e11f7212cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inits:
-  - resourceType: 0
-    providerType: 0
-    initialValue: 1000
-    maximumCapacity: 1500
-  - resourceType: 1
-    providerType: 1
-    initialValue: 0
-    maximumCapacity: 1000000
-  - resourceType: 2
-    providerType: 1
-    initialValue: 0
-    maximumCapacity: 10000
 --- !u!114 &11493584
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -17,7 +17,7 @@ namespace ScopeCreep.Module.LilGuy {
 		void OnTriggerEnter2D(Collider2D other) {
 			if (other.gameObject.tag == "Collectible") {
 
-				Resource.ResourceType type = other.GetComponent<Resource.Collectible>().type;
+				Resource.ResourceType type = other.GetComponent<Resource.ICollectible<ResourceType>>().getType();
 
 				if (cargoHold[type] < maximum) {
 					base.addResource(type, 1.0f);

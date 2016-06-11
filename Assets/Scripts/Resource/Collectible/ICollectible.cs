@@ -2,7 +2,8 @@
 using System.Collections;
 
 namespace ScopeCreep.Resource {
-	public class Collectible : MonoBehaviour {
-		public ResourceType type;
+	public interface ICollectible<T> {
+		float getAmount();
+		T getType();
 	}
 }

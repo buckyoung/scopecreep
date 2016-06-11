@@ -5,6 +5,7 @@ namespace ScopeCreep.Resource {
 	public enum ResourceType {
 		FUEL,
 		SPACEDOLLAR,
-		THIAMIN
+		THIAMIN,
+		AMMO
 	};
 }
