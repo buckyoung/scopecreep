@@ -24,8 +24,9 @@ namespace ScopeCreep.Module {
 		}
 
 		/*
-		 * User Scripts
+		 * User Functions
 		 */
+
 		private void initializeCargoHold() {
 			foreach(Resource.ResourceType type in ((Resource.ResourceType[]) Resource.ResourceType.GetValues(typeof(Resource.ResourceType)))) {
 				cargoHold.Add(type, 0.0f);

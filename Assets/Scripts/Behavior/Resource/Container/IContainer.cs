@@ -6,6 +6,8 @@ namespace ScopeCreep.Resource {
 		float add(float amount); // Returns amount actually added
 		float remove(float amount); // Returns amount actually subtracted
 		float getAmount(); // Returns amount in the container
-		float getMaximumCapacity(); // Returns maximum allowed in container
+		float getCapacity(); // Returns maximum allowed in container
+		bool isFull();
+		ResourceType getResourceType();
 	}
 }

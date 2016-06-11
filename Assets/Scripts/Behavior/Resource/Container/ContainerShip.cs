@@ -2,11 +2,15 @@
 using System.Collections;
 
 namespace ScopeCreep.Resource {
-	public class ContainerCargo<T> : MonoBehaviour {
+	public class ContainerShip : ScriptableObject, IProviderContainer {
+		private ResourceType resourceType;
+		private ProviderType providerType;
 		private float amount;
 		private float maximum;
 
-		public ContainerCargo(float initialAmount, float maximumCapacity) {
+		public ContainerShip(ResourceType resourceType, ProviderType providerType, float initialAmount, float maximumCapacity) {
+			this.resourceType = resourceType;
+			this.providerType = providerType;
 			amount = initialAmount;
 			maximum = maximumCapacity;
 		}
@@ -41,8 +45,20 @@ namespace ScopeCreep.Resource {
 			return amount;
 		}
 
-		public float getMaximumCapacity() {
+		public float getCapacity() {
 			return maximum;
+		}
+
+		public bool isFull() {
+			return amount == maximum;
+		}
+
+		public ResourceType getResourceType() {
+			return resourceType;
+		}
+
+		public ProviderType getProviderType() {
+			return providerType;
 		}
 	}
 }
