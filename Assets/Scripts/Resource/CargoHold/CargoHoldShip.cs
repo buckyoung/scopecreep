@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 namespace ScopeCreep.Resource {
 	public class CargoHoldShip: MonoBehaviour, ICargoHold {
+		[Tooltip ("If these fields are blank, the inits are probably being loaded from file at Resources/Data/CargoHoldInit")]
 		public CargoHoldShipInit[] inits = new CargoHoldShipInit[Enum.GetNames(typeof(ResourceType)).Length];
 
 		private Dictionary<ResourceType, float> initialValue = new Dictionary<ResourceType, float>();
