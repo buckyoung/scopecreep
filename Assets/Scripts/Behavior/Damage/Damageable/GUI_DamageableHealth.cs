@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using ScopeCreep.Module;
 
 namespace ScopeCreep.Behavior {
 
 	[RequireComponent (typeof (DamageableHealth))]
 
-	public class GUI_DamageableHealth : MonoBehaviour {
+	public class GUI_DamageableHealth : ShipGUI {
 		public bool isUpTop;
 
 		private float x;
@@ -14,11 +15,15 @@ namespace ScopeCreep.Behavior {
 		private float h;
 		private DamageableHealth damageableHealth;
 
-		void Start() {
+		new void Start() {
+			base.Start();
+
 			damageableHealth = gameObject.GetComponent<DamageableHealth>();
 		}
 
 		void OnGUI() {
+			if (!shouldDraw) { return; }
+
 			setPosition();
 			drawHealthGui();
 		}

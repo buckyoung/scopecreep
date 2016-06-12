@@ -14,7 +14,7 @@ namespace ScopeCreep.Module {
 		}
 
 		public void disengage(ShipModule module, Player.Player player) {
-			
+			// Do nothing
 		}
 
 		private void moveHalfwayTowardCenter(Player.Player player, ShipModule module) {

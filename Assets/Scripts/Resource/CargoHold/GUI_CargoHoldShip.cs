@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using ScopeCreep.Module;
 
 namespace ScopeCreep.Resource {
 
 	[RequireComponent (typeof (CargoHoldShip))]
 
-	public class GUI_CargoHoldShip : MonoBehaviour {
+	public class GUI_CargoHoldShip : ShipGUI {
 		public bool isUpTop;
 
 		private float x;
@@ -19,7 +20,9 @@ namespace ScopeCreep.Resource {
 		delegate void SetOffset();
 		private SetOffset setOffset;
 
-		void Start() {
+		new void Start() {
+			base.Start();
+
 			cargoHoldShip = gameObject.GetComponent<CargoHoldShip>();
 
 			// Define setOffset
@@ -35,6 +38,8 @@ namespace ScopeCreep.Resource {
 		}
 
 		void OnGUI() {
+			if (!shouldDraw) { return; }
+
 			setInitialPosition();
 			drawResourceGui();
 		}
@@ -53,7 +58,7 @@ namespace ScopeCreep.Resource {
 		private void drawResourceGui() {
 			foreach (ResourceType type in ((ResourceType[]) Enum.GetValues(typeof(ResourceType)))) {
 				IContainer container = cargoHoldShip.getContainer(type);
-				GUI.Label(new Rect(x, y + offset, w, h), type.ToString() + ": " + container.getAmount() + " / " + container.getCapacity());
+				GUI.Label(new Rect(x, y + offset, w, h), type.ToString() + ": " + Mathf.RoundToInt(container.getAmount()) + " / " + container.getCapacity());
 				setOffset();
 			}
 		}
