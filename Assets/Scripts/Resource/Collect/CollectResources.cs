@@ -9,7 +9,7 @@ namespace ScopeCreep.Resource {
 		private ICargoHold cargoHold;
 
 		void Start() {
-			cargoHold = gameObject.GetComponent<ICargoHold>();
+			cargoHold = gameObject.GetComponentInChildren<ICargoHold>();
 		}
 
 		void OnTriggerEnter2D(Collider2D other) {

@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using ScopeCreep.Module;
 
 namespace ScopeCreep.Resource {
-	public class LilGuyToMothershipResourceManager : MonoBehaviour {
+	public class LilGuyToMothershipDockingManager : MonoBehaviour {
 		private ICargoHold lilGuyCargoHold;
 		private ICargoHold mothershipCargoHold;
 
 		void Start() {
-			lilGuyCargoHold = GameObject.Find("LilGuy").GetComponent<ICargoHold>();
-			mothershipCargoHold = GameObject.Find("Mothership").GetComponent<ICargoHold>();
+			lilGuyCargoHold = GameObject.Find("LilGuy").GetComponentInChildren<ICargoHold>();
+			mothershipCargoHold = GameObject.Find("Mothership").GetComponentInChildren<ICargoHold>();
 
 			subscribe();
 		}

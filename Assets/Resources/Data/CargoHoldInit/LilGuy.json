@@ -3,7 +3,7 @@
 		{
 			"resourceType": 0,
 			"providerType": 1,
-			"initialValue": 500.0,
+			"initialValue": 250.0,
 			"maximumCapacity": 250.0
 		},
 		{

@@ -15,7 +15,7 @@ namespace ScopeCreep.Resource {
 
 		void Start() {
 			// Attempt to load init from file 
-			TextAsset json = Resources.Load("Data/CargoHoldInit/" + gameObject.name) as TextAsset;
+			TextAsset json = Resources.Load("Data/CargoHoldInit/" + transform.parent.gameObject.name) as TextAsset;
 
 			// Overwrite editor settings if file data exists
 			if (json != null) {

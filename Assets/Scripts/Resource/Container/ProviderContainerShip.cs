@@ -13,6 +13,17 @@ namespace ScopeCreep.Resource {
 			this.providerType = providerType;
 			amount = initialAmount;
 			maximum = maximumCapacity;
+
+			// Ensure valid values
+			if (maximum < 0) {
+				maximum = 0;
+			}
+
+			if (amount < 0) {
+				amount = 0;
+			} else if (amount > maximum) {
+				amount = maximum;
+			}
 		}
 
 		// Returns the amount actually added
@@ -61,6 +72,10 @@ namespace ScopeCreep.Resource {
 
 		public bool isFull() {
 			return amount == maximum;
+		}
+
+		public bool isEmpty() {
+			return amount == 0;
 		}
 
 		public ResourceType getResourceType() {

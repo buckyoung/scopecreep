@@ -15,11 +15,11 @@ namespace ScopeCreep.Module {
 
 		private void subscribe() {
 			ShipModule.onModuleInteraction += (eventObject, player, isEngaged) => {
-				if (eventObject is Mothership.Module && gameObject.name == "Mothership") { // String comparison is very brittle TODO BUCK
+				if (eventObject is Mothership.Module && transform.parent.gameObject.name == "Mothership") { // String comparison is very brittle TODO BUCK
 					shouldDraw = isEngaged;
 				}
 
-				if (eventObject is LilGuy.Module && gameObject.name == "LilGuy") { // String comparison is very brittle TODO BUCK
+				if (eventObject is LilGuy.Module && transform.parent.gameObject.name == "LilGuy") { // String comparison is very brittle TODO BUCK
 					shouldDraw = isEngaged;
 				}
 			};
