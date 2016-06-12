@@ -1,16 +1,11 @@
 using UnityEngine;
 using System.Collections;
-
 namespace ScopeCreep.Behavior {
-	public class MoveableMothership : MonoBehaviour, IMoveable {
+	public class MoveableMothership : FueledMovement, IMoveable {
 		public float speed = 0.02f;
 
 		private GameObject scaffold;
 		private Module.Mothership.Module mothershipModule;
-
-		// Events
-		public delegate void MothershipMovementEvent(MoveableMothership eventObject, float totalForce);
-		public static event MothershipMovementEvent onMothershipMovement;
 
 		void Start() {
 			mothershipModule = GameObject.Find("MothershipModule").GetComponent<Module.Mothership.Module>();
@@ -30,7 +25,7 @@ namespace ScopeCreep.Behavior {
 				totalForce
 			);
 
-			if (onMothershipMovement != null) onMothershipMovement(this, totalForce);
+			throwFueledMovementEvent(this, Mathf.Abs(totalForce/10));
 		}
 	}
 }

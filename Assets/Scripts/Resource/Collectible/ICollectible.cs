@@ -2,8 +2,8 @@
 using System.Collections;
 
 namespace ScopeCreep.Resource {
-	public interface ICollectible<T> {
+	public interface ICollectible {
 		float getAmount();
-		T getType();
+		ResourceType getType();
 	}
 }

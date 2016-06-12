@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace ScopeCreep.Resource {
-	public class CollectibleResourceRandomAmount : MonoBehaviour, ICollectible<ResourceType> {
+	public class CollectibleResourceRandomAmount : MonoBehaviour, ICollectible {
 		public ResourceType type;
 
 		// Exponential distribution number may be negative so we dont always get exactly within min/max

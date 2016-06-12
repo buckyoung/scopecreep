@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using ScopeCreep.Module;
 
 namespace ScopeCreep.Resource {
-	public class LilGuyToMothershipResourceManager : MonoBehaviour {
+	public class LilGuyToMothershipDockingManager : MonoBehaviour {
 		private ICargoHold lilGuyCargoHold;
 		private ICargoHold mothershipCargoHold;
 
 		void Start() {
-			lilGuyCargoHold = GameObject.Find("LilGuy").GetComponent<ICargoHold>();
-			mothershipCargoHold = GameObject.Find("Mothership").GetComponent<ICargoHold>();
+			lilGuyCargoHold = GameObject.Find("LilGuy").GetComponentInChildren<ICargoHold>();
+			mothershipCargoHold = GameObject.Find("Mothership").GetComponentInChildren<ICargoHold>();
 
 			subscribe();
 		}
@@ -44,6 +44,11 @@ namespace ScopeCreep.Resource {
 		private void transfer(IProviderContainer source, IProviderContainer target, bool exit = false) {
 			ProviderType sourceProviderType = source.getProviderType();
 			ProviderType targetProviderType = target.getProviderType();
+
+			// Check if no transfer should be made
+			if (sourceProviderType == ProviderType.NONE || targetProviderType == ProviderType.NONE) {
+				return;
+			}
 
 			// Ensure one requestor and one provider
 			if (sourceProviderType == targetProviderType) {
