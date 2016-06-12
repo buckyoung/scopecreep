@@ -13,7 +13,11 @@ namespace ScopeCreep.Module {
 		private IContainer fuelContainer;
 
 		void Start() {
-			module = GameObject.Find(gameObject.name + "Module").GetComponent<ShipModule>();
+			// Used to find "MothershipModule" or "LilGuyModule"
+			// Thus, this script must be placed on the "Mothership" or "LilGuy" Game Object
+			// This is brittle TODO BUCK (forces invisible name dependencies on object + module)
+			module = GameObject.Find(gameObject.name + "Module").GetComponent<ShipModule>(); 
+
 			moveBehavior = GetComponent<IMoveable>();
 			fuelContainer = GetComponentInChildren<ICargoHold>().getContainer(ResourceType.FUEL);
 		}

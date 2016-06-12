@@ -13,7 +13,7 @@ namespace ScopeCreep.Resource {
 		private Dictionary<ResourceType, ProviderType> providerType = new Dictionary<ResourceType, ProviderType>();
 		private Dictionary<ResourceType, IProviderContainer> cargoHold = new Dictionary<ResourceType, IProviderContainer>();
 
-		void Start() {
+		void Awake() {
 			// Attempt to load init from file 
 			TextAsset json = Resources.Load("Data/CargoHoldInit/" + transform.parent.gameObject.name) as TextAsset;
 
