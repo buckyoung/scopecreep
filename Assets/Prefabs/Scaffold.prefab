@@ -49,6 +49,7 @@ GameObject:
   - 114: {fileID: 11482790}
   - 114: {fileID: 11457870}
   - 114: {fileID: 11458350}
+  - 114: {fileID: 11436168}
   m_Layer: 9
   m_Name: LilGuy
   m_TagString: Untagged
@@ -155,6 +156,7 @@ GameObject:
   - 114: {fileID: 11456006}
   - 114: {fileID: 11471034}
   - 114: {fileID: 11438250}
+  - 114: {fileID: 11470156}
   m_Layer: 0
   m_Name: Mothership
   m_TagString: Untagged
@@ -1427,6 +1429,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c2757e69efc433db73f692c720e5cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11436168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04354da48715c4364b22bbceb429decd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11436872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1662,6 +1675,17 @@ MonoBehaviour:
     providerType: 0
     initialValue: 0
     maximumCapacity: 0
+--- !u!114 &11470156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04354da48715c4364b22bbceb429decd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11471034
 MonoBehaviour:
   m_ObjectHideFlags: 1
