@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace ScopeCreep.Module {
 	public abstract class ModuleGUI : MonoBehaviour {
-		protected bool shouldDraw = false;
+		protected bool shouldDraw = true;
 
 		protected void Start() {
 			subscribe();

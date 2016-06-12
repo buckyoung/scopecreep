@@ -27,8 +27,8 @@
 		{
 			"resourceType": 4,
 			"providerType": 2,
-			"initialValue": 100.0,
-			"maximumCapacity": 100.0
+			"initialValue": 400.0,
+			"maximumCapacity": 400.0
 		}
 	]
 }
