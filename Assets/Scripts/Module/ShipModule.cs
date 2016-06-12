@@ -6,7 +6,7 @@ using ScopeCreep.System;
 
 namespace ScopeCreep.Module {
 
-	[RequireComponent (typeof (IEngage))]
+	[RequireComponent (typeof (IEngageable))]
 	[RequireComponent (typeof (SpriteRenderer))]
 
 	public abstract class ShipModule : MonoBehaviour {
@@ -16,7 +16,7 @@ namespace ScopeCreep.Module {
 		public Player.Player[] players = new Player.Player[2];
 
 		protected bool[] isPlayerTouching = new bool[2];
-		protected IEngage engageBehavior;
+		protected IEngageable engageBehavior;
 
 		private SpriteRenderer spriteRenderer;
 		private Vector4 originalColor;
@@ -32,7 +32,7 @@ namespace ScopeCreep.Module {
 			isPlayerTouching[0] = false;
 			isPlayerTouching[1] = false;
 
-			engageBehavior = GetComponent<IEngage>();
+			engageBehavior = GetComponent<IEngageable>();
 
 			spriteRenderer = GetComponent<SpriteRenderer>();
 			originalColor = spriteRenderer.color;
