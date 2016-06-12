@@ -15,9 +15,6 @@ namespace ScopeCreep.Module {
 
 		private void subscribe() {
 			ShipModule.onModuleInteraction += (eventObject, player, isEngaged) => {
-
-				Debug.Log(gameObject.name);
-
 				if (eventObject is Mothership.Module && gameObject.name == "Mothership") { // String comparison is very brittle TODO BUCK
 					shouldDraw = isEngaged;
 				}
