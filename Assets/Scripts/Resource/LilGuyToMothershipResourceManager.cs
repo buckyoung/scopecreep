@@ -58,7 +58,6 @@ namespace ScopeCreep.Resource {
 				source.add(target.remove(amountToRequest));
 			}
 
-
 			if (exit) { return; }
 
 			// Fill target from source

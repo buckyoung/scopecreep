@@ -17,6 +17,11 @@ namespace ScopeCreep.Resource {
 
 		// Returns the amount actually added
 		public float add(float amount) {
+			if (amount < 0) {
+				Debug.LogWarning("Warning: amount cannot be less than 0");
+				return 0.0f;
+			}
+
 			this.amount += amount;
 
 			if (this.amount > maximum) {
@@ -30,6 +35,11 @@ namespace ScopeCreep.Resource {
 
 		// Returns the amount actually taken out
 		public float remove(float amount) {
+			if (amount < 0) {
+				Debug.LogWarning("Warning: amount cannot be less than 0");
+				return 0.0f;
+			}
+
 			this.amount -= amount;
 
 			if (this.amount < 0) {
