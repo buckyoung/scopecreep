@@ -1,20 +1,16 @@
 using UnityEngine;
 using System.Collections;
-using ScopeCreep;
+using ScopeCreep.Resource;
 
 namespace ScopeCreep.Behavior {
 
 	[RequireComponent (typeof (Rigidbody2D))]
 
-	public class MoveableLilGuy : MonoBehaviour, IMoveable {
+	public class MoveableLilGuy : FueledMovement, IMoveable {
 		public float speed = 1.0f;
 
 		private Module.LilGuy.Module lilGuyModule;
 		private Rigidbody2D rb2D;
-
-		// Events
-		public delegate void LilGuyMovementEvent(MoveableLilGuy eventObject, float totalForce);
-		public static event LilGuyMovementEvent onLilGuyMovement;
 
 		void Start() {
 			lilGuyModule = GameObject.Find("LilGuyModule").GetComponent<Module.LilGuy.Module>();
@@ -35,7 +31,7 @@ namespace ScopeCreep.Behavior {
 
 			rb2D.AddRelativeForce(totalForce);
 
-			if (onLilGuyMovement != null) onLilGuyMovement(this, totalForce.magnitude);
+			throwFueledMovementEvent(this, totalForce.magnitude/100);
 		}
 	}
 }
