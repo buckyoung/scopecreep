@@ -1,0 +1,34 @@
+﻿{
+	"inits": [
+		{
+			"resourceType": 0,
+			"providerType": 1,
+			"initialValue": 500.0,
+			"maximumCapacity": 250.0
+		},
+		{
+			"resourceType": 1,
+			"providerType": 0,
+			"initialValue": 0.0,
+			"maximumCapacity": 500.0
+		},
+		{
+			"resourceType": 2,
+			"providerType": 0,
+			"initialValue": 0.0,
+			"maximumCapacity": 350.0
+		},
+		{
+			"resourceType": 3,
+			"providerType": 1,
+			"initialValue": 50.0,
+			"maximumCapacity": 250.0
+		},
+		{
+			"resourceType": 4,
+			"providerType": 2,
+			"initialValue": 100.0,
+			"maximumCapacity": 100.0
+		}
+	]
+}

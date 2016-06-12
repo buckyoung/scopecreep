@@ -45,6 +45,11 @@ namespace ScopeCreep.Resource {
 			ProviderType sourceProviderType = source.getProviderType();
 			ProviderType targetProviderType = target.getProviderType();
 
+			// Check if no transfer should be made
+			if (sourceProviderType == ProviderType.NONE || targetProviderType == ProviderType.NONE) {
+				return;
+			}
+
 			// Ensure one requestor and one provider
 			if (sourceProviderType == targetProviderType) {
 				Debug.LogWarning("LilGuy and Mothership " + source.getResourceType().ToString() + " containers are both set to ProviderType: " + sourceProviderType.ToString() + ".", this);

@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace ScopeCreep.Resource {
-	public interface ICollect<T> {
-		bool collect(ICollectible<T> collectible); // Returns if collected or not (must check if container is full, etc)
+	public interface ICollect {
+		bool collect(ICollectible collectible); // Returns if collected or not (used to determine if should destroy collected object)
 	}
 }

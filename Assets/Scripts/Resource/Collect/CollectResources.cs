@@ -5,7 +5,7 @@ namespace ScopeCreep.Resource {
 
 	[RequireComponent (typeof(ICargoHold))]
 
-	public class CollectResources : MonoBehaviour, ICollect<ResourceType> {
+	public class CollectResources : MonoBehaviour, ICollect {
 		private ICargoHold cargoHold;
 
 		void Start() {
@@ -14,7 +14,7 @@ namespace ScopeCreep.Resource {
 
 		void OnTriggerEnter2D(Collider2D other) {
 			if (other.gameObject.tag == "Collectible") {
-				ICollectible<ResourceType> collectible = other.GetComponent<ICollectible<ResourceType>>();
+				ICollectible collectible = other.GetComponent<ICollectible>();
 
 				if (collect(collectible)) {
 					Destroy(other.gameObject);	
@@ -27,7 +27,7 @@ namespace ScopeCreep.Resource {
 		 */
 
 		// Note: Will collect a resource if any bit of that resource can fit in the container 
-		public bool collect(ICollectible<ResourceType> collectible) {
+		public bool collect(ICollectible collectible) {
 			IContainer container = cargoHold.getContainer(collectible.getType());
 
 			if (container.isFull()) { 

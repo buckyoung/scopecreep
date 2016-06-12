@@ -6,6 +6,7 @@ namespace ScopeCreep.Resource {
 		FUEL,
 		SPACEDOLLAR,
 		THIAMIN,
-		AMMO
+		AMMO,
+		HEALTH
 	};
 }

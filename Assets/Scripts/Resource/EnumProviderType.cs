@@ -4,6 +4,7 @@ using System.Collections;
 namespace ScopeCreep.Resource {
 	public enum ProviderType {
 		PROVIDER,
-		REQUESTER
+		REQUESTER,
+		NONE
 	};
 }

@@ -2,13 +2,13 @@
 using System.Collections;
 
 namespace ScopeCreep.Resource {
-	public class ContainerShip : IProviderContainer {
+	public class ProviderContainerShip : IProviderContainer {
 		private ResourceType resourceType;
 		private ProviderType providerType;
 		private float amount;
 		private float maximum;
 
-		public ContainerShip(ResourceType resourceType, ProviderType providerType, float initialAmount, float maximumCapacity) {
+		public ProviderContainerShip(ResourceType resourceType, ProviderType providerType, float initialAmount, float maximumCapacity) {
 			this.resourceType = resourceType;
 			this.providerType = providerType;
 			amount = initialAmount;
