@@ -1,25 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using ScopeCreep.Resource;
 
 namespace ScopeCreep.Behavior {
 
 	[RequireComponent (typeof (Collider2D))] // Required for collision with IDamage
 
 	public class DamageableHealth : MonoBehaviour, IDamageable {
-		public float health = 100.0f;
-		public float maxHealth = 100.0f;
+		private IContainer healthContainer;
+
+		void Start() {
+			healthContainer = GetComponentInChildren<ICargoHold>().getContainer(ResourceType.HEALTH);
+		}
 
 		public void damage(IDamage damager) {
 			float amount = damager.getAmount();
 
-			if (amount < 0) {
-				Debug.LogWarning("Warning: damage amount cannot be less than 0", this);
-				return;
-			}
+			healthContainer.remove(amount);
 
-			health -= amount;
-
-			if (health < 0) {
+			if (healthContainer.isEmpty()) {
 				die();
 			}
 		}
@@ -29,22 +28,13 @@ namespace ScopeCreep.Behavior {
 		}
 
 		public float getHealth() {
-			return health;
+			return healthContainer.getAmount();
 		}
 
 		public void heal(IHeal healer) {
 			float amount = healer.getAmount();
 
-			if (amount < 0) {
-				Debug.LogWarning("Warning: heal amount cannot be less than 0", this);
-				return;
-			}
-
-			health += amount;
-
-			if (health > maxHealth) {
-				health = maxHealth;
-			}
+			healthContainer.add(amount);
 		}
 	}
 }

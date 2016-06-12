@@ -7,7 +7,7 @@ namespace ScopeCreep.Resource {
 
 	[RequireComponent (typeof (CargoHoldShip))]
 
-	public class GUI_CargoHoldShip : ShipGUI {
+	public class GUI_CargoHoldShip : ModuleGUI {
 		public bool isUpTop;
 
 		private float x;
