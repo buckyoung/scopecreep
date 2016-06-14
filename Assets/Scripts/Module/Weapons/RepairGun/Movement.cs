@@ -23,9 +23,9 @@ namespace ScopeCreep.Module.RepairGun {
 			if (repairGunModule.activePlayerId == 0) return;
 				
 			float totalForce = speed * Input.GetAxis(repairGunModule.activePlayerId + "_AXIS_X");
-			Debug.Log (barrelPosition);
 
-			if ( (totalForce < 0 && barrelPosition >= -maxRotation) || (totalForce > 0 && barrelPosition <= maxRotation) ) {				
+			if ((totalForce < 0 && barrelPosition >= -maxRotation) 
+				|| (totalForce > 0 && barrelPosition <= maxRotation)) {				
 				barrelPosition += totalForce;
 				transform.Rotate (
 					0,
