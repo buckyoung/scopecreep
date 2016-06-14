@@ -61,6 +61,7 @@ namespace ScopeCreep.Module {
 		private void subscribe() {
 			// Check if module interaction
 			ButtonEventManager.onXButtonDown += (eventObject, playerId) => {
+				Debug.Log(playerId);
 				if (isPlayerTouching[ playerId - 1 ]) { // Is the player touching this module when they hit X?
 					if (activePlayerId == 0) { // No active player
 						performEngage(playerId);
