@@ -15,11 +15,7 @@ namespace ScopeCreep.Module.RepairGun {
 			barrelPosition = 0.0f;
 		}
 
-		/*
-		 * User Functions
-		 */
-
-		public void Update(){
+		void Update() {
 			if (repairGunModule.activePlayerId == 0) return;
 				
 			float totalForce = speed * Input.GetAxis(repairGunModule.activePlayerId + "_AXIS_X");
